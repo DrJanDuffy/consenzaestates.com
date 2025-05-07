@@ -1,8 +1,35 @@
+
 /* Custom styling for Dr. Jan Duffy luxury real estate site */
+
+:root {
+  --luxury-gold: #d4af37;
+  --luxury-black: #222222;
+  --luxury-white: #f9f9f9;
+  --luxury-gray: #8a8a8a;
+  --serif-font: 'Playfair Display', Georgia, serif;
+  --sans-font: 'Montserrat', Helvetica, sans-serif;
+  
+  /* Premium gradients */
+  --luxury-gradient: linear-gradient(135deg, var(--luxury-gold) 0%, #e2c275 50%, var(--luxury-gold) 100%);
+  --luxury-text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  
+  /* Refined shadows for depth */
+  --luxury-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --luxury-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --luxury-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+body {
+  font-family: var(--sans-font);
+  line-height: 1.8;
+  color: var(--luxury-black);
+}
 
 /* Elegant typography */
 h1, h2, h3, h4, h5, h6 {
-  letter-spacing: -0.02em;
+  font-family: var(--serif-font);
+  font-weight: 500;
+  letter-spacing: 0.5px;
   position: relative;
   overflow: hidden;
 }
@@ -28,212 +55,10 @@ h1:hover::after {
   width: 120px;
 }
 
-/* Luxury property card styling */
-.property-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-.property-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
-}
-
-/* Hero image enhancements */
-#home-hero-image,
-#about-hero-image,
-#community-hero-image,
-#property-hero-image,
-#contact-hero-image,
-#lennar-hero-image,
-#resources-hero-image {
-  border-radius: 12px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-  transition: transform 0.5s ease;
-}
-
-/* Estate agent button styles */
-.agent-button {
-  background-color: var(--theme-primary);
-  color: var(--theme-on-primary);
-  padding: 12px 24px;
-  border-radius: 6px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
-}
-
-.agent-button:hover {
-  background-color: transparent;
-  border-color: var(--theme-primary);
-  color: var(--theme-primary);
-}
-
-/* Luxury testimonial styles */
-.luxury-testimonial {
-  background-color: var(--theme-surface-1);
-  padding: 30px;
-  border-radius: 12px;
-  position: relative;
-}
-
-.luxury-testimonial::before {
-  content: "\201C"; /* Unicode for opening double quote */
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  font-family: 'Georgia', serif;
-  font-size: 60px;
-  color: var(--theme-primary);
-  opacity: 0.3;
-}
-
-/* Animated stats counter */
-.stat-number {
-  font-weight: 800;
-  font-size: 2.5rem;
-  color: var(--theme-primary);
-  transition: color 0.3s ease;
-}
-
-.stat-number:hover {
-  color: var(--theme-primary-hover);
-}
-
-/* Rich image gallery */
-.property-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 15px;
-}
-
-.gallery-image {
-  border-radius: 8px;
-  overflow: hidden;
-  aspect-ratio: 4/3;
-}
-
-.gallery-image img {
-
-/* Elegant subtle animations */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes shine {
-  0% { background-position: -200px; }
-  100% { background-position: calc(100% + 200px); }
-}
-
-/* Luxury header effects */
-h1, h2, h3 {
-  animation: fadeIn 0.8s ease-out forwards;
-}
-
-/* Premium button styling */
-.button, button {
-  position: relative;
-  overflow: hidden;
-  transition: all 0.4s ease;
-  border: 2px solid transparent;
-}
-
-.button:hover, button:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--luxury-shadow-md);
-}
-
-.button::before, button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    to right,
-    transparent,
-    rgba(255, 255, 255, 0.2),
-    transparent
-  );
-  transition: all 0.6s ease;
-}
-
-.button:hover::before, button:hover::before {
-  left: 100%;
-}
-
-/* Luxury property card enhancements */
-.property-card {
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  box-shadow: var(--luxury-shadow-sm);
-}
-
-.property-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--luxury-shadow-lg);
-}
-
-/* Gold accent text for special headings */
-.gold-accent {
-  color: var(--luxury-gold);
-  font-weight: 700;
-  position: relative;
-}
-
-/* Parallax scrolling effect for hero sections */
-.parallax-bg {
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-/* Premium form styling */
-input, textarea, select {
-  border: 1px solid #e0e0e0;
-  transition: all 0.3s ease;
-  box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
-}
-
-input:focus, textarea:focus, select:focus {
-  border-color: var(--luxury-gold);
-  box-shadow: 0 0 0 2px rgba(200, 168, 85, 0.2);
-  outline: none;
-}
-
-/* Elegant dividers */
-.luxury-divider {
-  height: 1px;
-  background: linear-gradient(to right, transparent, var(--luxury-gold), transparent);
-  margin: 2rem 0;
-  width: 100%;
-}
-
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.gallery-image img:hover {
-  transform: scale(1.05);
-}
-
-/* Luxury real estate palette with gold accents */
-:root {
-  --luxury-gold: #c8a855;
-  --luxury-dark: #1a1a1a;
-  --luxury-light: #f9f7f2;
-  --luxury-accent: #a17c50;
-  
-  /* Premium gradients */
-  --luxury-gradient: linear-gradient(135deg, var(--luxury-gold) 0%, #e2c275 50%, var(--luxury-gold) 100%);
-  --luxury-text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+.luxury-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
 /* Premium hover effects */
@@ -260,44 +85,228 @@ input:focus, textarea:focus, select:focus {
   transform-origin: left;
 }
 
+/* Luxury button styling */
+.btn-luxury {
+  background-color: var(--luxury-gold);
+  color: var(--luxury-black);
+  border: none;
+  padding: 12px 24px;
+  font-family: var(--sans-font);
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-luxury:hover {
+  background-color: var(--luxury-black);
+  color: var(--luxury-gold);
+  transform: translateY(-2px);
+  box-shadow: var(--luxury-shadow-md);
+}
+
+.btn-luxury::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: all 0.6s ease;
+}
+
+.btn-luxury:hover::before {
+  left: 100%;
+}
+
+.section-header {
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.section-header::after {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background-color: var(--luxury-gold);
+}
+
+/* Luxury property card styling */
+.property-card {
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+              box-shadow 0.4s ease;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--luxury-shadow-sm);
+  will-change: transform, box-shadow;
+}
+
+.property-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: var(--luxury-shadow-lg);
+}
+
+/* Hero image enhancements */
+#home-hero-image,
+#about-hero-image,
+#community-hero-image,
+#property-hero-image,
+#contact-hero-image,
+#lennar-hero-image,
+#resources-hero-image {
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  transition: transform 0.5s ease;
+}
+
+/* Luxury testimonial styles */
+.luxury-testimonial {
+  background-color: var(--luxury-white);
+  padding: 30px;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: var(--luxury-shadow-md);
+}
+
+.luxury-testimonial::before {
+  content: "\201C"; /* Unicode for opening double quote */
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  font-family: 'Georgia', serif;
+  font-size: 60px;
+  color: var(--luxury-gold);
+  opacity: 0.3;
+}
+
+/* Animated stats counter */
+.stat-number {
+  font-weight: 800;
+  font-size: 2.5rem;
+  color: var(--luxury-gold);
+  transition: color 0.3s ease;
+}
+
+.stat-number:hover {
+  color: var(--luxury-black);
+}
+
+/* Rich image gallery */
+.property-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.gallery-image {
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+
+.gallery-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-image img:hover {
+  transform: scale(1.05);
+}
+
+/* Elegant dividers */
+.luxury-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--luxury-gold), transparent);
+  margin: 2rem 0;
+  width: 100%;
+}
+
+/* Elegant subtle animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shine {
+  0% { background-position: -200px; }
+  100% { background-position: calc(100% + 200px); }
+}
+
+/* Luxury header effects */
+h1, h2, h3 {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Gold accent text for special headings */
+.gold-accent {
+  color: var(--luxury-gold);
+  font-weight: 700;
+  position: relative;
+}
+
+/* Parallax scrolling effect for hero sections */
+.parallax-bg {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Premium form styling */
+input, textarea, select {
+  border: 1px solid #e0e0e0;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--luxury-gold);
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+  outline: none;
+}
+
 /* Enhanced estate theme */
 [data-theme='estate'] {
   --theme-primary: var(--luxury-gold);
   --theme-primary-hover: #b39748;
-  --theme-on-primary: #ffffff;
+  --theme-on-primary: var(--luxury-black);
 
-  --theme-bg: var(--luxury-light);
-  --theme-on-bg: var(--luxury-dark);
+  --theme-bg: var(--luxury-white);
+  --theme-on-bg: var(--luxury-black);
 
   --theme-surface-1: #ffffff;
-  --theme-on-surface-1: #333333;
+  --theme-on-surface-1: var(--luxury-black);
 
-  --theme-surface-2: #333333;
-  --theme-on-surface-2: #ffffff;
-  
-  /* Refined shadows for depth */
-  --luxury-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
-  --luxury-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
-  --luxury-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --theme-surface-2: var(--luxury-black);
+  --theme-on-surface-2: var(--luxury-white);
 
   --theme-button-border-radius: 4px;
   --theme-card-border-radius: 8px;
-
-  /* Subtle shadows for depth */
-  --box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
 /* Enhanced navigation */
 [data-theme='estate'] .nav-container {
   backdrop-filter: blur(10px);
-  background-color: rgba(249, 247, 242, 0.8);
-  border-bottom: 1px solid rgba(200, 168, 85, 0.2);
+  background-color: rgba(249, 249, 249, 0.8);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
   box-shadow: 0 4px 20px rgba(0,0,0,0.03);
   transition: all 0.4s ease;
 }
 
 [data-theme='estate'] .nav-container:hover {
-  border-bottom: 1px solid rgba(200, 168, 85, 0.4);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.4);
 }
 
 /* Elegant section transitions */
@@ -306,67 +315,26 @@ section {
   transition: transform 0.6s ease-out;
 }
 
-/* Luxury card animations */
-.property-card, .feature-card {
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
-              box-shadow 0.4s ease;
-  will-change: transform, box-shadow;
-}
-
-.property-card:hover, .feature-card:hover {
-  transform: translateY(-8px) scale(1.01);
-  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
-}
-
-/* Stylish buttons */
-[data-theme='estate'] .btn {
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-
 /* Feature cards with gold accents */
 [data-theme='estate'] .feature-card {
-  border: 1px solid rgba(200, 168, 85, 0.2);
-  box-shadow: var(--box-shadow);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  box-shadow: var(--luxury-shadow-sm);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 [data-theme='estate'] .feature-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--luxury-shadow-lg);
 }
 
 /* Elegant footer */
 [data-theme='estate'] footer {
-  background-color: var(--luxury-dark);
-  color: var(--luxury-light);
+  background-color: var(--luxury-black);
+  color: var(--luxury-white);
   border-top: 3px solid var(--luxury-gold);
 }
 
-/* Premium CTA styles */
-[data-theme='estate'] .cta-section {
-  background: linear-gradient(135deg, var(--luxury-dark) 0%, #2a2a2a 100%);
-  color: var(--luxury-light);
-}
-
-/* Custom hero heading */
-.hero-heading {
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  line-height: 1.2;
-}
-
-/* Custom animations */
-@keyframes shine {
-  0% {
-    background-position: -100px;
-  }
-  40%, 100% {
-    background-position: 300px;
-  }
-}
-
+/* Gold text animation */
 .gold-text {
   color: var(--luxury-gold);
   position: relative;
@@ -383,4 +351,19 @@ section {
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
   background-size: 200px 100%;
   animation: shine 3s infinite linear;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .luxury-container {
+    padding: 0 1rem;
+  }
+  
+  h1::after {
+    width: 40px;
+  }
+  
+  h1:hover::after {
+    width: 80px;
+  }
 }
