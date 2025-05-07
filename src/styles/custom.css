@@ -5,6 +5,7 @@
   --luxury-black: #222222;
   --luxury-white: #f9f9f9;
   --luxury-gray: #8a8a8a;
+  --bhhs-purple: #7d3f98; /* Berkshire Hathaway HomeServices purple */
   --serif-font: 'Playfair Display', Georgia, serif;
   --sans-font: 'Montserrat', Helvetica, sans-serif;
   --luxury-accent: #c19a5b;
@@ -449,6 +450,10 @@ input:focus, textarea:focus, select:focus {
   --theme-primary: var(--luxury-gold);
   --theme-primary-hover: #b39748;
   --theme-on-primary: var(--luxury-black);
+  
+  --theme-secondary: var(--bhhs-purple);
+  --theme-secondary-hover: #6a3580;
+  --theme-on-secondary: var(--luxury-white);
 
   --theme-bg: var(--luxury-white);
   --theme-on-bg: var(--luxury-black);
@@ -456,7 +461,7 @@ input:focus, textarea:focus, select:focus {
   --theme-surface-1: #ffffff;
   --theme-on-surface-1: var(--luxury-black);
 
-  --theme-surface-2: var(--luxury-black);
+  --theme-surface-2: var(--bhhs-purple);
   --theme-on-surface-2: var(--luxury-white);
 
   --theme-button-border-radius: 4px;

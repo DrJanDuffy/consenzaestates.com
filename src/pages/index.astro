@@ -1,5 +1,6 @@
 ---
 import { Container, CtaCardSection } from '@components/odyssey-theme.js';
+import HeadshotGallery from '../components/HeadshotGallery.astro';
 import Layout from '@layouts/Page.astro';
 import HomeHeroSection from '@components/sections/heros/HomeHeroSection.astro';
 import TextAndImageHero from '@components/sections/heros/TextAndImageHero.astro';
@@ -104,4 +105,7 @@ const seo = {
     <h2>Ready to find your dream home in Consenza Estates?</h2>
     <p>Let me guide you through this exclusive community and help you discover the perfect Lennar home for your lifestyle.</p>
   </CtaCardSection>
+  <Container>
+    <HeadshotGallery />
+  </Container>
 </Layout>

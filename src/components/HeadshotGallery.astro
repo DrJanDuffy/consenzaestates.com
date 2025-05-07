@@ -1,0 +1,100 @@
+
+---
+---
+
+<div class="headshot-gallery">
+  <div class="headshot-gallery-container">
+    <div class="headshot-item">
+      <img src="/assets/images/headshots/jan-duffy-1.jpg" alt="Dr. Jan Duffy, REALTOR at Berkshire Hathaway HomeServices Nevada Properties" />
+    </div>
+    <div class="headshot-item">
+      <img src="/assets/images/headshots/jan-duffy-3.jpg" alt="Dr. Jan Duffy, REALTOR at Berkshire Hathaway HomeServices Nevada Properties" />
+    </div>
+    <div class="headshot-item">
+      <img src="/assets/images/headshots/jan-duffy-5.jpg" alt="Dr. Jan Duffy, REALTOR at Berkshire Hathaway HomeServices Nevada Properties" />
+    </div>
+  </div>
+  <div class="headshot-content">
+    <h2>Dr. Jan Duffy</h2>
+    <h3>Luxury Real Estate Specialist</h3>
+    <p>Berkshire Hathaway HomeServices Nevada Properties</p>
+    <div class="contact-details">
+      <p><strong>Email:</strong> <a href="mailto:DrDuffy@bhhsnv.com">DrDuffy@bhhsnv.com</a></p>
+      <p><strong>Phone:</strong> (702) 555-8742</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .headshot-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 3rem 0;
+    padding: 2rem;
+    background-color: var(--theme-surface-1);
+    border-radius: var(--theme-shape-radius);
+    box-shadow: var(--luxury-shadow-sm);
+  }
+
+  @media (min-width: 768px) {
+    .headshot-gallery {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  .headshot-gallery-container {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .headshot-item {
+    width: 180px;
+    height: 180px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 3px solid var(--luxury-gold);
+    box-shadow: var(--luxury-shadow-md);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .headshot-item:hover {
+    transform: scale(1.05);
+    box-shadow: var(--luxury-shadow-lg);
+  }
+
+  .headshot-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .headshot-content {
+    flex: 1;
+    min-width: 250px;
+    padding: 1rem;
+  }
+
+  .headshot-content h2 {
+    color: var(--luxury-gold);
+    margin-bottom: 0.5rem;
+  }
+
+  .headshot-content h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  .contact-details {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+  }
+
+  .contact-details p {
+    margin: 0.5rem 0;
+  }
+</style>
