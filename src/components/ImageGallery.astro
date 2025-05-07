@@ -1,0 +1,57 @@
+
+---
+const { images, title = "Property Gallery" } = Astro.props;
+---
+
+<div class="luxury-gallery">
+  <h3 class="gallery-title">{title}</h3>
+  <div class="gallery-grid">
+    {images.map((image) => (
+      <div class="gallery-item img-zoom-container">
+        <img 
+          src={image.src} 
+          alt={image.alt} 
+          class="img-zoom" 
+          loading="lazy"
+        />
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  .luxury-gallery {
+    margin: 3rem 0;
+  }
+  
+  .gallery-title {
+    font-family: var(--serif-font);
+    color: var(--luxury-black);
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .gallery-item {
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: var(--luxury-shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--luxury-shadow-md);
+  }
+  
+  @media (max-width: 768px) {
+    .gallery-grid {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+  }
+</style>

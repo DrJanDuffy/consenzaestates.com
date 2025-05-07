@@ -7,6 +7,8 @@
   --luxury-gray: #8a8a8a;
   --serif-font: 'Playfair Display', Georgia, serif;
   --sans-font: 'Montserrat', Helvetica, sans-serif;
+  --luxury-accent: #c19a5b;
+  --luxury-dark: #111111;
 
   /* Premium gradients */
   --luxury-gradient: linear-gradient(135deg, var(--luxury-gold) 0%, #e2c275 50%, var(--luxury-gold) 100%);
@@ -115,6 +117,87 @@ h1:hover::after {
   background-size: 200% 100%;
   animation: shimmer 2s infinite;
   pointer-events: none;
+
+/* Luxury animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Apply animations to key elements */
+.animate-fadeInUp {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.animate-delay-100 { animation-delay: 0.1s; }
+.animate-delay-200 { animation-delay: 0.2s; }
+.animate-delay-300 { animation-delay: 0.3s; }
+.animate-delay-400 { animation-delay: 0.4s; }
+
+/* Gold accent elements */
+.gold-accent {
+  position: relative;
+  overflow: hidden;
+}
+
+.gold-accent::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite;
+  z-index: -1;
+}
+
+/* Luxury cards with hover effects */
+.luxury-card {
+  background-color: white;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+              box-shadow 0.4s ease;
+  box-shadow: var(--luxury-shadow-sm);
+}
+
+.luxury-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--luxury-shadow-lg);
+}
+
+/* Elegant image zoom effect */
+.img-zoom-container {
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.img-zoom {
+  transition: transform 0.8s ease;
+}
+
+.img-zoom:hover {
+  transform: scale(1.05);
+}
+
   opacity: 0;
   transition: opacity 0.3s ease;
 }

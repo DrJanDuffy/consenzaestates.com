@@ -7,10 +7,10 @@
 		"url": "git@github.com:treefarmstudio/odyssey-theme"
 	},
 	"scripts": {
-		"dev": "astro dev",
-		"start": "astro dev",
+		"dev": "astro dev --host 0.0.0.0",
+		"start": "serve dist -l 4321 --cors",
 		"build": "astro build",
-		"preview": "astro preview",
+		"preview": "astro preview --host 0.0.0.0",
 		"format": "npx prettier -w ."
 	},
 	"devDependencies": {
