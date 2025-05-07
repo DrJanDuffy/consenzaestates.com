@@ -34,14 +34,14 @@ const seo = {
           <p>I'm dedicated to providing exceptional service to buyers and sellers in Consenza Estates. Whether you're looking to purchase a new Lennar home or sell your current property, I'm here to guide you through the process.</p>
           
           <div class="contact-methods">
-            <div class="contact-method">
+            <div class="contact-method animate-fadeInUp">
               <h3>Call or Text</h3>
-              <p>(702) 555-1234</p>
+              <p>(702) 555-8742</p>
             </div>
             
-            <div class="contact-method">
+            <div class="contact-method animate-fadeInUp animate-delay-100">
               <h3>Email</h3>
-              <p>jan@duffyrealestate.com</p>
+              <p>DrDuffy@bhhsn.com</p>
             </div>
             
             <div class="contact-method">
@@ -140,14 +140,53 @@ const seo = {
     margin: 2rem 0;
   }
   
+  #contact-hero-image {
+    box-shadow: var(--luxury-shadow-lg);
+    transition: all 0.5s ease;
+    border: 1px solid rgba(212, 175, 55, 0.1);
+  }
+  
+  #contact-hero-image:hover {
+    transform: scale(1.02);
+    box-shadow: 0 25px 50px rgba(212, 175, 55, 0.15);
+  }
+  
   @media (max-width: 500px) {
     .contact-methods {
       grid-template-columns: 1fr;
     }
   }
   
+  .contact-method {
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: var(--theme-shape-radius);
+    box-shadow: var(--luxury-shadow-sm);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(212, 175, 55, 0.1);
+  }
+  
+  .contact-method:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--luxury-shadow-md);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+  }
+  
   .contact-method h3 {
     margin-bottom: 0.5rem;
+    color: var(--luxury-gold);
+    position: relative;
+    display: inline-block;
+  }
+  
+  .contact-method h3::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background-color: var(--luxury-gold);
   }
   
   .cta-buttons {
@@ -192,15 +231,42 @@ const seo = {
   
   .contact-form-container {
     background-color: var(--theme-surface-1);
-    padding: 2rem;
+    padding: 2.5rem;
     border-radius: var(--theme-shape-radius);
+    box-shadow: var(--luxury-shadow-md);
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .contact-form-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--luxury-gradient);
   }
   
   .market-analysis-container {
     margin-top: 4rem;
     background-color: var(--theme-surface-2);
-    padding: 2rem;
+    padding: 2.5rem;
     border-radius: var(--theme-shape-radius);
+    box-shadow: var(--luxury-shadow-lg);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .market-analysis-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--luxury-gradient);
   }
   
   .market-analysis-form {
