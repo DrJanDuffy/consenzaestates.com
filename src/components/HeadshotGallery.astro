@@ -1,7 +1,21 @@
 
 ---
 // HeadshotGallery.astro - Professional team headshot display component
-const { team } = Astro.props;
+const { team = [] } = Astro.props;
+
+// Default team member if none provided
+const defaultTeam = [
+  {
+    name: "Dr. Jan Duffy",
+    title: "Luxury Real Estate Specialist",
+    bio: "With years of experience in the Las Vegas luxury real estate market, Dr. Duffy provides exceptional service to discerning clients.",
+    photo: "/assets/images/headshots/jan-duffy-3.jpg",
+    email: "DrDuffy@bhhsnv.com"
+  }
+];
+
+// Use provided team or default if empty
+const teamMembers = team.length > 0 ? team : defaultTeam;
 ---
 
 <section class="headshot-gallery">
@@ -12,7 +26,7 @@ const { team } = Astro.props;
     </div>
     
     <div class="team-grid">
-      {team.map((member) => (
+      {teamMembers.map((member) => (
         <div class="team-member">
           <div class="headshot-container">
             <img src={member.photo} alt={`${member.name}, ${member.title}`} />
@@ -37,8 +51,27 @@ const { team } = Astro.props;
     background-color: var(--luxury-white);
   }
   
+  .luxury-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+  }
+  
+  .section-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--luxury-black, #333);
+  }
+  
   .subtitle {
-    color: var(--luxury-gray);
+    color: var(--luxury-gray, #666);
     font-size: 1.2rem;
     margin-top: -1rem;
   }
@@ -65,7 +98,7 @@ const { team } = Astro.props;
     margin: 0 auto 1.5rem;
     border-radius: 50%;
     overflow: hidden;
-    border: 3px solid var(--luxury-gold);
+    border: 3px solid var(--luxury-gold, #D4AF37);
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   }
   
@@ -83,18 +116,18 @@ const { team } = Astro.props;
   .team-member h3 {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
-    color: var(--luxury-black);
+    color: var(--luxury-black, #333);
   }
   
   .member-title {
-    color: var(--luxury-gold);
+    color: var(--luxury-gold, #D4AF37);
     font-weight: 600;
     margin-bottom: 1rem;
   }
   
   .member-bio {
     font-size: 0.95rem;
-    color: var(--luxury-gray);
+    color: var(--luxury-gray, #666);
     line-height: 1.6;
     margin-bottom: 1.5rem;
   }
@@ -102,14 +135,14 @@ const { team } = Astro.props;
   .contact-link {
     display: inline-flex;
     align-items: center;
-    color: var(--luxury-black);
+    color: var(--luxury-black, #333);
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
   }
   
   .contact-link:hover {
-    color: var(--luxury-gold);
+    color: var(--luxury-gold, #D4AF37);
   }
   
   .icon {
