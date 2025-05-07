@@ -8,6 +8,7 @@ channel = "stable-24_05"
 build = ["sh", "-c", "npm run build"]
 deploymentTarget = "static"
 publicDir = "public"
+run = ["sh", "-c", "npx serve dist"]
 
 [workflows]
 runButton = "Run"
