@@ -63,7 +63,7 @@ h1 {
 }
 
 .luxury-testimonial::before {
-  content: """;
+  content: "\201C"; /* Unicode for opening double quote */
   position: absolute;
   top: 15px;
   left: 15px;
