@@ -4,14 +4,8 @@
 
 <div class="headshot-gallery">
   <div class="headshot-gallery-container">
-    <div class="headshot-item">
-      <img src="/assets/images/headshots/jan-duffy-1.jpg" alt="Dr. Jan Duffy, REALTOR at Berkshire Hathaway HomeServices Nevada Properties" />
-    </div>
-    <div class="headshot-item">
+    <div class="headshot-item single-headshot">
       <img src="/assets/images/headshots/jan-duffy-3.jpg" alt="Dr. Jan Duffy, REALTOR at Berkshire Hathaway HomeServices Nevada Properties" />
-    </div>
-    <div class="headshot-item">
-      <img src="/assets/images/headshots/jan-duffy-5.jpg" alt="Dr. Jan Duffy, REALTOR at Berkshire Hathaway HomeServices Nevada Properties" />
     </div>
   </div>
   <div class="headshot-content">
@@ -46,14 +40,12 @@
 
   .headshot-gallery-container {
     display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
     justify-content: center;
   }
 
-  .headshot-item {
-    width: 180px;
-    height: 180px;
+  .single-headshot {
+    width: 250px;
+    height: 250px;
     overflow: hidden;
     border-radius: 50%;
     border: 3px solid var(--luxury-gold);
@@ -61,7 +53,7 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
-  .headshot-item:hover {
+  .single-headshot:hover {
     transform: scale(1.05);
     box-shadow: var(--luxury-shadow-lg);
   }
