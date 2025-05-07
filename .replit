@@ -7,7 +7,7 @@ channel = "stable-24_05"
 [deployment]
 build = ["sh", "-c", "npm run build"]
 deploymentTarget = "static"
-publicDir = "public"
+publicDir = "dist"
 run = ["sh", "-c", "npx serve dist"]
 
 [workflows]
