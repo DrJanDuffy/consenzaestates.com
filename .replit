@@ -10,6 +10,10 @@ deploymentTarget = "static"
 publicDir = "dist"
 run = ["sh", "-c", "npx serve dist"]
 
+[[deployment.rewrites]]
+from = "/*"
+to = "/index.html"
+
 [workflows]
 runButton = "Run"
 
