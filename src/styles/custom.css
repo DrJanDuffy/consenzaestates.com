@@ -108,136 +108,105 @@ h1 {
   transform: scale(1.05);
 }
 
-/* Custom theme override - luxury real estate palette */
-body[data-theme='estate'] {
-  --theme-primary: #a07d45;
-  --theme-primary-hover: #8a6a3a;
-  --theme-on-primary: #ffffff;
-
-  --theme-bg: #fefefe;
-  --theme-on-bg: #333333;
-
-  --theme-surface-1: #f8f5f0;
-  --theme-on-surface-1: #444444;
-
-  --theme-surface-2: #3a3a3a;
-  --theme-on-surface-2: #f8f5f0;
+/* Luxury real estate palette with gold accents */
+:root {
+  --luxury-gold: #c8a855;
+  --luxury-dark: #1a1a1a;
+  --luxury-light: #f9f7f2;
+  --luxury-accent: #a17c50;
 }
 
-/* Modern form styles */
-.luxury-form input,
-.luxury-form textarea,
-.luxury-form select {
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  padding: 12px 16px;
-  font-size: 1rem;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  width: 100%;
-}
-
-.luxury-form input:focus,
-.luxury-form textarea:focus,
-.luxury-form select:focus {
-  border-color: var(--theme-primary);
-  box-shadow: 0 0 0 2px rgba(160, 125, 69, 0.2);
-  outline: none;
-}
-
-.luxury-form label {
-  font-weight: 600;
-  margin-bottom: 8px;
-  display: block;
-}
-
-/* Animations for page elements */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-in {
-  animation: fadeInUp 0.5s ease forwards;
-}
-
-.delay-1 { animation-delay: 0.1s; }
-.delay-2 { animation-delay: 0.2s; }
-.delay-3 { animation-delay: 0.3s; }
-
-/* custom.css is included in global.css for user overrides */
-body {
-  --luxury-gold: #d4af37;
-  --luxury-dark: #2c2c2c;
-  --luxury-light: #f8f5f0;
-}
-
-:root.estate {
+[data-theme='estate'] {
   --theme-primary: var(--luxury-gold);
-  --theme-primary-hover: #bb9c30;
-  --theme-on-primary: var(--luxury-light);
+  --theme-primary-hover: #b39748;
+  --theme-on-primary: #ffffff;
 
   --theme-bg: var(--luxury-light);
   --theme-on-bg: var(--luxury-dark);
 
   --theme-surface-1: #ffffff;
-  --theme-on-surface-1: var(--luxury-dark);
+  --theme-on-surface-1: #333333;
 
-  --theme-surface-2: #f0ebe3;
-  --theme-on-surface-2: var(--luxury-dark);
+  --theme-surface-2: #333333;
+  --theme-on-surface-2: #ffffff;
 
-  --theme-button-border-radius: 0.25rem;
-  --theme-card-border-radius: 0.5rem;
+  --theme-button-border-radius: 4px;
+  --theme-card-border-radius: 8px;
 
-  /* Add a luxury feel with subtle shadows */
-  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-
-  /* Improved spacing */
-  --container-max-width: 1280px;
-  --container-max-width-narrow: 960px;
+  /* Subtle shadows for depth */
+  --box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
-:root.estate .hero-section {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
-                    url('/public/assets/images/home/classic-hero.jpg');
-  background-size: cover;
-  background-position: center;
+/* Enhanced navigation */
+[data-theme='estate'] .nav-container {
+  backdrop-filter: blur(10px);
+  background-color: rgba(249, 247, 242, 0.8);
+  border-bottom: 1px solid rgba(200, 168, 85, 0.2);
 }
 
-:root.estate .nav-container {
-  backdrop-filter: blur(5px);
-  background-color: rgba(255, 255, 255, 0.85);
-  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-}
-
-:root.estate .btn {
+/* Stylish buttons */
+[data-theme='estate'] .btn {
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 600;
   transition: all 0.3s ease;
 }
 
-:root.estate .feature-card {
-  border: 1px solid rgba(212, 175, 55, 0.3);
+/* Feature cards with gold accents */
+[data-theme='estate'] .feature-card {
+  border: 1px solid rgba(200, 168, 85, 0.2);
   box-shadow: var(--box-shadow);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-:root.estate .feature-card:hover {
+[data-theme='estate'] .feature-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
 }
 
-:root.estate .three-column-text-section {
-  background-color: var(--theme-surface-1);
-}
-
-:root.estate footer {
+/* Elegant footer */
+[data-theme='estate'] footer {
   background-color: var(--luxury-dark);
   color: var(--luxury-light);
+  border-top: 3px solid var(--luxury-gold);
+}
+
+/* Premium CTA styles */
+[data-theme='estate'] .cta-section {
+  background: linear-gradient(135deg, var(--luxury-dark) 0%, #2a2a2a 100%);
+  color: var(--luxury-light);
+}
+
+/* Custom hero heading */
+.hero-heading {
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  line-height: 1.2;
+}
+
+/* Custom animations */
+@keyframes shine {
+  0% {
+    background-position: -100px;
+  }
+  40%, 100% {
+    background-position: 300px;
+  }
+}
+
+.gold-text {
+  color: var(--luxury-gold);
+  position: relative;
+  overflow: hidden;
+}
+
+.gold-text::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  background-size: 200px 100%;
+  animation: shine 3s infinite linear;
 }
