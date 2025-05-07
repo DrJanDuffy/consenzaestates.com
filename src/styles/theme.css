@@ -129,7 +129,6 @@
 
 [data-theme='sand'] {
 	/* Theme Colors */
-	/* Theme Colors */
 	--theme-primary: #e38a20;
 	--theme-primary-hover: #eb870f;
 	--theme-on-primary: hsl(0, 0%, 100%);
@@ -143,5 +142,23 @@
 	--theme-surface-2: #6a4d34;
 	--theme-on-surface-2: #ffffff;
 
+	--theme-button-border-radius: 0.5rem;
+}
+
+[data-theme='estate'] {
+	/* Luxury Real Estate Theme */
+	--theme-primary: #a07d45;
+	--theme-primary-hover: #8a6a3a;
+	--theme-on-primary: #ffffff;
+	
+	--theme-bg: #fefefe;
+	--theme-on-bg: #333333;
+	
+	--theme-surface-1: #f8f5f0;
+	--theme-on-surface-1: #444444;
+	
+	--theme-surface-2: #3a3a3a;
+	--theme-on-surface-2: #f8f5f0;
+	
 	--theme-button-border-radius: 0.5rem;
 }

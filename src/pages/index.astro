@@ -15,9 +15,13 @@ const seo = {
 
 <Layout {seo}>
   <TextAndImageHero reversed>
-    <div slot="text-container">
+    <div slot="text-container" class="animate-in">
       <h1>Your Consenza Estates Specialist - Dr. Jan Duffy</h1>
       <p>Welcome to your premier resource for Consenza Estates real estate. As a specialized REALTOR® with extensive knowledge of Lennar homes and the Consenza Estates community, I'm here to guide you through every step of your real estate journey.</p>
+      <div class="hero-buttons" style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+        <a href="/properties" class="agent-button">View Listings</a>
+        <a href="/contact" class="agent-button" style="background-color: transparent; border-color: var(--theme-primary); color: var(--theme-primary);">Schedule a Tour</a>
+      </div>
     </div>
     <div slot="image-container">
       <picture>
@@ -44,25 +48,49 @@ const seo = {
     </div>
   </Container>
 
-  <ThreeColumnTextSection>
-    <div slot="column-1-body">
-      <h2>$850K</h2>
-      <p>Average Home Price</p>
-    </div>
-    <div slot="column-2-body">
-      <h2>14</h2>
-      <p>Average Days on Market</p>
-    </div>
-    <div slot="column-3-body">
-      <h2>98%</h2>
-      <p>List to Sale Price Ratio</p>
-    </div>
-  </ThreeColumnTextSection>
+  <div style="background-color: var(--theme-surface-2); padding: 3rem 1rem; color: var(--theme-on-surface-2);">
+    <Container>
+      <h2 class="text-center" style="margin-bottom: 2rem; color: var(--theme-on-surface-2);">Consenza Estates Market Stats</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center;">
+        <div class="animate-in delay-1">
+          <h2 class="stat-number">$850K</h2>
+          <p style="font-size: 1.1rem;">Average Home Price</p>
+        </div>
+        <div class="animate-in delay-2">
+          <h2 class="stat-number">14</h2>
+          <p style="font-size: 1.1rem;">Average Days on Market</p>
+        </div>
+        <div class="animate-in delay-2">
+          <h2 class="stat-number">98%</h2>
+          <p style="font-size: 1.1rem;">List to Sale Price Ratio</p>
+        </div>
+        <div class="animate-in delay-3">
+          <h2 class="stat-number">24</h2>
+          <p style="font-size: 1.1rem;">Active Listings</p>
+        </div>
+      </div>
+    </Container>
+  </div>
 
-  <CustomerQuoteSection
-    quoteText="Dr. Duffy's expertise with Lennar homes in Consenza Estates was invaluable. She knew every detail about the community and helped us find our dream home."
-    customerName="The Martinez Family"
-  />
+  <div class="luxury-testimonials-container" style="padding: 3rem 1rem; background-color: var(--theme-surface-1);">
+    <Container>
+      <h2 class="text-center" style="margin-bottom: 2rem;">What Our Clients Say</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+        <div class="luxury-testimonial animate-in delay-1">
+          <p style="font-style: italic; position: relative; z-index: 1;">"Dr. Duffy's expertise with Lennar homes in Consenza Estates was invaluable. She knew every detail about the community and helped us find our dream home."</p>
+          <p style="font-weight: bold; margin-top: 1rem;">The Martinez Family</p>
+        </div>
+        <div class="luxury-testimonial animate-in delay-2">
+          <p style="font-style: italic; position: relative; z-index: 1;">"We couldn't be happier with our Consenza Estates purchase. Dr. Duffy's in-depth knowledge of the neighborhood and Lennar construction made the process smooth and enjoyable."</p>
+          <p style="font-weight: bold; margin-top: 1rem;">Robert & Susan Johnson</p>
+        </div>
+        <div class="luxury-testimonial animate-in delay-3">
+          <p style="font-style: italic; position: relative; z-index: 1;">"Working with Dr. Duffy to sell our Consenza Estates home resulted in a quick sale above asking price. Her market knowledge is unmatched!"</p>
+          <p style="font-weight: bold; margin-top: 1rem;">The Wilson Family</p>
+        </div>
+      </div>
+    </Container>
+  </div>
 
   <CtaCardSection
     background="var(--theme-surface-2)"

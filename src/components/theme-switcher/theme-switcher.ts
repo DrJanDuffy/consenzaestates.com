@@ -1,12 +1,10 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-
 import {
 	classicThemeIcon,
 	darkThemeIcon,
-	earthThemeIcon,
 	blueThemeIcon,
-	orangeThemeIcon,
+	estateThemeIcon,
 } from './icons';
 
 const themes = [
@@ -34,6 +32,11 @@ const themes = [
     name: 'sand',
     icon: orangeThemeIcon,
     label: 'Sand',
+  },
+  {
+    name: 'estate',
+    icon: estateThemeIcon,
+    label: 'Luxury',
   }
 ]
 
@@ -95,9 +98,9 @@ export class ThemeSwitcher extends LitElement {
 			if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
 				this._setTheme('dark');
 			} else{ // Set to default/light theme if no specification, or light theme is specified
-				this._setTheme('default');
+				this._setTheme('estate');
 			}
-    		
+
     }
 	}
 
@@ -123,6 +126,9 @@ export class ThemeSwitcher extends LitElement {
 		}
 		if (theme === 'sand') {
 			_heroImage.src = '/assets/images/home/sand-hero.jpg';
+		}
+		if (theme === 'estate') {
+			_heroImage.src = '/assets/images/home/estate-hero.jpg';
 		}
 		localStorage.setItem('theme', theme);
 		this.theme = theme;
