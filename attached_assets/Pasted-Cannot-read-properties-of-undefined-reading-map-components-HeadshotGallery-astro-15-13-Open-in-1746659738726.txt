@@ -1,0 +1,142 @@
+Cannot read properties of undefined (reading 'map')
+components/HeadshotGallery.astro:15:13
+Open in editor
+
+---
+// HeadshotGallery.astro - Professional team headshot display component
+const { team } = Astro.props;
+---
+
+<section class="headshot-gallery">
+  <div class="luxury-container">
+    <div class="section-header">
+      <h2>Meet Our Exceptional Team</h2>
+      <p class="subtitle">Industry experts committed to delivering excellence</p>
+    </div>
+    
+    <div class="team-grid">
+      {team.map((member) => (
+^
+        <div class="team-member">
+          <div class="headshot-container">
+            <img src={member.photo} alt={`${member.name}, ${member.title}`} />
+          </div>
+          <h3>{member.name}</h3>
+          <p class="member-title">{member.title}</p>
+          <p class="member-bio">{member.bio}</p>
+          <div class="member-contact">
+            <a href={`mailto:${member.email}`} class="contact-link">
+              <span class="icon">✉️</span> Contact
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .headshot-gallery {
+    padding: 4rem 0;
+    background-color: var(--luxury-white);
+  }
+  
+  .subtitle {
+    color: var(--luxury-gray);
+    font-size: 1.2rem;
+    margin-top: -1rem;
+  }
+  
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
+  }
+  
+  .team-member {
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .team-member:hover {
+    transform: translateY(-10px);
+  }
+  
+  .headshot-container {
+    width: 220px;
+    height: 220px;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--luxury-gold);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  
+  .headshot-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .team-member:hover .headshot-container img {
+    transform: scale(1.05);
+  }
+  
+  .team-member h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--luxury-black);
+  }
+  
+  .member-title {
+    color: var(--luxury-gold);
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  
+  .member-bio {
+    font-size: 0.95rem;
+    color: var(--luxury-gray);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+  
+  .contact-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--luxury-black);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .contact-link:hover {
+    color: var(--luxury-gold);
+  }
+  
+  .icon {
+    margin-right: 0.5rem;
+  }
+  
+  @media (max-width: 768px) {
+    .team-grid {
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 2rem;
+    }
+    
+    .headshot-container {
+      width: 180px;
+      height: 180px;
+    }
+  }
+</style>
+Stack Trace
+TypeError: Cannot read properties of undefined (reading 'map')
+    at /home/runner/workspace/src/components/HeadshotGallery.astro:15:13
+    at AstroComponentInstance.HeadshotGallery [as factory] (/home/runner/workspace/node_modules/astro/dist/runtime/server/astro-component.js:16:12)
+    at AstroComponentInstance.init (/home/runner/workspace/node_modules/astro/dist/runtime/server/render/astro/instance.js:32:29)
+    at AstroComponentInstance.render (/home/runner/workspace/node_modules/astro/dist/runtime/server/render/astro/instance.js:42:36)
+    at Object.render (/home/runner/workspace/node_modules/astro/dist/runtime/server/render/component.js:366:22)
+    at Module.renderChild (/home/runner/workspace/node_modules/astro/dist/runtime/server/render/any.js:31:17)
