@@ -169,3 +169,75 @@ body[data-theme='estate'] {
 .delay-1 { animation-delay: 0.1s; }
 .delay-2 { animation-delay: 0.2s; }
 .delay-3 { animation-delay: 0.3s; }
+
+/* custom.css is included in global.css for user overrides */
+body {
+  --luxury-gold: #d4af37;
+  --luxury-dark: #2c2c2c;
+  --luxury-light: #f8f5f0;
+}
+
+:root.estate {
+  --theme-primary: var(--luxury-gold);
+  --theme-primary-hover: #bb9c30;
+  --theme-on-primary: var(--luxury-light);
+
+  --theme-bg: var(--luxury-light);
+  --theme-on-bg: var(--luxury-dark);
+
+  --theme-surface-1: #ffffff;
+  --theme-on-surface-1: var(--luxury-dark);
+
+  --theme-surface-2: #f0ebe3;
+  --theme-on-surface-2: var(--luxury-dark);
+
+  --theme-button-border-radius: 0.25rem;
+  --theme-card-border-radius: 0.5rem;
+
+  /* Add a luxury feel with subtle shadows */
+  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  /* Improved spacing */
+  --container-max-width: 1280px;
+  --container-max-width-narrow: 960px;
+}
+
+:root.estate .hero-section {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+                    url('/public/assets/images/home/classic-hero.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+:root.estate .nav-container {
+  backdrop-filter: blur(5px);
+  background-color: rgba(255, 255, 255, 0.85);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+:root.estate .btn {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+:root.estate .feature-card {
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow: var(--box-shadow);
+  transition: transform 0.3s ease;
+}
+
+:root.estate .feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+:root.estate .three-column-text-section {
+  background-color: var(--theme-surface-1);
+}
+
+:root.estate footer {
+  background-color: var(--luxury-dark);
+  color: var(--luxury-light);
+}
