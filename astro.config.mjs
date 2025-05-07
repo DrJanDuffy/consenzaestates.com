@@ -6,7 +6,7 @@ import lit from "@astrojs/lit";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://consenza-estates-las-vegas-homes-drjanduffy.replit.app/', // Your Replit domain
+  site: 'https://consenzaestates.com', // Custom domain for production
   sitemap: true, // Generate sitemap (set to "false" to disable)
   integrations: [sitemap(), mdx(), lit(), icon()], // Add renderers to the config
 });
