@@ -1,12 +1,31 @@
-/* Custom styling for Dr. Jan Duffy real estate site */
+/* Custom styling for Dr. Jan Duffy luxury real estate site */
 
 /* Elegant typography */
 h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.02em;
+  position: relative;
+  overflow: hidden;
 }
 
 h1 {
   font-weight: 800;
+  margin-bottom: 1.2rem;
+  line-height: 1.1;
+}
+
+h1::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 60px;
+  height: 3px;
+  background-color: var(--luxury-gold);
+  transition: width 0.4s ease;
+}
+
+h1:hover::after {
+  width: 120px;
 }
 
 /* Luxury property card styling */
