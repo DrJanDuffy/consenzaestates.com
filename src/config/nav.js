@@ -1,18 +1,31 @@
+
 export const nav = [
 	{
 		title: 'Home',
 		slug: '/',
 	},
 	{
-		title: 'Blog',
-		slug: '/blog',
+		title: 'About',
+		slug: '/about',
 	},
 	{
-		title: 'About',
-		slug: '/company/about',
+		title: 'Consenza Estates',
+		slug: '/consenza-estates',
+	},
+	{
+		title: 'Lennar Homes',
+		slug: '/lennar-homes',
+	},
+	{
+		title: 'Properties',
+		slug: '/properties',
+	},
+	{
+		title: 'Resources',
+		slug: '/resources',
 	},
 	{
 		title: 'Contact',
-		slug: '/company/contact',
+		slug: '/contact',
 	},
 ];

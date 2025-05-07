@@ -1,0 +1,64 @@
+
+---
+import { TextSection, Container } from '@components/odyssey-theme.js';
+import Layout from '@layouts/Page.astro';
+import TextAndImageHero from '@components/sections/heros/TextAndImageHero.astro';
+
+const seo = {
+  title: 'About Dr. Jan Duffy | Consenza Estates Specialist',
+  description: 'Learn about Dr. Jan Duffy\'s expertise in Lennar homes and the Consenza Estates community in Las Vegas.'
+};
+---
+
+<Layout {seo}>
+  <TextAndImageHero>
+    <div slot="text-container">
+      <h1>About Dr. Jan Duffy</h1>
+      <p>Your dedicated Consenza Estates and Lennar homes specialist in Las Vegas.</p>
+    </div>
+    <div slot="image-container">
+      <picture>
+        <img
+          src="/public/assets/images/home/jan-duffy-headshot.jpg"
+          alt="Dr. Jan Duffy, REALTOR"
+          id="about-hero-image"
+        />
+      </picture>
+    </div>
+  </TextAndImageHero>
+
+  <TextSection>
+    <h2>Professional Biography</h2>
+    <p>With over 15 years of experience in Las Vegas real estate, Dr. Jan Duffy has established herself as the premier specialist for Lennar homes in the exclusive Consenza Estates community. Her comprehensive knowledge of Lennar's construction quality, floor plans, and "Everything's Included" features makes her an invaluable resource for buyers interested in this sought-after neighborhood.</p>
+    
+    <p>Dr. Duffy holds a doctorate in Business Administration and has applied her analytical skills to becoming an expert in Las Vegas real estate market trends. She has completed specialized training in new construction representation and luxury home marketing to better serve her discerning clientele.</p>
+    
+    <h3>Credentials & Certifications</h3>
+    <ul>
+      <li>Licensed Nevada REALTOR®</li>
+      <li>Certified Luxury Home Marketing Specialist (CLHMS)</li>
+      <li>New Home Construction Specialist</li>
+      <li>Accredited Buyer's Representative (ABR)</li>
+      <li>Certified Negotiation Expert (CNE)</li>
+    </ul>
+    
+    <h3>Personal Connection to Las Vegas</h3>
+    <p>As a long-time Las Vegas resident, Dr. Duffy has a deep appreciation for the lifestyle that the Consenza Estates community offers. She is actively involved in local charitable organizations and serves on the board of the Las Vegas Real Estate Association. Her personal knowledge of schools, amenities, and local attractions allows her to help clients truly understand the benefits of living in this exceptional community.</p>
+    
+    <div class="contact-info">
+      <h3>Contact Information</h3>
+      <p>Phone: (702) 555-1234</p>
+      <p>Email: jan@duffyrealestate.com</p>
+      <p>Office: 123 Las Vegas Blvd, Las Vegas, NV 89123</p>
+    </div>
+  </TextSection>
+</Layout>
+
+<style>
+  .contact-info {
+    background-color: var(--theme-surface-1);
+    padding: 2rem;
+    border-radius: var(--theme-shape-radius);
+    margin-top: 2rem;
+  }
+</style>

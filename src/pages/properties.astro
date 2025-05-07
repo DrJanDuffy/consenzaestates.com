@@ -1,0 +1,175 @@
+
+---
+import { Container, TextSection } from '@components/odyssey-theme.js';
+import Layout from '@layouts/Page.astro';
+import HeroSection from '@components/sections/heros/HeroSection.astro';
+
+const seo = {
+  title: 'Consenza Estates Properties | Dr. Jan Duffy',
+  description: 'Browse current listings in Consenza Estates. Find your dream Lennar home in this exclusive Las Vegas community.'
+};
+---
+
+<Layout {seo}>
+  <HeroSection>
+    <div slot="text-container">
+      <h1>Consenza Estates Properties</h1>
+      <p>Discover available homes in this exclusive Lennar community.</p>
+    </div>
+    <picture slot="image-container">
+      <img
+        src="/public/assets/images/home/consenza-property.jpg"
+        alt="Luxury home in Consenza Estates"
+        id="property-hero-image"
+      />
+    </picture>
+  </HeroSection>
+
+  <Container>
+    <TextSection>
+      <h2>Current Listings in Consenza Estates</h2>
+      <p>Browse the latest available properties in Consenza Estates. As your dedicated specialist in this community, I can provide detailed information about any listing that catches your eye. Contact me for private showings or to discuss new construction opportunities.</p>
+    </TextSection>
+
+    <div class="property-listings">
+      <script src="https://em.realscout.com/widgets/realscout-web-components.umd.js" type="module"></script>
+      <style>
+        realscout-office-listings {
+          --rs-listing-divider-color: rgb(101, 141, 172);
+          width: 100%;
+          margin: 2rem 0;
+        }
+      </style>
+      <realscout-office-listings 
+        agent-encoded-id="QWdlbnQtMjI1MDUw" 
+        sort-order="PRICE_HIGH" 
+        listing-status="For Sale" 
+        property-types="SFR,MF,TC" 
+        price-min="500000">
+      </realscout-office-listings>
+    </div>
+
+    <div class="property-search-container">
+      <h2>Custom Property Search</h2>
+      <p>Looking for specific features? Use our advanced search to find your perfect home in Consenza Estates.</p>
+      
+      <div class="search-filters">
+        <form class="search-form">
+          <div class="filter-row">
+            <div class="filter-item">
+              <label for="price-range">Price Range</label>
+              <select id="price-range" name="price-range">
+                <option value="500000-750000">$500,000 - $750,000</option>
+                <option value="750000-1000000">$750,000 - $1,000,000</option>
+                <option value="1000000-1500000">$1,000,000 - $1,500,000</option>
+                <option value="1500000+">$1,500,000+</option>
+              </select>
+            </div>
+            
+            <div class="filter-item">
+              <label for="bedrooms">Bedrooms</label>
+              <select id="bedrooms" name="bedrooms">
+                <option value="2+">2+</option>
+                <option value="3+">3+</option>
+                <option value="4+">4+</option>
+                <option value="5+">5+</option>
+              </select>
+            </div>
+            
+            <div class="filter-item">
+              <label for="bathrooms">Bathrooms</label>
+              <select id="bathrooms" name="bathrooms">
+                <option value="2+">2+</option>
+                <option value="3+">3+</option>
+                <option value="4+">4+</option>
+                <option value="5+">5+</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="filter-row">
+            <div class="filter-item">
+              <label for="property-type">Property Type</label>
+              <select id="property-type" name="property-type">
+                <option value="single-family">Single Family</option>
+                <option value="townhome">Townhome</option>
+                <option value="new-construction">New Construction</option>
+              </select>
+            </div>
+            
+            <div class="filter-item">
+              <label for="features">Special Features</label>
+              <select id="features" name="features">
+                <option value="pool">Pool</option>
+                <option value="spa">Spa</option>
+                <option value="casita">Casita</option>
+                <option value="3-car-garage">3+ Car Garage</option>
+              </select>
+            </div>
+          </div>
+          
+          <button type="submit" class="search-button">Search Properties</button>
+        </form>
+      </div>
+    </div>
+  </Container>
+</Layout>
+
+<style>
+  .property-search-container {
+    margin-top: 4rem;
+    padding: 2rem;
+    background-color: var(--theme-surface-1);
+    border-radius: var(--theme-shape-radius);
+  }
+  
+  .search-filters {
+    margin-top: 1.5rem;
+  }
+  
+  .search-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .filter-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .filter-item {
+    flex: 1;
+    min-width: 200px;
+  }
+  
+  .filter-item label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+  
+  .filter-item select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 0.25rem;
+  }
+  
+  .search-button {
+    background-color: var(--theme-primary);
+    color: var(--theme-on-primary);
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: var(--theme-button-border-radius);
+    cursor: pointer;
+    font-weight: bold;
+    align-self: flex-start;
+    margin-top: 1rem;
+  }
+  
+  .search-button:hover {
+    background-color: var(--theme-primary-hover);
+  }
+</style>

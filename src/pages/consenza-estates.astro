@@ -1,0 +1,95 @@
+
+---
+import { Container, TextSection, StickyTextImageSection } from '@components/odyssey-theme.js';
+import Layout from '@layouts/Page.astro';
+import HeroSection from '@components/sections/heros/HeroSection.astro';
+import ThreeColumnTextSection from '@components/sections/ThreeColumnTextSection.astro';
+
+const seo = {
+  title: 'Consenza Estates Community | Dr. Jan Duffy',
+  description: 'Discover the exclusive Consenza Estates community in Las Vegas. Learn about amenities, schools, and lifestyle in this premier Lennar neighborhood.'
+};
+---
+
+<Layout {seo}>
+  <HeroSection>
+    <div slot="text-container">
+      <h1>Consenza Estates</h1>
+      <p>An exclusive Lennar community offering luxury desert living in Las Vegas.</p>
+    </div>
+    <picture slot="image-container">
+      <img
+        src="/public/assets/images/home/consenza-community.jpg"
+        alt="Consenza Estates Community"
+        id="community-hero-image"
+      />
+    </picture>
+  </HeroSection>
+
+  <TextSection>
+    <h2>About Consenza Estates</h2>
+    <p>Nestled in the prestigious northwest area of Las Vegas, Consenza Estates represents the pinnacle of luxury desert living. This gated community by Lennar offers exceptional homes with stunning mountain views, resort-style amenities, and a coveted location near shopping, dining, and entertainment.</p>
+    
+    <p>Established in 2018, Consenza Estates has quickly become one of the most sought-after addresses in Las Vegas, known for its beautiful streetscapes, meticulously maintained common areas, and strong sense of community.</p>
+  </TextSection>
+
+  <ThreeColumnTextSection>
+    <div slot="column-1-body">
+      <h3>Community Amenities</h3>
+      <ul>
+        <li>Resort-style pool and spa</li>
+        <li>State-of-the-art fitness center</li>
+        <li>Tennis and pickleball courts</li>
+        <li>Community clubhouse</li>
+        <li>Walking and biking trails</li>
+        <li>Children's playground</li>
+        <li>Dog park</li>
+      </ul>
+    </div>
+    <div slot="column-2-body">
+      <h3>Nearby Schools</h3>
+      <ul>
+        <li>Cortney Elementary School</li>
+        <li>Becker Middle School</li>
+        <li>Palo Verde High School</li>
+        <li>Faith Lutheran Academy</li>
+        <li>Alexander Dawson School</li>
+        <li>UNLV (20 minutes)</li>
+      </ul>
+    </div>
+    <div slot="column-3-body">
+      <h3>Local Conveniences</h3>
+      <ul>
+        <li>Tivoli Village Shopping</li>
+        <li>Downtown Summerlin</li>
+        <li>Red Rock Casino Resort</li>
+        <li>TPC Summerlin Golf Course</li>
+        <li>Red Rock Canyon</li>
+        <li>Medical facilities</li>
+      </ul>
+    </div>
+  </ThreeColumnTextSection>
+
+  <StickyTextImageSection>
+    <div slot="text-container">
+      <h2>HOA & Community Information</h2>
+      <p>Consenza Estates is managed by a dedicated HOA that ensures the community maintains its premium standards and appearance.</p>
+      
+      <h3>HOA Details</h3>
+      <p>Monthly Fee: $175-$225<br>
+      Includes: Common area maintenance, community amenities, security, landscaping</p>
+      
+      <h3>Community Events</h3>
+      <p>Consenza Estates hosts regular community events including summer pool parties, holiday celebrations, and neighborhood get-togethers. The active social committee ensures residents have plenty of opportunities to connect with neighbors and enjoy the amenities.</p>
+    </div>
+    <div slot="image-container">
+      <picture>
+        <img
+          src="/public/assets/images/home/consenza-map.jpg"
+          alt="Consenza Estates Community Map"
+          loading="lazy"
+        />
+      </picture>
+    </div>
+  </StickyTextImageSection>
+</Layout>

@@ -1,0 +1,290 @@
+
+---
+import { Container, TextSection, TextCardSection } from '@components/odyssey-theme.js';
+import Layout from '@layouts/Page.astro';
+import HeroSection from '@components/sections/heros/HeroSection.astro';
+
+const seo = {
+  title: 'Lennar Homes in Consenza Estates | Dr. Jan Duffy',
+  description: 'Explore Lennar homes in Consenza Estates. Learn about floor plans, features, and "Everything\'s Included" packages available in this luxury Las Vegas community.'
+};
+---
+
+<Layout {seo}>
+  <HeroSection>
+    <div slot="text-container">
+      <h1>Lennar Homes in Consenza Estates</h1>
+      <p>Quality craftsmanship and innovative designs in Las Vegas' premier community.</p>
+    </div>
+    <picture slot="image-container">
+      <img
+        src="/public/assets/images/home/lennar-home.jpg"
+        alt="Lennar Home in Consenza Estates"
+        id="lennar-hero-image"
+      />
+    </picture>
+  </HeroSection>
+
+  <Container>
+    <TextSection>
+      <h2>About Lennar Homes</h2>
+      <p>Founded in 1954, Lennar has grown to become one of America's leading homebuilders, known for their commitment to quality, innovation, and customer satisfaction. In Consenza Estates, Lennar has created a collection of luxury homes that combine sophisticated design with practical functionality.</p>
+      
+      <p>As your Lennar specialist in Consenza Estates, I have comprehensive knowledge of their construction processes, quality standards, and the unique features that make these homes exceptional investments.</p>
+    </TextSection>
+    
+    <div class="everything-included">
+      <TextSection>
+        <h2>Everything's Included®</h2>
+        <p>Lennar's signature Everything's Included® program means that the features and finishes other builders consider upgrades come standard in Consenza Estates homes. This innovative approach simplifies the homebuying process while delivering exceptional value.</p>
+        
+        <div class="features-grid">
+          <div class="feature-category">
+            <h3>Smart Home Technology</h3>
+            <ul>
+              <li>Ring Video Doorbell</li>
+              <li>Honeywell Smart Thermostat</li>
+              <li>Smart door locks</li>
+              <li>Whole-home WiFi coverage</li>
+              <li>Voice-activated home automation</li>
+            </ul>
+          </div>
+          
+          <div class="feature-category">
+            <h3>Luxury Kitchen Features</h3>
+            <ul>
+              <li>Quartz countertops</li>
+              <li>GE® stainless steel appliances</li>
+              <li>Designer-selected cabinetry</li>
+              <li>Large kitchen islands</li>
+              <li>Walk-in pantries</li>
+            </ul>
+          </div>
+          
+          <div class="feature-category">
+            <h3>Energy Efficiency</h3>
+            <ul>
+              <li>Energy Star® certified appliances</li>
+              <li>Low-E windows</li>
+              <li>Water-efficient fixtures</li>
+              <li>LED lighting throughout</li>
+              <li>Programmable irrigation systems</li>
+            </ul>
+          </div>
+          
+          <div class="feature-category">
+            <h3>Designer Finishes</h3>
+            <ul>
+              <li>Luxury vinyl plank flooring</li>
+              <li>Designer light fixtures</li>
+              <li>Crown molding in select areas</li>
+              <li>Modern door hardware</li>
+              <li>Designer-selected paint colors</li>
+            </ul>
+          </div>
+        </div>
+      </TextSection>
+    </div>
+    
+    <TextCardSection>
+      <h2 slot="heading">Popular Floor Plans in Consenza Estates</h2>
+      <p slot="sub-heading">Discover the luxury floor plans available in this exclusive community</p>
+      
+      <div slot="cards">
+        <div class="floor-plan-card">
+          <img src="/public/assets/images/home/floorplan-1.jpg" alt="The Catalina Floor Plan" />
+          <div class="floor-plan-details">
+            <h3>The Catalina</h3>
+            <p class="specs">3-4 Beds | 2.5-3.5 Baths | 2,800-3,200 sq ft</p>
+            <p class="description">Single-story luxury home with open concept living, gourmet kitchen, and spacious primary suite.</p>
+            <a href="/contact" class="plan-cta">Request Details</a>
+          </div>
+        </div>
+        
+        <div class="floor-plan-card">
+          <img src="/public/assets/images/home/floorplan-2.jpg" alt="The Montery Floor Plan" />
+          <div class="floor-plan-details">
+            <h3>The Monterey</h3>
+            <p class="specs">4-5 Beds | 3.5-4.5 Baths | 3,500-4,000 sq ft</p>
+            <p class="description">Two-story estate home featuring a downstairs primary suite, bonus room, and three-car garage.</p>
+            <a href="/contact" class="plan-cta">Request Details</a>
+          </div>
+        </div>
+        
+        <div class="floor-plan-card">
+          <img src="/public/assets/images/home/floorplan-3.jpg" alt="The Valencia Floor Plan" />
+          <div class="floor-plan-details">
+            <h3>The Valencia</h3>
+            <p class="specs">5-6 Beds | 4.5-5.5 Baths | 4,200-4,800 sq ft</p>
+            <p class="description">Luxury estate with optional casita, formal dining, home office, and resort-style outdoor living.</p>
+            <a href="/contact" class="plan-cta">Request Details</a>
+          </div>
+        </div>
+      </div>
+    </TextCardSection>
+    
+    <div class="new-vs-resale">
+      <TextSection>
+        <h2>New Construction vs. Resale in Consenza Estates</h2>
+        <p>Consenza Estates offers both new construction opportunities and resale homes. As your specialist in this community, I can help you navigate the advantages of each option based on your timeline, preferences, and budget.</p>
+        
+        <div class="comparison-grid">
+          <div class="comparison-column">
+            <h3>New Construction Advantages</h3>
+            <ul>
+              <li>Personalized selections and options</li>
+              <li>Latest designs and technology</li>
+              <li>Builder warranty protection</li>
+              <li>Energy-efficient features</li>
+              <li>No immediate maintenance concerns</li>
+            </ul>
+          </div>
+          
+          <div class="comparison-column">
+            <h3>Resale Home Advantages</h3>
+            <ul>
+              <li>Immediate move-in availability</li>
+              <li>Established landscaping</li>
+              <li>Often include upgrades from previous owners</li>
+              <li>Potentially more negotiable pricing</li>
+              <li>Ability to see the actual home before purchase</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="cta-container">
+          <a href="/contact" class="lennar-cta">Schedule a Consultation</a>
+        </div>
+      </TextSection>
+    </div>
+  </Container>
+</Layout>
+
+<style>
+  .everything-included {
+    background-color: var(--theme-surface-1);
+    padding: 2rem;
+    border-radius: var(--theme-shape-radius);
+    margin: 3rem 0;
+  }
+  
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .feature-category h3 {
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--theme-primary);
+  }
+  
+  .feature-category ul {
+    padding-left: 1.5rem;
+  }
+  
+  .feature-category li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .floor-plan-card {
+    background-color: var(--theme-bg);
+    border-radius: var(--theme-shape-radius);
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+  .floor-plan-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .floor-plan-details {
+    padding: 1.5rem;
+  }
+  
+  .floor-plan-details h3 {
+    margin-bottom: 0.5rem;
+  }
+  
+  .specs {
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: var(--theme-primary);
+  }
+  
+  .description {
+    margin-bottom: 1.5rem;
+  }
+  
+  .plan-cta {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: var(--theme-primary);
+    color: var(--theme-on-primary);
+    text-decoration: none;
+    border-radius: var(--theme-button-border-radius);
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .plan-cta:hover {
+    background-color: var(--theme-primary-hover);
+  }
+  
+  .new-vs-resale {
+    background-color: var(--theme-surface-2);
+    padding: 2rem;
+    border-radius: var(--theme-shape-radius);
+    margin: 3rem 0;
+  }
+  
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+  
+  @media (max-width: 768px) {
+    .comparison-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .comparison-column h3 {
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .comparison-column ul {
+    padding-left: 1.5rem;
+  }
+  
+  .comparison-column li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .cta-container {
+    text-align: center;
+    margin-top: 2rem;
+  }
+  
+  .lennar-cta {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--theme-primary);
+    color: var(--theme-on-primary);
+    text-decoration: none;
+    border-radius: var(--theme-button-border-radius);
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .lennar-cta:hover {
+    background-color: var(--theme-primary-hover);
+  }
+</style>

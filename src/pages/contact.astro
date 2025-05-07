@@ -1,0 +1,254 @@
+
+---
+import { Container, TextSection } from '@components/odyssey-theme.js';
+import Layout from '@layouts/Page.astro';
+import ContactForm from '@components/forms/ContactForm.astro';
+import HeroSection from '@components/sections/heros/HeroSection.astro';
+
+const seo = {
+  title: 'Contact Dr. Jan Duffy | Consenza Estates Specialist',
+  description: 'Get in touch with Dr. Jan Duffy, your Consenza Estates specialist in Las Vegas. Schedule a showing or request information about this exclusive community.'
+};
+---
+
+<Layout {seo}>
+  <HeroSection>
+    <div slot="text-container">
+      <h1>Contact Dr. Jan Duffy</h1>
+      <p>I'm here to answer your questions about Consenza Estates and help you find your dream home.</p>
+    </div>
+    <picture slot="image-container">
+      <img
+        src="/public/assets/images/home/contact-image.jpg"
+        alt="Contact Dr. Jan Duffy"
+        id="contact-hero-image"
+      />
+    </picture>
+  </HeroSection>
+
+  <Container>
+    <div class="contact-wrapper">
+      <div class="contact-info">
+        <TextSection>
+          <h2>Get In Touch</h2>
+          <p>I'm dedicated to providing exceptional service to buyers and sellers in Consenza Estates. Whether you're looking to purchase a new Lennar home or sell your current property, I'm here to guide you through the process.</p>
+          
+          <div class="contact-methods">
+            <div class="contact-method">
+              <h3>Call or Text</h3>
+              <p>(702) 555-1234</p>
+            </div>
+            
+            <div class="contact-method">
+              <h3>Email</h3>
+              <p>jan@duffyrealestate.com</p>
+            </div>
+            
+            <div class="contact-method">
+              <h3>Office Location</h3>
+              <p>123 Las Vegas Blvd<br>Las Vegas, NV 89123</p>
+            </div>
+            
+            <div class="contact-method">
+              <h3>Office Hours</h3>
+              <p>Monday-Friday: 9am-6pm<br>
+              Saturday: 10am-4pm<br>
+              Sunday: By appointment</p>
+            </div>
+          </div>
+          
+          <div class="cta-buttons">
+            <a href="#schedule" class="cta-button primary">Schedule a Showing</a>
+            <a href="#market-analysis" class="cta-button secondary">Request Market Analysis</a>
+          </div>
+        </TextSection>
+      </div>
+      
+      <div class="contact-form-container" id="schedule">
+        <h2>Send Me a Message</h2>
+        <ContactForm />
+      </div>
+    </div>
+    
+    <div class="market-analysis-container" id="market-analysis">
+      <TextSection>
+        <h2>Request a Consenza Estates Market Analysis</h2>
+        <p>Thinking about selling your Consenza Estates home? Request a comprehensive market analysis to understand your home's current value in today's market.</p>
+        
+        <form class="market-analysis-form">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="property-address">Property Address</label>
+              <input type="text" id="property-address" name="property-address" required />
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-field">
+              <label for="owner-name">Your Name</label>
+              <input type="text" id="owner-name" name="owner-name" required />
+            </div>
+            
+            <div class="form-field">
+              <label for="owner-email">Email</label>
+              <input type="email" id="owner-email" name="owner-email" required />
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-field">
+              <label for="owner-phone">Phone</label>
+              <input type="tel" id="owner-phone" name="owner-phone" required />
+            </div>
+            
+            <div class="form-field">
+              <label for="timeframe">Selling Timeframe</label>
+              <select id="timeframe" name="timeframe">
+                <option value="immediate">Immediate (0-3 months)</option>
+                <option value="soon">Soon (3-6 months)</option>
+                <option value="planning">Planning (6+ months)</option>
+                <option value="just-curious">Just curious about value</option>
+              </select>
+            </div>
+          </div>
+          
+          <button type="submit" class="submit-button">Request Market Analysis</button>
+        </form>
+      </TextSection>
+    </div>
+  </Container>
+</Layout>
+
+<style>
+  .contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+  
+  @media (max-width: 768px) {
+    .contact-wrapper {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .contact-methods {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  
+  @media (max-width: 500px) {
+    .contact-methods {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .contact-method h3 {
+    margin-bottom: 0.5rem;
+  }
+  
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  @media (max-width: 500px) {
+    .cta-buttons {
+      flex-direction: column;
+    }
+  }
+  
+  .cta-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--theme-button-border-radius);
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cta-button.primary {
+    background-color: var(--theme-primary);
+    color: var(--theme-on-primary);
+  }
+  
+  .cta-button.primary:hover {
+    background-color: var(--theme-primary-hover);
+  }
+  
+  .cta-button.secondary {
+    background-color: var(--theme-surface-1);
+    color: var(--theme-on-surface-1);
+  }
+  
+  .cta-button.secondary:hover {
+    background-color: var(--theme-surface-2);
+  }
+  
+  .contact-form-container {
+    background-color: var(--theme-surface-1);
+    padding: 2rem;
+    border-radius: var(--theme-shape-radius);
+  }
+  
+  .market-analysis-container {
+    margin-top: 4rem;
+    background-color: var(--theme-surface-2);
+    padding: 2rem;
+    border-radius: var(--theme-shape-radius);
+  }
+  
+  .market-analysis-form {
+    margin-top: 2rem;
+  }
+  
+  .form-row {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  @media (max-width: 768px) {
+    .form-row {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+  
+  .form-field {
+    flex: 1;
+  }
+  
+  .form-field label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+  
+  .form-field input,
+  .form-field select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 0.25rem;
+  }
+  
+  .submit-button {
+    background-color: var(--theme-primary);
+    color: var(--theme-on-primary);
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: var(--theme-button-border-radius);
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .submit-button:hover {
+    background-color: var(--theme-primary-hover);
+  }
+</style>

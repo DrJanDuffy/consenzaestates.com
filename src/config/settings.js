@@ -1,8 +1,9 @@
+
 export default {
-	title: `Odyssey Astro Theme | A Marketing Website Theme for Startups and Businesses`,
-	description: `A simple, clean, and modern theme for a startup or businesses' marketing website.`,
-	url: `https://odyssey-theme.sapling.supply`, // No trailing slash!
-	name: `Odyssey`, // The short name of the business or brand name. Used for things like the copyright in the footer.
+	title: `Dr. Jan Duffy | Consenza Estates Las Vegas Specialist`,
+	description: `Your premier specialist for Lennar homes in the exclusive Consenza Estates community in Las Vegas.`,
+	url: `https://janduffy-realestate.replit.app`, // No trailing slash!
+	name: `Dr. Jan Duffy Real Estate`, // The short name of the business or brand name. Used for things like the copyright in the footer.
 	enableThemeSwitcher: true,
-	showPlug: true, // Disable this if you want to remove the plug from the footer. (╯°□°)╯︵ ┻━┻
+	showPlug: false, // Disable this if you want to remove the plug from the footer. (╯°□°)╯
 };
