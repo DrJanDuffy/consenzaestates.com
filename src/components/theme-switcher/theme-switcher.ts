@@ -4,7 +4,9 @@ import {
 	classicThemeIcon,
 	darkThemeIcon,
 	blueThemeIcon,
+  orangeThemeIcon,
 	estateThemeIcon,
+  luxuryGoldThemeIcon, // Assuming this icon is defined elsewhere
 } from './icons';
 
 const themes = [
@@ -37,6 +39,11 @@ const themes = [
     name: 'estate',
     icon: estateThemeIcon,
     label: 'Luxury',
+  },
+  {
+    name: 'luxury-gold',
+    icon: luxuryGoldThemeIcon,
+    label: 'Luxury Gold',
   }
 ]
 
@@ -129,6 +136,9 @@ export class ThemeSwitcher extends LitElement {
 		}
 		if (theme === 'estate') {
 			_heroImage.src = '/assets/images/home/estate-hero.jpg';
+		}
+    if (theme === 'luxury-gold') {
+			_heroImage.src = '/assets/images/home/luxury-gold-hero.jpg'; // Add a new image for the gold theme
 		}
 		localStorage.setItem('theme', theme);
 		this.theme = theme;

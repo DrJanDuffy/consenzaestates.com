@@ -42,7 +42,7 @@ const siteSettings = {
   
   // Contact information
   contact: {
-    email: "jan@drjanduffy.com",
+    email: "DrDuffy@bhhsnv.com",
     phone: "+1 (702) 555-8742",
     address: "Consenza Estates, Las Vegas, NV 89138"
   },

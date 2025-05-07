@@ -127,6 +127,32 @@
 	--theme-on-surface-2: #ffffff;
 }
 
+[data-theme='luxury-gold'] {
+	/* Theme Colors */
+	--theme-primary: #D4AF37;
+	--theme-primary-hover: #B8860B;
+	--theme-on-primary: #ffffff;
+
+	--theme-bg: #FAFAFA;
+	--theme-on-bg: #333333;
+
+	--theme-surface-1: #F8F5F0;
+	--theme-on-surface-1: #333333;
+
+	--theme-surface-2: #2F2A1C;
+	--theme-on-surface-2: #ffffff;
+	
+	--theme-button-border-radius: 0.25rem;
+	
+	--luxury-gold: #D4AF37;
+	--luxury-gold-dark: #B8860B;
+	--luxury-gold-light: #F1E8BC;
+	--luxury-shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+	--luxury-shadow-md: 0 10px 15px rgba(0, 0, 0, 0.1);
+	--luxury-shadow-lg: 0 20px 25px rgba(0, 0, 0, 0.15);
+	--luxury-gradient: linear-gradient(to right, var(--luxury-gold-dark), var(--luxury-gold), var(--luxury-gold-light));
+}
+
 [data-theme='sand'] {
 	/* Theme Colors */
 	--theme-primary: #e38a20;
