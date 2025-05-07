@@ -1,106 +1,130 @@
 
 ---
+// HeadshotGallery.astro - Professional team headshot display component
+const { team } = Astro.props;
 ---
 
-<div class="headshot-gallery">
-  <div class="headshot-gallery-container">
-    <div class="headshot-item single-headshot">
-      <img src="/assets/images/headshots/jan-duffy-3.jpg" alt="Dr. Jan Duffy, REALTOR at Berkshire Hathaway HomeServices Nevada Properties" />
+<section class="headshot-gallery">
+  <div class="luxury-container">
+    <div class="section-header">
+      <h2>Meet Our Exceptional Team</h2>
+      <p class="subtitle">Industry experts committed to delivering excellence</p>
+    </div>
+    
+    <div class="team-grid">
+      {team.map((member) => (
+        <div class="team-member">
+          <div class="headshot-container">
+            <img src={member.photo} alt={`${member.name}, ${member.title}`} />
+          </div>
+          <h3>{member.name}</h3>
+          <p class="member-title">{member.title}</p>
+          <p class="member-bio">{member.bio}</p>
+          <div class="member-contact">
+            <a href={`mailto:${member.email}`} class="contact-link">
+              <span class="icon">✉️</span> Contact
+            </a>
+          </div>
+        </div>
+      ))}
     </div>
   </div>
-  <div class="headshot-content">
-    <h2>Dr. Jan Duffy</h2>
-    <h3>Luxury Real Estate Specialist</h3>
-    <p>Berkshire Hathaway HomeServices Nevada Properties</p>
-    <div class="contact-details">
-      <p><strong>Email:</strong> <a href="mailto:DrDuffy@bhhsnv.com">DrDuffy@bhhsnv.com</a></p>
-      <p><strong>Phone:</strong> (702) 555-8742</p>
-    </div>
-  </div>
-</div>
+</section>
 
 <style>
   .headshot-gallery {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    margin: 3rem 0;
-    padding: 2rem;
-    background-color: var(--theme-surface-1);
-    border-radius: var(--theme-shape-radius);
-    box-shadow: var(--luxury-shadow-sm);
+    padding: 4rem 0;
+    background-color: var(--luxury-white);
   }
-
-  @media (min-width: 768px) {
-    .headshot-gallery {
-      flex-direction: row;
-      align-items: center;
-    }
+  
+  .subtitle {
+    color: var(--luxury-gray);
+    font-size: 1.2rem;
+    margin-top: -1rem;
   }
-
-  .headshot-gallery-container {
-    display: flex;
-    justify-content: center;
+  
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
   }
-
-  .single-headshot {
-    width: 280px;
-    height: 280px;
-    overflow: hidden;
+  
+  .team-member {
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .team-member:hover {
+    transform: translateY(-10px);
+  }
+  
+  .headshot-container {
+    width: 220px;
+    height: 220px;
+    margin: 0 auto 1.5rem;
     border-radius: 50%;
-    border: 4px solid var(--luxury-gold);
-    box-shadow: var(--luxury-shadow-md);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    border: 3px solid var(--luxury-gold);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   }
-
-  .single-headshot:hover {
-    transform: scale(1.05);
-    box-shadow: var(--luxury-shadow-lg);
-  }
-
-  .headshot-item img {
+  
+  .headshot-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.5s ease;
   }
-
-  .headshot-content {
-    flex: 1;
-    min-width: 250px;
-    padding: 1rem;
+  
+  .team-member:hover .headshot-container img {
+    transform: scale(1.05);
   }
-
-  .headshot-content h2 {
-    color: var(--luxury-gold);
-    margin-bottom: 0.5rem;
-    font-size: 2.2rem;
-  }
-
-  .headshot-content h3 {
-    margin-top: 0;
-    margin-bottom: 1rem;
+  
+  .team-member h3 {
     font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--luxury-black);
   }
-
-  .contact-details {
-    margin-top: 1.5rem;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(212, 175, 55, 0.2);
-  }
-
-  .contact-details p {
-    margin: 0.5rem 0;
-    font-size: 1.1rem;
-  }
-
-  .contact-details a {
+  
+  .member-title {
     color: var(--luxury-gold);
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  
+  .member-bio {
+    font-size: 0.95rem;
+    color: var(--luxury-gray);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+  
+  .contact-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--luxury-black);
     text-decoration: none;
+    font-weight: 500;
     transition: color 0.3s ease;
   }
-
-  .contact-details a:hover {
-    color: var(--luxury-accent);
-    text-decoration: underline;
+  
+  .contact-link:hover {
+    color: var(--luxury-gold);
+  }
+  
+  .icon {
+    margin-right: 0.5rem;
+  }
+  
+  @media (max-width: 768px) {
+    .team-grid {
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 2rem;
+    }
+    
+    .headshot-container {
+      width: 180px;
+      height: 180px;
+    }
   }
 </style>
