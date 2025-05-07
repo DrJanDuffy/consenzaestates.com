@@ -1,0 +1,44 @@
+[15:34:41.428] Running build in Washington, D.C., USA (East) – iad1
+[15:34:41.441] Cloning github.com/DrJanDuffy/consenzaestates.com (Branch: main, Commit: 24e7e5e)
+[15:34:41.478] Skipping build cache, deployment was triggered without cache.
+[15:34:42.116] Cloning completed: 674.000ms
+[15:34:42.471] Running "vercel build"
+[15:34:42.856] Vercel CLI 41.7.2
+[15:34:43.418] Installing dependencies...
+[15:34:46.012] npm warn deprecated sourcemap-codec@1.4.8: Please use @jridgewell/sourcemap-codec instead
+[15:34:48.590] npm warn deprecated @astrojs/parser@0.22.2: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+[15:34:54.288] 
+[15:34:54.288] added 547 packages in 11s
+[15:34:54.311] 
+[15:34:54.311] 231 packages are looking for funding
+[15:34:54.311]   run `npm fund` for details
+[15:34:54.353] Running "npm run build"
+[15:34:54.465] 
+[15:34:54.466] > odyssey-theme@3.1.0 build
+[15:34:54.466] > astro build
+[15:34:54.467] 
+[15:34:56.185] (node:145) [DEP0180] DeprecationWarning: fs.Stats constructor is deprecated.
+[15:34:56.186] (Use `node --trace-deprecation ...` to show where the warning was created)
+[15:34:56.267] 22:34:56 [types] Generated 52ms
+[15:34:56.268] 22:34:56 [build] output: "static"
+[15:34:56.268] 22:34:56 [build] directory: /vercel/path0/dist/
+[15:34:56.269] 22:34:56 [build] Collecting build info...
+[15:34:56.269] 22:34:56 [build] ✓ Completed in 78ms.
+[15:34:56.272] 22:34:56 [build] Building static entrypoints...
+[15:34:59.751] 22:34:59 [astro-icon] Loaded icons from src/icons, ic, mdi
+[15:34:59.936] 22:34:59 [ERROR] [vite] [31mx[39m Build failed in 3.62s
+[15:35:00.070] [vite:css] [postcss] postcss-import: /vercel/path0/src/styles/custom.css:66:14: Unclosed string
+[15:35:00.071] file: /vercel/path0/src/styles/index.css:66:13
+[15:35:00.072]   Stack trace:
+[15:35:00.072]     at Input.error (/vercel/path0/node_modules/postcss/lib/input.js:106:16)
+[15:35:00.072]     at Object.nextToken (/vercel/path0/node_modules/postcss/lib/tokenize.js:157:15)
+[15:35:00.072]     at Parser.parse (/vercel/path0/node_modules/postcss/lib/parser.js:470:16)
+[15:35:00.073]     at get root (/vercel/path0/node_modules/postcss/lib/no-work-result.js:119:14)
+[15:35:00.073]     at loadImportContent (file:///vercel/path0/node_modules/astro/node_modules/vite/dist/node/chunks/dep-CdRA0jgn.js:867:33)
+[15:35:00.073]     at async resolveImportId (file:///vercel/path0/node_modules/astro/node_modules/vite/dist/node/chunks/dep-CdRA0jgn.js:800:27)
+[15:35:00.073]     at async Object.Once (file:///vercel/path0/node_modules/astro/node_modules/vite/dist/node/chunks/dep-CdRA0jgn.js:965:22)
+[15:35:00.074]     at async compileCSS (file:///vercel/path0/node_modules/astro/node_modules/vite/dist/node/chunks/dep-DG6Lorbi.js:36860:21)
+[15:35:00.074]     at async transform (file:///vercel/path0/node_modules/rollup/dist/es/shared/node-entry.js:18848:16)
+[15:35:00.200] Error: Command "npm run build" exited with 1
+[15:35:00.450] 
+[15:35:03.556] Exiting build container
