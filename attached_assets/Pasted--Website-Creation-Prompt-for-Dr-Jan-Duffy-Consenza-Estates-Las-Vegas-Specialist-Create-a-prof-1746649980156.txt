@@ -1,0 +1,92 @@
+# Website Creation Prompt for Dr. Jan Duffy - Consenza Estates Las Vegas Specialist
+
+Create a professional real estate website for Dr. Jan Duffy, REALTOR, specializing in Lennar homes in the Consenza Estates community in Las Vegas. The website should establish Dr. Duffy as the premier expert in this exclusive neighborhood while providing seamless property search functionality.
+
+## Website Structure
+
+### Homepage
+- Hero section with stunning photo of Consenza Estates with headline: "Your Consenza Estates Specialist - Dr. Jan Duffy"
+- Brief introduction to Dr. Duffy highlighting credentials and expertise with Lennar homes
+- Featured Consenza Estates listings powered by RealScout widget
+- Quick stats about Consenza Estates market (average price, days on market, etc.)
+- Testimonials from satisfied clients specific to Consenza purchases
+
+### About Section
+- Professional biography emphasizing Dr. Duffy's knowledge of Lennar construction and Consenza Estates
+- Professional headshot and contact information
+- Credentials, certifications, and specialized training
+- Personal connection to Las Vegas and the Consenza community
+
+### Consenza Estates Community Page
+- Detailed neighborhood information (amenities, schools, shopping, recreation)
+- Map of the community with points of interest
+- Photo gallery showcasing community features
+- Information about HOA, community events, and lifestyle
+
+### Lennar Homes Section
+- Overview of Lennar as a builder with focus on quality and features
+- Available floor plans in Consenza Estates
+- Lennar's "Everything's Included" features specific to Consenza
+- New construction vs. resale opportunities in the community
+
+### Property Search
+- Implement the RealScout office listings widget with the provided code
+- Focus search parameters specifically on Consenza Estates
+- Include advanced filtering options (price range, bedrooms, features)
+- Featured properties section highlighting premier listings
+
+### Resources Section
+- Buying guide specific to Consenza Estates
+- Mortgage calculator
+- Las Vegas relocation information
+- Market reports specifically for Consenza Estates
+
+### Contact Page
+- Multiple contact methods (phone, email, form)
+- Office location and hours
+- Schedule a showing button
+- Option to request market analysis
+
+## Technical Requirements
+
+1. Integrate the RealScout widget using the provided code:
+   - Place the script tag in the head:
+   ```
+   <script src="https://em.realscout.com/widgets/realscout-web-components.umd.js" type="module"></script>
+   ```
+   
+   - Add the styling:
+   ```
+   <style>
+     realscout-office-listings {
+       --rs-listing-divider-color: rgb(101, 141, 172);
+       width: 100%;
+     }
+   </style>
+   ```
+   
+   - Place the widget code in the body where listings should appear:
+   ```
+   <realscout-office-listings agent-encoded-id="QWdlbnQtMjI1MDUw" sort-order="PRICE_HIGH" listing-status="For Sale" property-types="SFR,MF,TC" price-min="500000"></realscout-office-listings>
+   ```
+
+2. Ensure the website is:
+   - Mobile responsive with excellent performance on all devices
+   - SEO optimized with keywords for "Consenza Estates," "Lennar Homes Las Vegas," and "Dr. Jan Duffy Realtor"
+   - Fast-loading with optimized images and efficient code
+   - ADA compliant for accessibility
+
+## Design Aesthetic
+- Color scheme reflecting luxury desert living (neutral tones with accent colors matching Consenza Estates branding)
+- Clean, modern design with ample white space
+- High-quality photography of actual Consenza Estates properties
+- Consistent branding elements throughout all pages
+- Professional typography that conveys expertise and luxury
+
+## Call-to-Action Elements
+- "Schedule a Private Tour" buttons prominently displayed
+- "Get Your Home's Value" lead generation tool
+- "Consenza Estates Market Report" download option
+- Newsletter signup for Consenza Estates market updates
+
+The finished website should position Dr. Duffy as the definitive expert on Consenza Estates while providing valuable resources for buyers interested in this exclusive Lennar community in Las Vegas.
