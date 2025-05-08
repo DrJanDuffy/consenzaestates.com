@@ -1,4 +1,3 @@
-
 ---
 import {Icon} from 'astro-icon/components';
 import Layout from '../../layouts/Page.astro';
@@ -7,7 +6,7 @@ import TextSection from '../../components/sections/TextSection.astro';
 import ThreeColumnTextSection from '../../components/sections/ThreeColumnTextSection.astro';
 import Button from '../../components/buttons/Button.astro';
 import FormInput from '../../components/form-fields/FormInput.astro';
-import FormSelect from '../../components/form-fields/FormSelect.astro';
+import FormSelect from '../../components/form-fields/FormSelectNew.astro';
 import FormTextarea from '../../components/form-fields/FormTextarea.astro';
 
 const seo = {
@@ -108,24 +107,19 @@ const seo = {
         <div class="button-examples">
           <div class="button-row">
             <div class="button-item">
-              <Button>Primary Button</Button>
+              <a href="#" class="btn">Primary Button</a>
               <span class="button-label">Button</span>
             </div>
             <div class="button-item">
-              <Button unelevated>Unelevated Button</Button>
+              <a href="#" class="btn btn-unelevated">Unelevated Button</a>
               <span class="button-label">Unelevated Button</span>
             </div>
             <div class="button-item">
-              <Button outlined>Outlined Button</Button>
+              <a href="#" class="btn btn-outlined">Outlined Button</a>
               <span class="button-label">Outlined Button</span>
             </div>
             <div class="button-item">
-              <Button customIcon>
-                <Fragment slot="icon">
-                  <Icon name="ic:round-launch" />
-                </Fragment>
-                Button With Icon
-              </Button>
+              <a href="#" class="btn">Button With Icon</a>
               <span class="button-label">With Custom Icon</span>
             </div>
           </div>
@@ -147,12 +141,7 @@ const seo = {
           </div>
           <div class="form-row">
             <div class="form-item">
-              <FormSelect label="Select Dropdown" name="select" placeholder="==SELECT AN OPTION==" required>
-                <option value="">==SELECT AN OPTION==</option>
-                <option value="option-1">Consenza Estates</option>
-                <option value="option-2">Luxury Properties</option>
-                <option value="option-3">Lennar Homes</option>
-              </FormSelect>
+              <FormSelect label="Select Dropdown" name="select" options={["Consenza Estates", "Luxury Properties", "Lennar Homes"]} required />
               <span class="form-label">Select Dropdown</span>
             </div>
             <div class="form-item">
@@ -421,7 +410,7 @@ const seo = {
 }
 
 .luxury-testimonial::before {
-  content: """;
+  content: "\201C";
   position: absolute;
   top: 10px;
   left: 10px;

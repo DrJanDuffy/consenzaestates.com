@@ -1,5 +1,4 @@
 ---
-import { Icon } from 'astro-icon/components';
 import { Container, Button } from '@components/odyssey-theme';
 import settings from '../../../config/settings.js';
 import {ThemeSwitcher} from '../../theme-switcher/theme-switcher';
@@ -17,13 +16,7 @@ import {ThemeSwitcher} from '../../theme-switcher/theme-switcher';
 					> and carefully crafted for startups and businesses.
 				</p>
 				<div class="hero-btns__container">
-					<Button href="/theme/get-started" customIcon
-						>Get Started
-            <Fragment slot="icon">
-              <Icon name="ic:baseline-chevron-right"/>
-            </Fragment>
-            </Button
-					>
+					<Button href="/theme/get-started">Get Started</Button>
 					<Button href="/theme/style-guide" unelevated>Style Guide</Button>
 				</div>
         {settings.enableThemeSwitcher && <ThemeSwitcher client:only/>}

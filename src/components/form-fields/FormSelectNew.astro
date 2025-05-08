@@ -1,0 +1,44 @@
+---
+const { label, name, options = [], required, placeholder = "==SELECT AN OPTION==" } = Astro.props;
+---
+
+<style>
+  .form-field__container {
+    position: relative;
+    width: 100%;
+  }
+  .form-field__container select {
+    width: 100%;
+    padding: 0.5rem 2.5rem 0.5rem 0.5rem;
+    border: 2px solid var(--form-field-border-color, #ccc);
+    color: var(--form-field-input-color, #000000);
+    border-radius: var(--form-field-border-radius, 0.25rem);
+    outline-style: none;
+    font-size: 1rem;
+    font-family: inherit;
+    -webkit-appearance: none;
+    appearance: none;
+    background: url('data:image/svg+xml;utf8,<svg fill="%23333" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 0.75rem center/1.5rem 1.5rem;
+    background-color: #fff;
+  }
+  .form-field__container select:focus {
+    border: 2px solid var(--form-field-border-focus-color, #000);
+  }
+  .form-field__container label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+</style>
+
+<div class="form-field__container">
+  {label && <label for={name}>{label}</label>}
+  <select name={name} required={required}>
+    <option disabled selected value="">{placeholder}</option>
+    {options.map((option) => (
+      <option value={option}>{option}</option>
+    ))}
+  </select>
+</div>
+
+

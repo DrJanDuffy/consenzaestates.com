@@ -1,3 +1,14 @@
 [build]
   publish = "dist/"
   command = "npm run build"
+
+# SPA fallback and 404 handling for static site
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/404"
+  to = "/404.html"
+  status = 404

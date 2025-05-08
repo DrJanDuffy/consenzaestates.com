@@ -1,5 +1,4 @@
 ---
-import {Icon} from 'astro-icon/components';
 import { Button, Container, TextCardSection } from '@components/odyssey-theme';
 import Layout from '../../layouts/Page.astro';
 
@@ -18,30 +17,18 @@ const seo = {
         href="https://github.com/treefarmstudio/odyssey-theme"
         outlined
         newTab
-        customIcon
         >
         Get Odyssey Theme
-        <Fragment slot="icon">
-          <Icon name="ic:baseline-launch" />
-        </Fragment>
       </Button>
         <Button
 					href="/theme/theme-setup"
-          customIcon
-					>
+          >
           Theme Setup
-          <Fragment slot="icon">
-            <Icon name="ic:baseline-chevron-right" />
-          </Fragment>
 				</Button>
         <Button
 					href="/theme/customizing-odyssey"
-          customIcon
-					>
+          >
           Customizing Odyssey
-          <Fragment slot="icon">
-            <Icon name="ic:baseline-chevron-right" />
-          </Fragment>
 				</Button>
 			</div>
 		</TextCardSection>

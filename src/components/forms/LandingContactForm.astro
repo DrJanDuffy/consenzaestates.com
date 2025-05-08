@@ -1,5 +1,4 @@
 ---
-import {Icon} from 'astro-icon/components'
 import { Button, FormInput } from '@components/odyssey-theme';
 
 const selectOptions = [
@@ -8,30 +7,16 @@ const selectOptions = [
   "Email",
 ]
 
+// JS for form submission
+import { sendToFollowUpBoss, formatContactFormData } from '../../utils/followUpBoss.js';
 ---
 
 <form name="Contact Form" method="POST" action="/contact-thank-you" >
   <FormInput type="text" label="First Name" name="First Name" placeholder="John" />
   <FormInput type="text" label="Last Name" name="Last Name" placeholder="Doe" />
   <FormInput type="email" label="Email" name="Email" placeholder="hello@example.com" />
-  <Button customIcon>Submit
-    <Fragment slot="icon">
-      <Icon name="ic:baseline-chevron-right" />
-    </Fragment>
-  </Button>
+  <Button>Submit</Button>
 </form>
-
-<style>
-  form {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-</style>
-
----
-import { Button } from '@components/odyssey-theme.js';
----
 
 <form id="landingContactForm" name="Landing Page Form" method="POST">
   <input type="hidden" name="formType" value="landing" />
@@ -60,8 +45,6 @@ import { Button } from '@components/odyssey-theme.js';
 </form>
 
 <script>
-  import { sendToFollowUpBoss, formatContactFormData } from '../../utils/followUpBoss.js';
-
   document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('landingContactForm');
     const formStatus = document.getElementById('landingFormStatus');

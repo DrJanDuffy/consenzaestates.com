@@ -1,41 +1,135 @@
 ---
-import { Button, Container, TextCardSection } from '@components/odyssey-theme';
-import Layout from '../layouts/Page.astro';
-
-const seo = {
-	title: 'Get Started using the Astro Odyssey Theme',
-	description: 'Get started on how to setup and use this Astro theme.',
-};
+// No imports needed for a static 404 page
 ---
 
-<Layout {seo}>
-	<Container>
-		<TextCardSection>
-			<h1>404</h1>
-			<h2>Page Not Found 👀</h2>
-			<div class="cta-buttons__container">
-				<Button href="/">Return Home</Button>
-			</div>
-		</TextCardSection>
-	</Container>
-</Layout>
-
-<style>
-	.cta-buttons__container {
-		display: flex;
-		flex-wrap: wrap;
-	}
-	.cta-buttons__container :global(a) {
-		margin-right: 1rem;
-		margin-bottom: 1rem;
-	}
-	.code-buttons__container {
-		margin: 1rem auto;
-		display: flex;
-		flex-wrap: wrap;
-	}
-	.code-buttons__container > a {
-		margin-right: 1rem;
-		margin-bottom: 1rem;
-	}
-</style>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 - Page Not Found | Consenza Estates - Dr. Jan Duffy</title>
+    <style>
+      :root {
+        --luxury-gold: #d4af37;
+        --luxury-black: #222222;
+        --luxury-white: #f9f9f9;
+        --luxury-gray: #8a8a8a;
+        --serif-font: 'Playfair Display', Georgia, serif;
+        --sans-font: 'Montserrat', Helvetica, sans-serif;
+      }
+      body {
+        font-family: var(--sans-font);
+        background-color: var(--luxury-white);
+        color: var(--luxury-black);
+        line-height: 1.6;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        background-image: url('/assets/images/vegas-skyline-silhouette.svg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        margin: 0;
+      }
+      .container {
+        max-width: 800px;
+        margin: 5% auto 0 auto;
+        padding: 4rem 2rem;
+        background-color: rgba(255, 255, 255, 0.95);
+        border-radius: 12px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        border-bottom: 4px solid var(--luxury-gold);
+      }
+      .logo {
+        font-family: var(--serif-font);
+        font-weight: 700;
+        font-size: 1.5rem;
+        color: var(--luxury-black);
+        margin-bottom: 2rem;
+      }
+      h1 {
+        font-size: 8rem;
+        margin: 0;
+        font-weight: 800;
+        background: linear-gradient(135deg, var(--luxury-gold) 0%, #e5d190 50%, var(--luxury-gold) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        line-height: 1;
+      }
+      h2 {
+        font-size: 2.5rem;
+        margin-top: 0.5rem;
+        margin-bottom: 1.5rem;
+      }
+      .gold-divider {
+        height: 3px;
+        width: 100px;
+        background: var(--luxury-gold);
+        margin: 1rem auto 2rem;
+      }
+      p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        line-height: 1.6;
+      }
+      .btn {
+        display: inline-block;
+        padding: 12px 24px;
+        background-color: var(--luxury-gold);
+        color: white;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        margin: 0.5rem;
+      }
+      .btn:hover {
+        background-color: var(--luxury-black);
+        color: var(--luxury-gold);
+        transform: translateY(-2px);
+      }
+      .contact-info {
+        margin-top: 2rem;
+      }
+      .phone {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--luxury-gold);
+        margin-bottom: 0.5rem;
+      }
+      .license {
+        font-size: 0.8rem;
+        color: var(--luxury-gray);
+      }
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 5rem;
+        }
+        h2 {
+          font-size: 1.8rem;
+        }
+        .container {
+          margin-top: 10%;
+          padding: 2rem 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="logo">Consenza Estates</div>
+      <h1>404</h1>
+      <div class="gold-divider"></div>
+      <h2>Destination Not Found</h2>
+      <p>The luxury Las Vegas property you're searching for is no longer at this address. Allow us to guide you back to our collection of exclusive listings.</p>
+      <div>
+        <a href="/" class="btn">Return to Homepage</a>
+        <a href="/properties" class="btn">View Luxury Listings</a>
+      </div>
+      <div class="contact-info">
+        <p class="phone">Call/Text: (702) 500-1955</p>
+        <p class="license">NV License #301</p>
+      </div>
+    </div>
+  </body>
+</html>
