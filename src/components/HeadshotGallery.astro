@@ -29,7 +29,14 @@ const teamMembers = team.length > 0 ? team : defaultTeam;
       {teamMembers.map((member) => (
         <div class="team-member">
           <div class="headshot-container">
-            <img src={member.photo} alt={`${member.name}, ${member.title}`} />
+            <img 
+              src={member.photo} 
+              alt={`${member.name}, ${member.title}`} 
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src = '/assets/images/headshots/jan-duffy-1.jpg';
+              }}
+            />
           </div>
           <h3>{member.name}</h3>
           <p class="member-title">{member.title}</p>
