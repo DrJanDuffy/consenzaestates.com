@@ -17,8 +17,6 @@
 		"@astrojs/lit": "^4.0.1",
 		"@astrojs/mdx": "^2.1.1",
 		"@astrojs/sitemap": "^0.1.0",
-		"@iconify-json/ic": "^1.2.2",
-		"@iconify-json/mdi": "^1.2.3",
 		"@webcomponents/template-shadowroot": "^0.2.1",
 		"astro": "^4.15.9",
 		"date-fns": "^2.28.0",
