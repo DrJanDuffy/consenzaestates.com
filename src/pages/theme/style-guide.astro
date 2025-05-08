@@ -1,3 +1,4 @@
+
 ---
 import { Icon } from 'astro-icon/components';
 import {
@@ -11,8 +12,8 @@ import {
 import Layout from '../../layouts/Page.astro';
 
 const seo = {
-	title: 'Astro Odyssey Theme Style Guide',
-	description: 'Get started on how to setup and use this Astro theme.',
+	title: 'Consenza Estates Style Guide | Dr. Jan Duffy',
+	description: 'Luxury real estate styling guidelines for the Consenza Estates brand.',
 };
 
 const selectOptions = ['Option 1', 'Option 2', 'Option 3'];
@@ -20,105 +21,159 @@ const selectOptions = ['Option 1', 'Option 2', 'Option 3'];
 
 <Layout {seo}>
 	<Container>
-		<TextCardSection>
-			<h1>Style Guide</h1>
-			<p>
-				This is the style guide for the <a
-					href="https://github.com/treefarmstudio/odyssey-theme"
-					target="_blank"
-					rel="noopener noreferrer">Odyssey Theme</a
-				>. Everything you'll find in the theme's starter repo is either a
-				component from the <a
-					href="https://www.npmjs.com/package/@components/odyssey-theme"
-					target="_blank"
-					rel="noopener noreferrer">Odyssey Components Package</a
-				> or built using a component. Not only does this allow for a fully modular
-				setup that receives updates and improvements over time but also allows you
-				to use bits and pieces as needed to create your own unique website with Odyssey
-				as the foundation.
+		<div class="style-guide-header animate-fadeInUp">
+			<h1>Luxury Brand <span class="gold-text">Style Guide</span></h1>
+			<div class="luxury-divider"></div>
+			<p class="style-guide-intro">
+				This comprehensive style guide defines the visual language for <strong>Dr. Jan Duffy's Consenza Estates</strong> brand. 
+				Our design system uses premium elements to convey luxury, trust, and sophistication throughout the client experience.
 			</p>
-		</TextCardSection>
-		<section class="style-guide__section">
+		</div>
+		
+		<section class="style-guide__section animate-fadeInUp animate-delay-100">
 			<div class="style-guide__title-container">
-				<h2>Colors</h2>
+				<h2 class="gold-accent">Color Palette</h2>
+				<p>Our signature colors reflect the opulence of Las Vegas luxury real estate.</p>
 			</div>
-			<div>
+			<div class="style-guide-colors">
 				<div class="style-guide-color__card">
-					<h3>Primary</h3>
+					<div class="color-preview"></div>
+					<h3>Primary Gold</h3>
+					<p class="color-hex">#c8a951</p>
 				</div>
 				<div class="style-guide-color__card style-guide-color__card--surface-1">
+					<div class="color-preview"></div>
 					<h3>Surface 1</h3>
+					<p class="color-hex">#f9f7f2</p>
 				</div>
 				<div class="style-guide-color__card style-guide-color__card--surface-2">
+					<div class="color-preview"></div>
 					<h3>Surface 2</h3>
+					<p class="color-hex">#272727</p>
+				</div>
+				<div class="style-guide-color__card style-guide-color__card--accent">
+					<div class="color-preview"></div>
+					<h3>BHHS Purple</h3>
+					<p class="color-hex">#7d3f98</p>
 				</div>
 			</div>
 		</section>
-		<section class="style-guide__section">
+		
+		<section class="style-guide__section animate-fadeInUp animate-delay-200">
 			<div class="style-guide__title-container">
-				<h2>Typography</h2>
+				<h2 class="gold-accent">Typography</h2>
+				<p>Elegant and readable typefaces that convey sophistication.</p>
 			</div>
-			<div>
-				<h1>Heading 1</h1>
-				<h2>Heading 2</h2>
-				<h3>Heading 3</h3>
-				<h4>Heading 4</h4>
-				<h5>Heading 5</h5>
-				<h6>Heading 6</h6>
-				<p>Body Text</p>
-				<blockquote>
-					“Don’t settle for what life gives you; make life better and build
-					something.” — Ashton Kutcher
-				</blockquote>
+			<div class="typography-showcase">
+				<div class="typography-item">
+					<h1>Heading 1</h1>
+					<p class="type-details">Playfair Display / 42-48px / 700 weight</p>
+				</div>
+				<div class="typography-item">
+					<h2>Heading 2</h2>
+					<p class="type-details">Playfair Display / 36px / 600 weight</p>
+				</div>
+				<div class="typography-item">
+					<h3>Heading 3</h3>
+					<p class="type-details">Playfair Display / 28px / 600 weight</p>
+				</div>
+				<div class="typography-item">
+					<h4>Heading 4</h4>
+					<p class="type-details">Montserrat / 24px / 600 weight</p>
+				</div>
+				<div class="typography-item">
+					<h5>Heading 5</h5>
+					<p class="type-details">Montserrat / 20px / 600 weight</p>
+				</div>
+				<div class="typography-item">
+					<h6>Heading 6</h6>
+					<p class="type-details">Montserrat / 18px / 600 weight</p>
+				</div>
+				<div class="typography-item">
+					<p class="body-text-sample">Body Text: Montserrat Light provides optimal readability while maintaining an elegant aesthetic appropriate for luxury real estate marketing materials.</p>
+					<p class="type-details">Montserrat / 16-18px / 300-400 weight / 1.6 line height</p>
+				</div>
+				<div class="typography-item">
+					<blockquote class="luxury-testimonial">
+						"Don't settle for what life gives you; make life better and build something. Your dream home is the foundation of your legacy."
+						<cite>— Dr. Jan Duffy</cite>
+					</blockquote>
+				</div>
 			</div>
 		</section>
-		<section class="style-guide__section">
+		
+		<section class="style-guide__section animate-fadeInUp animate-delay-300">
 			<div class="style-guide__title-container">
-				<h2>Buttons</h2>
+				<h2 class="gold-accent">UI Elements</h2>
+				<p>Interactive elements designed for a seamless luxury experience.</p>
 			</div>
-			<div>
-				<p>Button</p>
-				<p>
-					<Button>Button 1</Button>
-				</p>
-				<p>Unelevated Button</p>
-				<p>
-					<Button unelevated>Button 2</Button>
-				</p>
-				<p>Outlined Button</p>
-				<p>
-					<Button outlined>Button 3</Button>
-				</p>
-				<p>Button With Custom Icon</p>
-				<Button customIcon
-					>Launch Page
-					<Fragment slot="icon">
-						<Icon name="ic:baseline-launch" />
-					</Fragment>
-				</Button>
+			<div class="ui-elements-showcase">
+				<div class="buttons-showcase">
+					<h3>Primary Buttons</h3>
+					<div class="button-row">
+						<Button class="btn-luxury">Schedule Viewing</Button>
+						<Button unelevated class="btn-luxury-secondary">Learn More</Button>
+					</div>
+					
+					<h3>Secondary Buttons</h3>
+					<div class="button-row">
+						<Button outlined class="btn-luxury-outlined">Request Info</Button>
+						<Button customIcon class="btn-luxury-icon">
+							Virtual Tour
+							<Fragment slot="icon">
+								<Icon name="ic:baseline-play-circle" />
+							</Fragment>
+						</Button>
+					</div>
+				</div>
+				
+				<div class="forms-showcase">
+					<h3>Input Fields</h3>
+					<div class="form-elements-grid">
+						<div class="form-item">
+							<h4>Labeled Input</h4>
+							<FormInput type="text" label="Full Name" name="fullName" placeholder="Dr. Jane Smith" />
+						</div>
+						<div class="form-item">
+							<h4>Standard Input</h4>
+							<FormInput type="email" name="email" placeholder="your.email@example.com" />
+						</div>
+						<div class="form-item">
+							<h4>Dropdown Select</h4>
+							<FormSelect options={selectOptions} label="Property Type" />
+						</div>
+						<div class="form-item">
+							<h4>Message Area</h4>
+							<FormTextarea name="Message" placeholder="Tell us about your dream property..." />
+						</div>
+					</div>
+				</div>
 			</div>
 		</section>
-		<section class="style-guide__section">
+		
+		<section class="style-guide__section animate-fadeInUp animate-delay-400">
 			<div class="style-guide__title-container">
-				<h2>Forms</h2>
+				<h2 class="gold-accent">Image Treatments</h2>
+				<p>Visual guidelines for property photography and marketing materials.</p>
 			</div>
-			<div class="style-guide-forms__container">
-				<div>
-					<h3>Input With Label</h3>
-					<FormInput type="text" label="Name" name="Name" placeholder="John Doe"
-					/>
+			<div class="image-treatments">
+				<div class="image-treatment-example">
+					<div class="img-frame luxury-shadow">
+						<div class="img-placeholder">Standard Property Image</div>
+					</div>
+					<p>Standard property images use subtle shadows and rounded corners (8px radius)</p>
 				</div>
-				<div>
-					<h3>Input Without Label</h3>
-					<FormInput type="text" name="Name" placeholder="John Doe" />
+				<div class="image-treatment-example">
+					<div class="img-frame img-zoom-container">
+						<div class="img-placeholder img-zoom">Featured Listing</div>
+					</div>
+					<p>Featured listings include subtle zoom effect on hover</p>
 				</div>
-				<div>
-					<h3>Select Dropdown</h3>
-					<FormSelect options={selectOptions} />
-				</div>
-				<div>
-					<h3>Textarea</h3>
-					<FormTextarea name="Message" placeholder="Your message here..." />
+				<div class="image-treatment-example">
+					<div class="img-frame vegas-skyline">
+						<div class="img-placeholder">Vegas Skyline Overlay</div>
+					</div>
+					<p>Special treatment for Las Vegas Strip properties</p>
 				</div>
 			</div>
 		</section>
@@ -126,41 +181,295 @@ const selectOptions = ['Option 1', 'Option 2', 'Option 3'];
 </Layout>
 
 <style>
+	.style-guide-header {
+		text-align: center;
+		margin: 4rem 0 3rem;
+	}
+	
+	.style-guide-intro {
+		max-width: 800px;
+		margin: 2rem auto;
+		font-size: 1.1rem;
+		line-height: 1.7;
+	}
+	
+	.gold-text {
+		color: var(--vegas-gold);
+		position: relative;
+	}
+	
+	.luxury-divider {
+		height: 1px;
+		background: linear-gradient(to right, transparent, var(--vegas-gold), transparent);
+		margin: 1.5rem auto;
+		width: 60%;
+	}
+	
 	.style-guide__section {
 		margin: var(--section-margin) auto;
 		display: grid;
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: 1fr 2fr;
+		gap: 3rem;
+		padding: 2rem;
+		border-radius: 8px;
+		box-shadow: var(--vegas-shadow-sm);
+		background-color: white;
+		transition: all 0.3s ease;
 	}
+	
+	.style-guide__section:hover {
+		box-shadow: var(--vegas-shadow-md);
+	}
+	
+	.gold-accent {
+		position: relative;
+		padding-bottom: 0.5rem;
+	}
+	
+	.gold-accent::after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 60px;
+		height: 2px;
+		background-color: var(--vegas-gold);
+	}
+	
 	.style-guide__title-container h2 {
 		position: sticky;
-		top: 0;
-	}
-	.style-guide-forms__container {
-		display: grid;
-		gap: 1rem;
-	}
-	.style-guide-forms__container h3 {
-		margin-bottom: 0.5rem;
-	}
-	.style-guide-color__card {
+		top: 2rem;
 		margin-bottom: 1rem;
-		background-color: var(--theme-primary);
-		color: var(--theme-on-primary);
-		padding: 1rem;
-		border-radius: var(--theme-shape-radius);
 	}
-	.style-guide-color__card--surface-1 {
+	
+	.style-guide-colors {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+		gap: 1.5rem;
+	}
+	
+	.style-guide-color__card {
+		padding: 1.5rem;
+		border-radius: 8px;
+		background-color: white;
+		box-shadow: var(--vegas-shadow-sm);
+		transition: transform 0.3s ease;
+		text-align: center;
+		border: 1px solid #eee;
+	}
+	
+	.style-guide-color__card:hover {
+		transform: translateY(-5px);
+		box-shadow: var(--vegas-shadow-md);
+	}
+	
+	.color-preview {
+		height: 100px;
+		width: 100%;
+		border-radius: 6px;
+		margin-bottom: 1rem;
+		background-color: var(--vegas-gold);
+	}
+	
+	.style-guide-color__card--surface-1 .color-preview {
 		background-color: var(--theme-surface-1);
-		color: var(--theme-on-surface-1);
 	}
-	.style-guide-color__card--surface-2 {
+	
+	.style-guide-color__card--surface-2 .color-preview {
 		background-color: var(--theme-surface-2);
-		color: var(--theme-on-surface-2);
 	}
+	
+	.style-guide-color__card--accent .color-preview {
+		background-color: var(--bhhs-purple, #7d3f98);
+	}
+	
+	.color-hex {
+		font-family: monospace;
+		font-size: 0.9rem;
+		color: #666;
+	}
+	
+	.typography-showcase {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+	
+	.typography-item {
+		padding: 1rem;
+		border-left: 3px solid var(--vegas-gold);
+		background-color: rgba(249, 247, 242, 0.5);
+	}
+	
+	.type-details {
+		margin-top: 0.5rem;
+		font-size: 0.85rem;
+		color: #777;
+		font-style: italic;
+	}
+	
+	.body-text-sample {
+		margin-bottom: 1rem;
+		line-height: 1.7;
+	}
+	
+	.luxury-testimonial {
+		font-style: italic;
+		padding: 2rem;
+		background-color: white;
+		border-radius: 8px;
+		box-shadow: var(--vegas-shadow-sm);
+		position: relative;
+		margin: 2rem 0;
+		border-left: none;
+	}
+	
+	.luxury-testimonial::before {
+		content: """;
+		position: absolute;
+		top: 0;
+		left: 15px;
+		font-size: 5rem;
+		color: var(--vegas-gold);
+		opacity: 0.2;
+		line-height: 1;
+	}
+	
+	.luxury-testimonial cite {
+		display: block;
+		text-align: right;
+		margin-top: 1rem;
+		font-weight: 500;
+	}
+	
+	.ui-elements-showcase {
+		display: flex;
+		flex-direction: column;
+		gap: 3rem;
+	}
+	
+	.button-row {
+		display: flex;
+		gap: 1rem;
+		margin: 1rem 0 2rem;
+		flex-wrap: wrap;
+	}
+	
+	.btn-luxury {
+		background-color: var(--vegas-gold);
+		color: #fff;
+		transition: all 0.3s ease;
+	}
+	
+	.btn-luxury:hover {
+		background-color: var(--vegas-gold-dark);
+		transform: translateY(-2px);
+		box-shadow: var(--vegas-shadow-md);
+	}
+	
+	.btn-luxury-secondary {
+		background-color: var(--vegas-black);
+		color: var(--vegas-gold);
+	}
+	
+	.btn-luxury-outlined {
+		border-color: var(--vegas-gold);
+		color: var(--vegas-gold);
+	}
+	
+	.form-elements-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+		gap: 1.5rem;
+	}
+	
+	.form-item {
+		margin-bottom: 1.5rem;
+	}
+	
+	.image-treatments {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+		gap: 2rem;
+	}
+	
+	.image-treatment-example {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+	
+	.image-treatment-example p {
+		margin-top: 1rem;
+		font-size: 0.9rem;
+		color: #666;
+	}
+	
+	.img-frame {
+		width: 100%;
+		height: 180px;
+		border-radius: 8px;
+		overflow: hidden;
+		border: 1px solid #eee;
+	}
+	
+	.luxury-shadow {
+		box-shadow: var(--vegas-shadow-md);
+	}
+	
+	.img-placeholder {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: #f5f5f5;
+		color: #777;
+		font-weight: 500;
+	}
+	
+	.img-zoom {
+		transition: transform 0.5s ease;
+	}
+	
+	.img-zoom:hover {
+		transform: scale(1.05);
+	}
+	
+	.vegas-skyline {
+		position: relative;
+	}
+	
+	.vegas-skyline::after {
+		content: "";
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 40px;
+		background-color: rgba(0,0,0,0.7);
+		background-image: linear-gradient(90deg, 
+			transparent 0%, rgba(255,215,0,0.2) 20%, 
+			rgba(255,215,0,0.2) 30%, transparent 40%,
+			transparent 60%, rgba(255,215,0,0.2) 70%, 
+			rgba(255,215,0,0.2) 80%, transparent 100%);
+	}
+	
 	@media (max-width: 768px) {
 		.style-guide__section {
 			grid-template-columns: 1fr;
 			gap: 2rem;
+			padding: 1.5rem;
+		}
+		
+		.button-row {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+		
+		.form-elements-grid {
+			grid-template-columns: 1fr;
 		}
 	}
 </style>

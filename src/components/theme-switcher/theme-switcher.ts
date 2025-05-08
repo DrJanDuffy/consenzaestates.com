@@ -45,6 +45,11 @@ const themes = [
     name: 'luxury-gold',
     icon: luxuryGoldThemeIcon,
     label: 'Luxury Gold',
+  },
+  {
+    name: 'vegas-gold',
+    icon: vegasGoldThemeIcon,
+    label: 'Vegas',
   }
 ]
 
@@ -139,7 +144,10 @@ export class ThemeSwitcher extends LitElement {
 			_heroImage.src = '/assets/images/home/estate-hero.jpg';
 		}
     if (theme === 'luxury-gold') {
-			_heroImage.src = '/assets/images/home/luxury-gold-hero.jpg'; // Add a new image for the gold theme
+			_heroImage.src = '/assets/images/home/luxury-gold-hero.jpg';
+		}
+    if (theme === 'vegas-gold') {
+			_heroImage.src = '/assets/images/home/consenza-estates-hero.jpg'; // Use the Vegas property image
 		}
 		localStorage.setItem('theme', theme);
 		this.theme = theme;
