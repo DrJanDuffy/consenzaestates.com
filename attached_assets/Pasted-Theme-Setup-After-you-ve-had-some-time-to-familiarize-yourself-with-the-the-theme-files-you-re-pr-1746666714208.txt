@@ -1,139 +1,192 @@
-Theme Setup
 
-After you’ve had some time to familiarize yourself with the the theme files you’re probably wondering “How do I make it my own?” This guide will help you swap out titles, descriptions, logos, etc.
+# 🚀 Theme Setup Guide
 
-Global SEO
-In the theme files you’ll find a settings.js file under the src/config/ folder. The contents of the file should look something like this:
+## Making Your Luxury Real Estate Site Shine
 
+Welcome to the comprehensive setup guide for your luxury real estate website! This document will help you transform the theme into your personalized brand experience with just a few simple changes.
+
+---
+
+### 📋 Quick Setup Checklist
+
+- [ ] Update global SEO settings
+- [ ] Replace logo
+- [ ] Customize favicon
+- [ ] Set Open Graph images
+- [ ] Configure navigation
+- [ ] Personalize footer
+- [ ] Setup sitemap
+
+---
+
+## 🔍 Global SEO Settings
+
+The foundation of your site's visibility starts in `src/config/settings.js`:
+
+```javascript
 export default {
-  title: `Odyssey Astro Theme | A Marketing Website Theme for Startups and Businesses`,
-  description: `A simple, clean, and modern theme a startup or businesses' marketing website.`,
-  url: `https://odyssey-theme.sapling.supply`, // No trailing slash!
-  name: `Odyssey`, // The short name of the business or brand name. Used for things like the copyright in the footer.
+  title: `Dr. Jan Duffy | Premier Luxury Real Estate - Consenza Estates Las Vegas`,
+  description: `Experience unparalleled luxury with Dr. Jan Duffy, your elite real estate specialist for prestigious properties in Las Vegas.`,
+  url: `https://consenzaestates.com`, // No trailing slash!
+  name: `Dr. Jan Duffy Luxury Real Estate`, // Used for copyright and other branding elements
   enableThemeSwitcher: true,
-};  
-The title and description fields here are used as the global defaults if one is not provided at the page level.
+};
+```
 
-Adding Your Own Logo
-Under src/components/ you’ll see a Logo.astro file that should look something like this:
+These settings serve as global defaults when page-specific values aren't provided.
 
+---
+
+## 🎨 Logo Customization
+
+Your brand identity is central to client recognition. Update your logo in `src/components/Logo.astro`:
+
+**Before:**
+```astro
 <p class="odyssey-logo">Odyssey</p>
+```
 
-<style>
-  .odyssey-logo {
-    width: fit-content;
-    margin: 0;
-    font-family: var(--theme-font-family-serif);
-    font-size: var(--font-size-md);
-    color: inherit;
-  }
-  .odyssey-logo:hover {
-    text-decoration: underline;
-    cursor: pointer;
-  }
-</style>
-The easiest way to swap out the Odyssey logo across the site is to replace this code with the SVG code for your company’s logo or using an <img> tag linked to your company logo.
+**After:**
+```astro
+<!-- Option 1: Text-based logo with luxury styling -->
+<p class="luxury-logo">Dr. Jan Duffy</p>
 
-You should see that the Odyssey logo changes across the theme once this is updated.
+<!-- OR -->
 
-If you would like more control or don’t like this method of using a <Logo> component you will find most of the components also include a <slot> for the logo which will let you completely replace it.
+<!-- Option 2: Image-based logo -->
+<img src="/assets/images/logo.svg" alt="Dr. Jan Duffy Luxury Real Estate" class="luxury-logo-img" />
+```
 
-Favicon
-To replace the favicon you simply need to create your own favicon.png file and replace the one found under the public/ folder.
+**Pro Tip:** For SVG logos, paste the SVG code directly for best performance and styling options.
 
-If you don’t want to use a .png file you will need to go to the BaseHead.astro component under src/components/head/ and find this line to replace with your own favicon file.
+---
 
+## 🌐 Favicon & Social Images
+
+### Favicon
+Replace `public/favicon.png` with your custom logo in PNG format.
+
+For advanced favicon options, update the following in `src/components/head/BaseHead.astro`:
+```html
 <link rel="icon" type="image/png" href="/favicon.png" />
-Open Graph / Social Image
-To replace the default Open Graph image that displays when the link to your website is shared create your own social.png file and replace the one found under the public/ folder.
+```
 
-Navigation Items
-Customizing the navigation items is easily done by editing the array of items in the nav.js file found under the src/config/ folder.
+### Social Sharing Image
+Create a compelling social image (1200×630px recommended) and replace `public/social.png`.
 
-It will look something like this:
+---
 
+## 📱 Navigation Configuration
+
+Create an intuitive navigation structure in `src/config/nav.js`:
+
+```javascript
 export const nav = [
   {
     title: 'Home',
     slug: '/',
   },
   {
-    title: 'Blog',
-    slug: '/blog',
+    title: 'Properties',
+    slug: '/properties',
+  },
+  {
+    title: 'Consenza Estates',
+    slug: '/consenza-estates',
   },
   {
     title: 'About',
-    slug: '/company/about',
+    slug: '/about',
   },
   {
     title: 'Contact',
-    slug: '/company/contact',
+    slug: '/contact',
   },
 ];
-Footer Links
-In the src/config/ folder you’ll find at footer.js file which is where the footer social icons, social links, and the footer nav items are updated.
+```
 
-Social Links
-The social links list will look something like this.
+---
 
+## 👣 Footer Customization
+
+### Social Media Links
+Update your social presence in `src/config/footer.js`:
+
+```javascript
 export const footerSocials = [
   {
-    url: 'https://instagram.com/',
+    url: 'https://instagram.com/drjanduffy',
     icon: instagramIcon,
   },
   {
-    url: 'https://youtube.com/',
-    icon: youtubeIcon,
+    url: 'https://facebook.com/drjanduffyrealestate',
+    icon: facebookIcon,
   },
   {
-    url: 'https://twitter.com/jaydanurwin',
-    icon: twitterIcon,
-  },
-  {
-    url: 'https://github.com/treefarmstudio/odyssey-theme',
-    icon: githubIcon,
+    url: 'https://linkedin.com/in/drjanduffy',
+    icon: linkedinIcon,
   },
 ];
-The URLs are already set to safely open a new tab for the user when clicked so simply change our the URLs if you’re happy with the icons provided.
+```
 
-However, if you’d like to customize the icons you can do this by providing your own icon SVGs in the icons.js file under the src/icons/ folder.
+### Footer Navigation
+Create useful footer link groups:
 
-Footer Link Lists
-Similar to the top-level nav items you’ll see a footerLists array in footer.js
-
+```javascript
 export const footerLists = [
   {
-    title: 'Landing Pages',
+    title: 'Luxury Properties',
     items: [
       {
-        title: 'Landing Page 1',
-        slug: '/landing-pages/landing-1',
+        title: 'Featured Listings',
+        slug: '/properties/featured',
       },
       {
-        title: 'Landing Page 2',
-        slug: '/landing-pages/landing-2',
+        title: 'New Developments',
+        slug: '/properties/new-developments',
+      },
+      {
+        title: 'Virtual Tours',
+        slug: '/properties/virtual-tours',
       },
     ],
   },
-  ...
-The title is the non-clickable title of the list and the nested items array is the list of links under that title. Feel free to customize the lists as needed.
+  // Additional link groups...
+];
+```
 
-Sitemap
-Odyssey Theme will automatically generate a sitemap.xml file for you using Astro’s @astrojs/sitemap integration.
+---
 
-To setup the sitemap with the correct URLs you will need to open the astro.config.mjs at the base level of the theme files which should look something like this
+## 🗺️ Sitemap Configuration
 
+For optimal SEO, configure your sitemap in `astro.config.mjs`:
+
+```javascript
 import { defineConfig } from 'astro/config';
 import lit from '@astrojs/lit';
 import sitemap from "@astrojs/sitemap";
 
-// https://astro.build/config
 export default defineConfig({
-  site: 'https://odyssey-theme.sapling.supply/',
-  // Your public domain, e.g.: https://my-site.dev/. Used to generate sitemaps and canonical URLs.
+  site: 'https://consenzaestates.com/',
+  // Generates sitemap.xml automatically
   sitemap: true,
-  // Generate sitemap (set to "false" to disable)
-  integrations: [lit(), sitemap()] // Add renderers to the config
-
+  integrations: [lit(), sitemap()]
 });
-Simply edit the site: field with the live URL that your website will be hosted on and you’re all set!
+```
+
+---
+
+## ✨ Next Steps
+
+After completing these customizations, your luxury real estate website will reflect your brand's unique identity. For more advanced customizations, explore:
+
+- Adding custom property listings
+- Implementing advanced search features
+- Creating virtual tour integrations
+- Setting up lead capture forms
+
+Need assistance? Contact our support team at support@luxuryrealestate.dev
+
+---
+
+*Last updated: May 2023*
