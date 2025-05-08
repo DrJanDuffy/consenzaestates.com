@@ -87,6 +87,193 @@ h1:hover::after {
   transform-origin: left;
 }
 
+
+/* Luxury Real Estate Design Elements */
+.luxury-property-slider {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: var(--luxury-shadow-lg);
+}
+
+.luxury-property-slider img {
+  transition: transform 0.5s ease;
+}
+
+.luxury-property-slider:hover img {
+  transform: scale(1.05);
+}
+
+/* Gold accent elements */
+.gold-accent {
+  position: relative;
+}
+
+.gold-accent::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 80px;
+  height: 3px;
+  background: var(--luxury-gradient);
+}
+
+/* Animated stat counters */
+.animated-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: var(--luxury-shadow-md);
+  transition: transform 0.3s ease;
+}
+
+.animated-stat:hover {
+  transform: translateY(-10px);
+}
+
+.animated-stat-number {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  background: var(--luxury-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Luxury property gallery */
+.property-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 3rem 0;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: var(--luxury-shadow-sm);
+  aspect-ratio: 4/3;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+.gallery-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0));
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+/* Elegant section separators */
+.luxury-divider {
+  position: relative;
+  height: 3px;
+  background: var(--luxury-gradient);
+  margin: 4rem 0;
+  border-radius: 2px;
+}
+
+.luxury-divider::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  border: 3px solid var(--luxury-gold);
+  border-radius: 50%;
+}
+
+/* Contact form enhancements */
+.luxury-contact-form {
+  background-color: white;
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: var(--luxury-shadow-lg);
+  border-bottom: 5px solid var(--luxury-gold);
+}
+
+.luxury-contact-form h2 {
+  position: relative;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+}
+
+.luxury-contact-form h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: var(--luxury-gold);
+}
+
+/* Las Vegas specific design elements */
+.vegas-night-bg {
+  position: relative;
+  background: var(--vegas-night-gradient);
+  color: white;
+  overflow: hidden;
+}
+
+.vegas-night-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/assets/images/vegas-skyline-silhouette.png');
+  background-size: contain;
+  background-repeat: repeat-x;
+  background-position: bottom center;
+  opacity: 0.2;
+  z-index: 1;
+}
+
+/* Exclusive listings badge */
+.exclusive-badge {
+  position: absolute;
+  top: 20px;
+  right: -30px;
+  background: var(--luxury-gold);
+  color: white;
+  padding: 5px 30px;
+  transform: rotate(45deg);
+  font-weight: bold;
+  font-size: 0.8rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  z-index: 2;
+}
+
 /* Luxury animations */
 @keyframes shimmer {
   0% {

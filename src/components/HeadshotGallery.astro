@@ -1,229 +1,234 @@
 
 ---
-// HeadshotGallery.astro - Professional team headshot display component
-const { team = [] } = Astro.props;
-
-// Default team member if none provided
-const defaultTeam = [
-  {
-    name: "Dr. Jan Duffy",
-    title: "Luxury Real Estate Specialist",
-    bio: "With over 15 years of experience in the Las Vegas luxury real estate market, Dr. Duffy specializes in Consenza Estates and high-end Lennar homes. Nevada State Board Certified with a Ph.D. in Business Administration and licensed to serve your Vegas real estate needs.",
-    photo: "/assets/images/headshots/jan-duffy-1.jpg",
-    email: "DrDuffy@bhhsnv.com",
-    phone: "(702) 500-1955",
-    credentials: ["NV License #S.0187391", "Ph.D. Business Administration", "Certified Luxury Home Specialist", "Berkshire Hathaway HomeServices"]
-  }
-];
-
-// Use provided team or default if empty
-const teamMembers = team.length > 0 ? team : defaultTeam;
+const { images } = Astro.props;
 ---
 
-<section class="headshot-gallery">
-  <div class="luxury-container">
-    <div class="section-header">
-      <h2>Meet Our Exceptional Team</h2>
-      <p class="subtitle">Industry experts committed to delivering excellence</p>
+<section class="headshot-gallery-section">
+  <div class="headshot-container">
+    <div class="headshot-main">
+      <img src="/assets/images/headshots/jan-duffy-1.jpg" alt="Dr. Jan Duffy Professional Headshot" id="main-headshot" />
+      <div class="headshot-overlay">
+        <h3>Dr. Jan Duffy</h3>
+        <p>Las Vegas Luxury Real Estate Specialist</p>
+      </div>
     </div>
     
-    <div class="team-grid">
-      {teamMembers.map((member) => (
-        <div class="team-member">
-          <div class="headshot-container">
-            <img 
-              src={member.photo} 
-              alt={`${member.name}, ${member.title}`} 
-              onError={(e) => {
-                e.target.onerror = null;
-                e.target.src = '/assets/images/headshots/jan-duffy-1.jpg';
-              }}
-            />
-            <div class="bhhs-badge">
-              <img src="/assets/images/bhhs-logo.png" alt="Berkshire Hathaway HomeServices" />
-            </div>
-          </div>
-          <h3>{member.name}</h3>
-          <p class="member-title">{member.title}</p>
-          <p class="member-bio">{member.bio}</p>
-          
-          {member.credentials && (
-            <div class="member-credentials">
-              {member.credentials.map((credential) => (
-                <span class="credential-badge">{credential}</span>
-              ))}
-            </div>
-          )}
-          
-          <div class="member-contact">
-            <a href={`mailto:${member.email}`} class="contact-link">
-              <span class="icon">✉️</span> {member.email}
-            </a>
-            {member.phone && (
-              <a href={`tel:${member.phone.replace(/[^0-9]/g, '')}`} class="contact-link">
-                <span class="icon">📱</span> {member.phone}
-              </a>
-            )}
-          </div>
-        </div>
-      ))}
+    <div class="headshot-thumbs">
+      <div class="headshot-thumb active" data-src="/assets/images/headshots/jan-duffy-1.jpg">
+        <img src="/assets/images/headshots/jan-duffy-1.jpg" alt="Dr. Jan Duffy" />
+      </div>
+      <div class="headshot-thumb" data-src="/assets/images/headshots/jan-duffy-2.jpg">
+        <img src="/assets/images/headshots/jan-duffy-2.jpg" alt="Dr. Jan Duffy" />
+      </div>
+      <div class="headshot-thumb" data-src="/assets/images/headshots/jan-duffy-3.jpg">
+        <img src="/assets/images/headshots/jan-duffy-3.jpg" alt="Dr. Jan Duffy" />
+      </div>
+      <div class="headshot-thumb" data-src="/assets/images/headshots/jan-duffy-4.jpg">
+        <img src="/assets/images/headshots/jan-duffy-4.jpg" alt="Dr. Jan Duffy" />
+      </div>
+      <div class="headshot-thumb" data-src="/assets/images/headshots/jan-duffy-5.jpg">
+        <img src="/assets/images/headshots/jan-duffy-5.jpg" alt="Dr. Jan Duffy" />
+      </div>
+    </div>
+  </div>
+  
+  <div class="agent-credentials">
+    <div class="credential-item">
+      <div class="credential-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="8" r="7"></circle>
+          <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+        </svg>
+      </div>
+      <div class="credential-content">
+        <h3>Certified Luxury Home Marketing Specialist</h3>
+        <p>Specialized training for high-end property representation</p>
+      </div>
+    </div>
+    
+    <div class="credential-item">
+      <div class="credential-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+        </svg>
+      </div>
+      <div class="credential-content">
+        <h3>Certified New Home Specialist</h3>
+        <p>Expert in new construction and builder representation</p>
+      </div>
+    </div>
+    
+    <div class="credential-item">
+      <div class="credential-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+          <path d="M2 17l10 5 10-5"></path>
+          <path d="M2 12l10 5 10-5"></path>
+        </svg>
+      </div>
+      <div class="credential-content">
+        <h3>Top 1% of Las Vegas Real Estate Professionals</h3>
+        <p>Consistently recognized for outstanding performance</p>
+      </div>
     </div>
   </div>
 </section>
 
-<style>
-  .headshot-gallery {
-    padding: 4rem 0;
-    background-color: var(--luxury-white);
-  }
-  
-  .luxury-container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-  }
-  
-  .section-header {
-    text-align: center;
-    margin-bottom: 3rem;
-    position: relative;
-  }
-  
-  .section-header h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: var(--luxury-black, #333);
-  }
-  
-  .subtitle {
-    color: var(--luxury-gray, #666);
-    font-size: 1.2rem;
-    margin-top: -1rem;
-  }
-  
-  .team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 3rem;
-    margin-top: 3rem;
-  }
-  
-  .team-member {
-    text-align: center;
-    transition: transform 0.3s ease;
-  }
-  
-  .team-member:hover {
-    transform: translateY(-10px);
-  }
-  
-  .headshot-container {
-    width: 220px;
-    height: 220px;
-    margin: 0 auto 1.5rem;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 3px solid var(--luxury-gold, #D4AF37);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    position: relative;
-  }
-  
-  .headshot-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-  }
-  
-  .team-member:hover .headshot-container img {
-    transform: scale(1.05);
-  }
-  
-  .bhhs-badge {
-    position: absolute;
-    bottom: -10px;
-    right: -10px;
-    width: 70px;
-    height: 70px;
-    background: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid var(--luxury-gold, #D4AF37);
-    overflow: hidden;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
-  }
-  
-  .bhhs-badge img {
-    width: 80%;
-    height: auto;
-    object-fit: contain;
-  }
-  
-  .member-credentials {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    justify-content: center;
-    margin-bottom: 1rem;
-  }
-  
-  .credential-badge {
-    font-size: 0.75rem;
-    padding: 0.25rem 0.5rem;
-    background-color: rgba(212, 175, 55, 0.1);
-    border: 1px solid rgba(212, 175, 55, 0.3);
-    border-radius: 3px;
-    color: var(--luxury-black, #333);
-  }
-  
-  .team-member h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    color: var(--luxury-black, #333);
-  }
-  
-  .member-title {
-    color: var(--luxury-gold, #D4AF37);
-    font-weight: 600;
-    margin-bottom: 1rem;
-  }
-  
-  .member-bio {
-    font-size: 0.95rem;
-    color: var(--luxury-gray, #666);
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-  }
-  
-  .contact-link {
-    display: inline-flex;
-    align-items: center;
-    color: var(--luxury-black, #333);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-  }
-  
-  .contact-link:hover {
-    color: var(--luxury-gold, #D4AF37);
-  }
-  
-  .icon {
-    margin-right: 0.5rem;
-  }
-  
-  @media (max-width: 768px) {
-    .team-grid {
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 2rem;
-    }
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const mainHeadshot = document.getElementById('main-headshot');
+    const thumbnails = document.querySelectorAll('.headshot-thumb');
     
-    .headshot-container {
-      width: 180px;
-      height: 180px;
-    }
+    thumbnails.forEach(thumb => {
+      thumb.addEventListener('click', () => {
+        // Update active class
+        thumbnails.forEach(t => t.classList.remove('active'));
+        thumb.classList.add('active');
+        
+        // Update main image with fade effect
+        mainHeadshot.style.opacity = '0';
+        setTimeout(() => {
+          mainHeadshot.src = thumb.getAttribute('data-src');
+          mainHeadshot.style.opacity = '1';
+        }, 300);
+      });
+    });
+  });
+</script>
+
+<style>
+.headshot-gallery-section {
+  padding: 2rem 0;
+}
+
+.headshot-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+
+.headshot-main {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--luxury-shadow-md, 0 10px 15px rgba(0,0,0,0.1));
+}
+
+.headshot-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease, transform 0.5s ease;
+}
+
+.headshot-main:hover img {
+  transform: scale(1.05);
+}
+
+.headshot-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0));
+  color: white;
+}
+
+.headshot-overlay h3 {
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.headshot-thumbs {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.headshot-thumb {
+  cursor: pointer;
+  border-radius: 8px;
+  overflow: hidden;
+  opacity: 0.7;
+  transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100px;
+}
+
+.headshot-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.headshot-thumb:hover, .headshot-thumb.active {
+  opacity: 1;
+  transform: translateX(5px);
+  box-shadow: var(--luxury-shadow-sm, 0 4px 6px rgba(0,0,0,0.05));
+}
+
+.headshot-thumb.active {
+  border: 2px solid var(--luxury-gold, #D4AF37);
+}
+
+.agent-credentials {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.credential-item {
+  display: flex;
+  align-items: flex-start;
+  background: var(--theme-surface-1);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: var(--luxury-shadow-sm, 0 4px 6px rgba(0,0,0,0.05));
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.credential-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--luxury-shadow-md, 0 10px 15px rgba(0,0,0,0.1));
+}
+
+.credential-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 1rem;
+  color: var(--luxury-gold, #D4AF37);
+}
+
+.credential-content h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.credential-content p {
+  font-size: 0.9rem;
+  color: var(--theme-on-bg);
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .headshot-container {
+    grid-template-columns: 1fr;
   }
+  
+  .headshot-thumbs {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .headshot-thumb {
+    width: calc(20% - 0.8rem);
+    height: 80px;
+  }
+  
+  .headshot-thumb:hover, .headshot-thumb.active {
+    transform: translateY(-5px);
+  }
+}
 </style>

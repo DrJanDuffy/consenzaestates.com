@@ -1,209 +1,207 @@
 
 ---
-// LocalTestimonials.astro - Testimonials from local Las Vegas clients
-const { title = "What Las Vegas Clients Are Saying" } = Astro.props;
-
-// Local testimonials
-const testimonials = [
-  {
-    quote: "Dr. Duffy's expertise in Consenza Estates was invaluable. She knew every detail about the community and helped us negotiate an excellent price on our dream home.",
-    author: "Michael & Sarah Thompson",
-    location: "Consenza Estates",
-    rating: 5
-  },
-  {
-    quote: "Moving to Las Vegas from out of state was daunting, but Dr. Duffy made it seamless. Her knowledge of local neighborhoods and schools helped us find the perfect community for our family.",
-    author: "David Chen",
-    location: "Summerlin",
-    rating: 5
-  },
-  {
-    quote: "Dr. Duffy's connections with Lennar were instrumental in getting us early access to new construction homes. Her attention to detail during the build process saved us from potential issues.",
-    author: "Jennifer Williams",
-    location: "Henderson",
-    rating: 5
-  },
-  {
-    quote: "We've worked with several agents in Las Vegas over the years, but Dr. Duffy is exceptional. Her responsiveness and negotiation skills helped us secure our investment property below market value.",
-    author: "Robert & Lisa Martinez",
-    location: "The Ridges",
-    rating: 5
-  }
-];
 ---
-
 <section class="testimonials-section">
-  <div class="luxury-container">
-    <div class="section-header">
-      <h2>{title}</h2>
-    </div>
-    
-    <div class="testimonials-grid">
-      {testimonials.map((testimonial) => (
-        <div class="testimonial-card">
-          <div class="quote-icon">❝</div>
-          <p class="testimonial-quote">{testimonial.quote}</p>
-          <div class="testimonial-rating">
-            {Array(5).fill().map((_, i) => (
-              <span class={`star ${i < testimonial.rating ? 'filled' : ''}`}>★</span>
-            ))}
-          </div>
-          <div class="testimonial-author">
-            <p class="author-name">{testimonial.author}</p>
-            <p class="author-location">{testimonial.location}</p>
-          </div>
+  <h2 class="section-title gold-accent">Client Testimonials</h2>
+  <p class="section-description">What my clients say about their experiences in buying and selling Las Vegas luxury properties.</p>
+  
+  <div class="testimonials-container">
+    <div class="testimonial-card">
+      <div class="testimonial-quote">"Dr. Duffy's expertise in the Las Vegas luxury market made finding our dream home in Consenza Estates a pleasure. Her attention to detail and negotiation skills saved us thousands."</div>
+      <div class="testimonial-info">
+        <div class="testimonial-avatar" style="background-image: url('/assets/images/testimonials/client1.jpg')"></div>
+        <div class="testimonial-author">
+          <div class="author-name">Michael & Jennifer T.</div>
+          <div class="author-location">Consenza Estates</div>
         </div>
-      ))}
+        <div class="testimonial-rating">
+          <div class="stars">★★★★★</div>
+        </div>
+      </div>
     </div>
     
-    <div class="testimonials-footer">
-      <a href="/testimonials" class="view-more-link">
-        Read More Success Stories
-        <span class="arrow">→</span>
-      </a>
+    <div class="testimonial-card featured-testimonial">
+      <div class="testimonial-badge">Featured</div>
+      <div class="testimonial-quote">"As a real estate investor from California, I needed someone who truly understood the Las Vegas market. Jan exceeded all expectations with her market analysis and investment strategy. She helped me acquire three luxury properties that have all appreciated significantly."</div>
+      <div class="testimonial-info">
+        <div class="testimonial-avatar" style="background-image: url('/assets/images/testimonials/client2.jpg')"></div>
+        <div class="testimonial-author">
+          <div class="author-name">David R.</div>
+          <div class="author-location">The Ridges</div>
+        </div>
+        <div class="testimonial-rating">
+          <div class="stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="testimonial-card">
+      <div class="testimonial-quote">"Selling our Summerlin estate with Jan was seamless. Her professional photography, targeted marketing, and extensive network brought qualified buyers quickly. We received multiple offers above asking price."</div>
+      <div class="testimonial-info">
+        <div class="testimonial-avatar" style="background-image: url('/assets/images/testimonials/client3.jpg')"></div>
+        <div class="testimonial-author">
+          <div class="author-name">Robert & Sarah K.</div>
+          <div class="author-location">Summerlin</div>
+        </div>
+        <div class="testimonial-rating">
+          <div class="stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="testimonial-card">
+      <div class="testimonial-quote">"Jan's knowledge of Lennar homes is exceptional. She walked us through every aspect of the builder's process and helped us customize our home to perfection. We couldn't be happier with our new home in Consenza Estates."</div>
+      <div class="testimonial-info">
+        <div class="testimonial-avatar" style="background-image: url('/assets/images/testimonials/client4.jpg')"></div>
+        <div class="testimonial-author">
+          <div class="author-name">Thomas & Elizabeth W.</div>
+          <div class="author-location">Consenza Estates</div>
+        </div>
+        <div class="testimonial-rating">
+          <div class="stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="testimonial-card">
+      <div class="testimonial-quote">"Relocating to Las Vegas from New York, we needed someone who could handle everything remotely. Jan provided virtual tours, detailed reports, and handled all the paperwork digitally. The entire process was stress-free."</div>
+      <div class="testimonial-info">
+        <div class="testimonial-avatar" style="background-image: url('/assets/images/testimonials/client5.jpg')"></div>
+        <div class="testimonial-author">
+          <div class="author-name">James & Catherine P.</div>
+          <div class="author-location">Henderson</div>
+        </div>
+        <div class="testimonial-rating">
+          <div class="stars">★★★★★</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <style>
-  .testimonials-section {
-    padding: 5rem 0;
-    background-color: var(--theme-surface-1);
-    position: relative;
-    overflow: hidden;
+.testimonials-section {
+  padding: 4rem 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.section-description {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  color: var(--theme-on-bg);
+  opacity: 0.8;
+}
+
+.testimonials-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.testimonial-card {
+  position: relative;
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: var(--luxury-shadow-md, 0 10px 15px rgba(0,0,0,0.1));
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonial-card::before {
+  content: """;
+  position: absolute;
+  top: 1rem;
+  left: 1.5rem;
+  font-size: 5rem;
+  line-height: 1;
+  font-family: serif;
+  color: rgba(212, 175, 55, 0.1);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--luxury-shadow-lg, 0 20px 25px rgba(0,0,0,0.15));
+}
+
+.testimonial-quote {
+  margin-bottom: 2rem;
+  font-style: italic;
+  line-height: 1.6;
+  flex-grow: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.testimonial-info {
+  display: flex;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.testimonial-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  margin-right: 1rem;
+  background-color: #f0f0f0;
+  border: 2px solid var(--luxury-gold, #D4AF37);
+}
+
+.testimonial-author {
+  flex-grow: 1;
+}
+
+.author-name {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.author-location {
+  font-size: 0.8rem;
+  color: var(--theme-on-bg);
+  opacity: 0.7;
+}
+
+.testimonial-rating .stars {
+  color: var(--luxury-gold, #D4AF37);
+  letter-spacing: 2px;
+}
+
+.featured-testimonial {
+  grid-column: span 2;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(212, 175, 55, 0.02));
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.testimonial-badge {
+  position: absolute;
+  top: -10px;
+  right: 20px;
+  background: var(--luxury-gold, #D4AF37);
+  color: white;
+  padding: 5px 15px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 768px) {
+  .featured-testimonial {
+    grid-column: auto;
   }
-  
-  .testimonials-section::before {
-    content: "❝";
-    position: absolute;
-    top: -80px;
-    right: 10%;
-    font-size: 300px;
-    color: var(--vegas-gold, var(--luxury-gold));
-    opacity: 0.03;
-    font-family: 'Georgia', serif;
-  }
-  
-  .luxury-container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-    position: relative;
-    z-index: 1;
-  }
-  
-  .section-header {
-    text-align: center;
-    margin-bottom: 3rem;
-  }
-  
-  .section-header h2 {
-    font-size: 2.5rem;
-    color: var(--theme-on-surface-1);
-    margin-bottom: 1rem;
-  }
-  
-  .testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
-  }
-  
-  .testimonial-card {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: var(--luxury-shadow-sm);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .testimonial-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--luxury-shadow-md);
-  }
-  
-  .quote-icon {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    font-size: 30px;
-    color: var(--vegas-gold, var(--luxury-gold));
-    opacity: 0.2;
-    font-family: 'Georgia', serif;
-  }
-  
-  .testimonial-quote {
-    margin-bottom: 1.5rem;
-    font-style: italic;
-    line-height: 1.6;
-    color: var(--theme-on-surface-1);
-  }
-  
-  .testimonial-rating {
-    margin-bottom: 1.5rem;
-  }
-  
-  .star {
-    color: #ddd;
-    font-size: 18px;
-    margin-right: 2px;
-  }
-  
-  .star.filled {
-    color: var(--vegas-gold, var(--luxury-gold));
-  }
-  
-  .testimonial-author {
-    border-top: 1px solid rgba(0,0,0,0.05);
-    padding-top: 1rem;
-  }
-  
-  .author-name {
-    font-weight: 600;
-    margin-bottom: 0.25rem;
-    color: var(--theme-on-surface-1);
-  }
-  
-  .author-location {
-    font-size: 0.9rem;
-    color: var(--theme-on-surface-1);
-    opacity: 0.7;
-  }
-  
-  .testimonials-footer {
-    margin-top: 3rem;
-    text-align: center;
-  }
-  
-  .view-more-link {
-    display: inline-flex;
-    align-items: center;
-    color: var(--vegas-gold, var(--luxury-gold));
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-  }
-  
-  .view-more-link:hover {
-    color: var(--vegas-gold-dark, var(--luxury-gold-dark));
-  }
-  
-  .arrow {
-    margin-left: 5px;
-    transition: transform 0.3s ease;
-  }
-  
-  .view-more-link:hover .arrow {
-    transform: translateX(3px);
-  }
-  
-  @media (max-width: 768px) {
-    .testimonials-grid {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-  }
+}
 </style>

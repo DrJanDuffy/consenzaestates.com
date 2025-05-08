@@ -1,475 +1,452 @@
 
 ---
-import { Icon } from 'astro-icon/components';
-import {
-	TextCardSection,
-	Container,
-	Button,
-	FormInput,
-	FormSelect,
-	FormTextarea,
-} from '@components/odyssey-theme';
+import {Icon} from 'astro-icon/components';
 import Layout from '../../layouts/Page.astro';
+import Container from '../../components/core/Container.astro';
+import TextSection from '../../components/sections/TextSection.astro';
+import ThreeColumnTextSection from '../../components/sections/ThreeColumnTextSection.astro';
+import Button from '../../components/buttons/Button.astro';
+import FormInput from '../../components/form-fields/FormInput.astro';
+import FormSelect from '../../components/form-fields/FormSelect.astro';
+import FormTextarea from '../../components/form-fields/FormTextarea.astro';
 
 const seo = {
-	title: 'Consenza Estates Style Guide | Dr. Jan Duffy',
-	description: 'Luxury real estate styling guidelines for the Consenza Estates brand.',
+  title: 'Style Guide | Dr. Jan Duffy Real Estate',
+  description: 'Luxury Real Estate in Las Vegas Style Guide',
 };
-
-const selectOptions = ['Option 1', 'Option 2', 'Option 3'];
 ---
 
 <Layout {seo}>
-	<Container>
-		<div class="style-guide-header animate-fadeInUp">
-			<h1>Luxury Brand <span class="gold-text">Style Guide</span></h1>
-			<div class="luxury-divider"></div>
-			<p class="style-guide-intro">
-				This comprehensive style guide defines the visual language for <strong>Dr. Jan Duffy's Consenza Estates</strong> brand. 
-				Our design system uses premium elements to convey luxury, trust, and sophistication throughout the client experience.
-			</p>
-		</div>
-		
-		<section class="style-guide__section animate-fadeInUp animate-delay-100">
-			<div class="style-guide__title-container">
-				<h2 class="gold-accent">Color Palette</h2>
-				<p>Our signature colors reflect the opulence of Las Vegas luxury real estate.</p>
-			</div>
-			<div class="style-guide-colors">
-				<div class="style-guide-color__card">
-					<div class="color-preview"></div>
-					<h3>Primary Gold</h3>
-					<p class="color-hex">#c8a951</p>
-				</div>
-				<div class="style-guide-color__card style-guide-color__card--surface-1">
-					<div class="color-preview"></div>
-					<h3>Surface 1</h3>
-					<p class="color-hex">#f9f7f2</p>
-				</div>
-				<div class="style-guide-color__card style-guide-color__card--surface-2">
-					<div class="color-preview"></div>
-					<h3>Surface 2</h3>
-					<p class="color-hex">#272727</p>
-				</div>
-				<div class="style-guide-color__card style-guide-color__card--accent">
-					<div class="color-preview"></div>
-					<h3>BHHS Purple</h3>
-					<p class="color-hex">#7d3f98</p>
-				</div>
-			</div>
-		</section>
-		
-		<section class="style-guide__section animate-fadeInUp animate-delay-200">
-			<div class="style-guide__title-container">
-				<h2 class="gold-accent">Typography</h2>
-				<p>Elegant and readable typefaces that convey sophistication.</p>
-			</div>
-			<div class="typography-showcase">
-				<div class="typography-item">
-					<h1>Heading 1</h1>
-					<p class="type-details">Playfair Display / 42-48px / 700 weight</p>
-				</div>
-				<div class="typography-item">
-					<h2>Heading 2</h2>
-					<p class="type-details">Playfair Display / 36px / 600 weight</p>
-				</div>
-				<div class="typography-item">
-					<h3>Heading 3</h3>
-					<p class="type-details">Playfair Display / 28px / 600 weight</p>
-				</div>
-				<div class="typography-item">
-					<h4>Heading 4</h4>
-					<p class="type-details">Montserrat / 24px / 600 weight</p>
-				</div>
-				<div class="typography-item">
-					<h5>Heading 5</h5>
-					<p class="type-details">Montserrat / 20px / 600 weight</p>
-				</div>
-				<div class="typography-item">
-					<h6>Heading 6</h6>
-					<p class="type-details">Montserrat / 18px / 600 weight</p>
-				</div>
-				<div class="typography-item">
-					<p class="body-text-sample">Body Text: Montserrat Light provides optimal readability while maintaining an elegant aesthetic appropriate for luxury real estate marketing materials.</p>
-					<p class="type-details">Montserrat / 16-18px / 300-400 weight / 1.6 line height</p>
-				</div>
-				<div class="typography-item">
-					<blockquote class="luxury-testimonial">
-						"Don't settle for what life gives you; make life better and build something. Your dream home is the foundation of your legacy."
-						<cite>— Dr. Jan Duffy</cite>
-					</blockquote>
-				</div>
-			</div>
-		</section>
-		
-		<section class="style-guide__section animate-fadeInUp animate-delay-300">
-			<div class="style-guide__title-container">
-				<h2 class="gold-accent">UI Elements</h2>
-				<p>Interactive elements designed for a seamless luxury experience.</p>
-			</div>
-			<div class="ui-elements-showcase">
-				<div class="buttons-showcase">
-					<h3>Primary Buttons</h3>
-					<div class="button-row">
-						<Button class="btn-luxury">Schedule Viewing</Button>
-						<Button unelevated class="btn-luxury-secondary">Learn More</Button>
-					</div>
-					
-					<h3>Secondary Buttons</h3>
-					<div class="button-row">
-						<Button outlined class="btn-luxury-outlined">Request Info</Button>
-						<Button customIcon class="btn-luxury-icon">
-							Virtual Tour
-							<Fragment slot="icon">
-								<Icon name="ic:baseline-play-circle" />
-							</Fragment>
-						</Button>
-					</div>
-				</div>
-				
-				<div class="forms-showcase">
-					<h3>Input Fields</h3>
-					<div class="form-elements-grid">
-						<div class="form-item">
-							<h4>Labeled Input</h4>
-							<FormInput type="text" label="Full Name" name="fullName" placeholder="Dr. Jane Smith" />
-						</div>
-						<div class="form-item">
-							<h4>Standard Input</h4>
-							<FormInput type="email" name="email" placeholder="your.email@example.com" />
-						</div>
-						<div class="form-item">
-							<h4>Dropdown Select</h4>
-							<FormSelect options={selectOptions} label="Property Type" />
-						</div>
-						<div class="form-item">
-							<h4>Message Area</h4>
-							<FormTextarea name="Message" placeholder="Tell us about your dream property..." />
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		
-		<section class="style-guide__section animate-fadeInUp animate-delay-400">
-			<div class="style-guide__title-container">
-				<h2 class="gold-accent">Image Treatments</h2>
-				<p>Visual guidelines for property photography and marketing materials.</p>
-			</div>
-			<div class="image-treatments">
-				<div class="image-treatment-example">
-					<div class="img-frame luxury-shadow">
-						<div class="img-placeholder">Standard Property Image</div>
-					</div>
-					<p>Standard property images use subtle shadows and rounded corners (8px radius)</p>
-				</div>
-				<div class="image-treatment-example">
-					<div class="img-frame img-zoom-container">
-						<div class="img-placeholder img-zoom">Featured Listing</div>
-					</div>
-					<p>Featured listings include subtle zoom effect on hover</p>
-				</div>
-				<div class="image-treatment-example">
-					<div class="img-frame vegas-skyline">
-						<div class="img-placeholder">Vegas Skyline Overlay</div>
-					</div>
-					<p>Special treatment for Las Vegas Strip properties</p>
-				</div>
-			</div>
-		</section>
-	</Container>
+  <Container>
+    <section class="style-guide">
+      <div class="style-guide__header">
+        <h1>Las Vegas Luxury Real Estate Style Guide</h1>
+        <p>This style guide showcases the premium design elements used throughout the site for an elevated luxury real estate experience.</p>
+      </div>
+
+      <div class="style-guide-section">
+        <h2 class="section-header">Color Palettes</h2>
+        <div class="color-palettes">
+          <div class="theme-palette">
+            <h3>Vegas Gold</h3>
+            <div class="color-grid">
+              <div class="color-item" style="background-color: #c8a951;">
+                <span class="color-name">Primary</span>
+                <span class="color-hex">#c8a951</span>
+              </div>
+              <div class="color-item" style="background-color: #f9f7f2;">
+                <span class="color-name">Surface 1</span>
+                <span class="color-hex">#f9f7f2</span>
+              </div>
+              <div class="color-item" style="background-color: #272727; color: white;">
+                <span class="color-name">Surface 2</span>
+                <span class="color-hex">#272727</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="theme-palette">
+            <h3>Luxury Gold</h3>
+            <div class="color-grid">
+              <div class="color-item" style="background-color: #D4AF37;">
+                <span class="color-name">Primary</span>
+                <span class="color-hex">#D4AF37</span>
+              </div>
+              <div class="color-item" style="background-color: #F8F5F0;">
+                <span class="color-name">Surface 1</span>
+                <span class="color-hex">#F8F5F0</span>
+              </div>
+              <div class="color-item" style="background-color: #2F2A1C; color: white;">
+                <span class="color-name">Surface 2</span>
+                <span class="color-hex">#2F2A1C</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="style-guide-section">
+        <h2 class="section-header">Typography</h2>
+        <div class="typography-examples">
+          <div class="typography-item">
+            <h1>Heading 1</h1>
+            <p class="type-details">Roboto Serif Bold · 3.5rem</p>
+          </div>
+          <div class="typography-item">
+            <h2>Heading 2</h2>
+            <p class="type-details">Roboto Serif Bold · 2.5rem</p>
+          </div>
+          <div class="typography-item">
+            <h3>Heading 3</h3>
+            <p class="type-details">Roboto Serif Bold · 2rem</p>
+          </div>
+          <div class="typography-item">
+            <h4>Heading 4</h4>
+            <p class="type-details">Roboto Serif Bold · 1.5rem</p>
+          </div>
+          <div class="typography-item">
+            <h5>Heading 5</h5>
+            <p class="type-details">Roboto Serif Bold · 1.25rem</p>
+          </div>
+          <div class="typography-item">
+            <h6>Heading 6</h6>
+            <p class="type-details">Roboto Serif Bold · 1rem</p>
+          </div>
+          <div class="typography-item">
+            <p>Body Text - Lato Regular. Professional luxury real estate services in Las Vegas with a focus on Consenza Estates and Lennar homes. Providing expert guidance for homebuyers and sellers in the premium Las Vegas market.</p>
+            <p class="type-details">Lato Regular · 1rem</p>
+          </div>
+          <div class="typography-item quote">
+            <blockquote>"Don't settle for what life gives you; make life better and build something." — Ashton Kutcher</blockquote>
+            <p class="type-details">Lato Italic · 1.25rem</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="style-guide-section">
+        <h2 class="section-header">Buttons</h2>
+        <div class="button-examples">
+          <div class="button-row">
+            <div class="button-item">
+              <Button>Primary Button</Button>
+              <span class="button-label">Button</span>
+            </div>
+            <div class="button-item">
+              <Button unelevated>Unelevated Button</Button>
+              <span class="button-label">Unelevated Button</span>
+            </div>
+            <div class="button-item">
+              <Button outlined>Outlined Button</Button>
+              <span class="button-label">Outlined Button</span>
+            </div>
+            <div class="button-item">
+              <Button customIcon>
+                <Fragment slot="icon">
+                  <Icon name="ic:round-launch" />
+                </Fragment>
+                Button With Icon
+              </Button>
+              <span class="button-label">With Custom Icon</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="style-guide-section">
+        <h2 class="section-header">Forms</h2>
+        <div class="form-examples">
+          <div class="form-row">
+            <div class="form-item">
+              <FormInput type="text" label="Name" name="Name" placeholder="John Doe" />
+              <span class="form-label">Input With Label</span>
+            </div>
+            <div class="form-item">
+              <FormInput type="text" name="Name" placeholder="John Doe" />
+              <span class="form-label">Input Without Label</span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-item">
+              <FormSelect label="Select Dropdown" name="select" placeholder="==SELECT AN OPTION==" required>
+                <option value="">==SELECT AN OPTION==</option>
+                <option value="option-1">Consenza Estates</option>
+                <option value="option-2">Luxury Properties</option>
+                <option value="option-3">Lennar Homes</option>
+              </FormSelect>
+              <span class="form-label">Select Dropdown</span>
+            </div>
+            <div class="form-item">
+              <FormTextarea label="Message" name="message" placeholder="Your message here..." />
+              <span class="form-label">Textarea</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="style-guide-section">
+        <h2 class="section-header">Property Cards</h2>
+        <div class="property-card-examples">
+          <div class="property-card-row">
+            <div class="property-card">
+              <div class="property-image" style="background-image: url('/assets/images/home/classic-hero.jpg')"></div>
+              <div class="property-details">
+                <h3>Luxury Residence</h3>
+                <p class="property-price">$1,250,000</p>
+                <p class="property-features">4 BR | 3.5 BA | 3,200 SqFt</p>
+                <p class="property-address">1234 Consenza Court, Las Vegas, NV</p>
+              </div>
+            </div>
+            <div class="property-card">
+              <div class="property-image" style="background-image: url('/assets/images/home/earth-hero.jpg')"></div>
+              <div class="property-details">
+                <h3>Modern Estate</h3>
+                <p class="property-price">$1,975,000</p>
+                <p class="property-features">5 BR | 4.5 BA | 4,800 SqFt</p>
+                <p class="property-address">5678 Golden View Dr, Las Vegas, NV</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="style-guide-section">
+        <h2 class="section-header">Testimonial Cards</h2>
+        <div class="testimonial-examples">
+          <div class="luxury-testimonial">
+            <p class="testimonial-content">"Dr. Duffy's expertise in the Las Vegas luxury market made our home buying experience seamless and enjoyable. Her knowledge of Consenza Estates is unmatched."</p>
+            <p class="testimonial-author">— Michael & Jennifer T.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </Container>
 </Layout>
 
 <style>
-	.style-guide-header {
-		text-align: center;
-		margin: 4rem 0 3rem;
-	}
-	
-	.style-guide-intro {
-		max-width: 800px;
-		margin: 2rem auto;
-		font-size: 1.1rem;
-		line-height: 1.7;
-	}
-	
-	.gold-text {
-		color: var(--vegas-gold);
-		position: relative;
-	}
-	
-	.luxury-divider {
-		height: 1px;
-		background: linear-gradient(to right, transparent, var(--vegas-gold), transparent);
-		margin: 1.5rem auto;
-		width: 60%;
-	}
-	
-	.style-guide__section {
-		margin: var(--section-margin) auto;
-		display: grid;
-		grid-template-columns: 1fr 2fr;
-		gap: 3rem;
-		padding: 2rem;
-		border-radius: 8px;
-		box-shadow: var(--vegas-shadow-sm);
-		background-color: white;
-		transition: all 0.3s ease;
-	}
-	
-	.style-guide__section:hover {
-		box-shadow: var(--vegas-shadow-md);
-	}
-	
-	.gold-accent {
-		position: relative;
-		padding-bottom: 0.5rem;
-	}
-	
-	.gold-accent::after {
-		content: '';
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		width: 60px;
-		height: 2px;
-		background-color: var(--vegas-gold);
-	}
-	
-	.style-guide__title-container h2 {
-		position: sticky;
-		top: 2rem;
-		margin-bottom: 1rem;
-	}
-	
-	.style-guide-colors {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-		gap: 1.5rem;
-	}
-	
-	.style-guide-color__card {
-		padding: 1.5rem;
-		border-radius: 8px;
-		background-color: white;
-		box-shadow: var(--vegas-shadow-sm);
-		transition: transform 0.3s ease;
-		text-align: center;
-		border: 1px solid #eee;
-	}
-	
-	.style-guide-color__card:hover {
-		transform: translateY(-5px);
-		box-shadow: var(--vegas-shadow-md);
-	}
-	
-	.color-preview {
-		height: 100px;
-		width: 100%;
-		border-radius: 6px;
-		margin-bottom: 1rem;
-		background-color: var(--vegas-gold);
-	}
-	
-	.style-guide-color__card--surface-1 .color-preview {
-		background-color: var(--theme-surface-1);
-	}
-	
-	.style-guide-color__card--surface-2 .color-preview {
-		background-color: var(--theme-surface-2);
-	}
-	
-	.style-guide-color__card--accent .color-preview {
-		background-color: var(--bhhs-purple, #7d3f98);
-	}
-	
-	.color-hex {
-		font-family: monospace;
-		font-size: 0.9rem;
-		color: #666;
-	}
-	
-	.typography-showcase {
-		display: flex;
-		flex-direction: column;
-		gap: 1.5rem;
-	}
-	
-	.typography-item {
-		padding: 1rem;
-		border-left: 3px solid var(--vegas-gold);
-		background-color: rgba(249, 247, 242, 0.5);
-	}
-	
-	.type-details {
-		margin-top: 0.5rem;
-		font-size: 0.85rem;
-		color: #777;
-		font-style: italic;
-	}
-	
-	.body-text-sample {
-		margin-bottom: 1rem;
-		line-height: 1.7;
-	}
-	
-	.luxury-testimonial {
-		font-style: italic;
-		padding: 2rem;
-		background-color: white;
-		border-radius: 8px;
-		box-shadow: var(--vegas-shadow-sm);
-		position: relative;
-		margin: 2rem 0;
-		border-left: none;
-	}
-	
-	.luxury-testimonial::before {
-		content: """;
-		position: absolute;
-		top: 0;
-		left: 15px;
-		font-size: 5rem;
-		color: var(--vegas-gold);
-		opacity: 0.2;
-		line-height: 1;
-	}
-	
-	.luxury-testimonial cite {
-		display: block;
-		text-align: right;
-		margin-top: 1rem;
-		font-weight: 500;
-	}
-	
-	.ui-elements-showcase {
-		display: flex;
-		flex-direction: column;
-		gap: 3rem;
-	}
-	
-	.button-row {
-		display: flex;
-		gap: 1rem;
-		margin: 1rem 0 2rem;
-		flex-wrap: wrap;
-	}
-	
-	.btn-luxury {
-		background-color: var(--vegas-gold);
-		color: #fff;
-		transition: all 0.3s ease;
-	}
-	
-	.btn-luxury:hover {
-		background-color: var(--vegas-gold-dark);
-		transform: translateY(-2px);
-		box-shadow: var(--vegas-shadow-md);
-	}
-	
-	.btn-luxury-secondary {
-		background-color: var(--vegas-black);
-		color: var(--vegas-gold);
-	}
-	
-	.btn-luxury-outlined {
-		border-color: var(--vegas-gold);
-		color: var(--vegas-gold);
-	}
-	
-	.form-elements-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-		gap: 1.5rem;
-	}
-	
-	.form-item {
-		margin-bottom: 1.5rem;
-	}
-	
-	.image-treatments {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-		gap: 2rem;
-	}
-	
-	.image-treatment-example {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		text-align: center;
-	}
-	
-	.image-treatment-example p {
-		margin-top: 1rem;
-		font-size: 0.9rem;
-		color: #666;
-	}
-	
-	.img-frame {
-		width: 100%;
-		height: 180px;
-		border-radius: 8px;
-		overflow: hidden;
-		border: 1px solid #eee;
-	}
-	
-	.luxury-shadow {
-		box-shadow: var(--vegas-shadow-md);
-	}
-	
-	.img-placeholder {
-		width: 100%;
-		height: 100%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		background-color: #f5f5f5;
-		color: #777;
-		font-weight: 500;
-	}
-	
-	.img-zoom {
-		transition: transform 0.5s ease;
-	}
-	
-	.img-zoom:hover {
-		transform: scale(1.05);
-	}
-	
-	.vegas-skyline {
-		position: relative;
-	}
-	
-	.vegas-skyline::after {
-		content: "";
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		height: 40px;
-		background-color: rgba(0,0,0,0.7);
-		background-image: linear-gradient(90deg, 
-			transparent 0%, rgba(255,215,0,0.2) 20%, 
-			rgba(255,215,0,0.2) 30%, transparent 40%,
-			transparent 60%, rgba(255,215,0,0.2) 70%, 
-			rgba(255,215,0,0.2) 80%, transparent 100%);
-	}
-	
-	@media (max-width: 768px) {
-		.style-guide__section {
-			grid-template-columns: 1fr;
-			gap: 2rem;
-			padding: 1.5rem;
-		}
-		
-		.button-row {
-			flex-direction: column;
-			align-items: flex-start;
-		}
-		
-		.form-elements-grid {
-			grid-template-columns: 1fr;
-		}
-	}
+.style-guide {
+  padding: 2rem 0;
+}
+
+.style-guide__header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.style-guide__header h1 {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.style-guide__header h1::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: var(--luxury-gold, #D4AF37);
+}
+
+.style-guide-section {
+  margin-bottom: 5rem;
+}
+
+.section-header {
+  position: relative;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+}
+
+.section-header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: var(--luxury-gold, #D4AF37);
+}
+
+/* Color palettes */
+.color-palettes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.theme-palette h3 {
+  margin-bottom: 1rem;
+}
+
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.color-item {
+  height: 100px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.color-name {
+  font-weight: bold;
+}
+
+.color-hex {
+  font-family: monospace;
+  font-size: 0.9rem;
+}
+
+/* Typography */
+.typography-examples {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.typography-item {
+  position: relative;
+}
+
+.type-details {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: #666;
+  font-family: monospace;
+}
+
+.quote blockquote {
+  font-style: italic;
+  padding-left: 1rem;
+  border-left: 3px solid var(--luxury-gold, #D4AF37);
+}
+
+/* Buttons */
+.button-examples {
+  margin: 2rem 0;
+}
+
+.button-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.button-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.button-label {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+/* Forms */
+.form-examples {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.form-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-label {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+/* Property Cards */
+.property-card-examples {
+  margin: 2rem 0;
+}
+
+.property-card-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.property-card {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.property-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.property-image {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
+
+.property-details {
+  padding: 1.5rem;
+}
+
+.property-price {
+  font-weight: bold;
+  color: var(--luxury-gold, #D4AF37);
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+.property-features {
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.property-address {
+  font-size: 0.9rem;
+}
+
+/* Testimonial */
+.testimonial-examples {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.luxury-testimonial {
+  position: relative;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.luxury-testimonial::before {
+  content: """;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 5rem;
+  color: rgba(212, 175, 55, 0.2);
+  font-family: serif;
+  line-height: 1;
+}
+
+.testimonial-content {
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.testimonial-author {
+  font-weight: bold;
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .color-grid, 
+  .button-row, 
+  .form-row, 
+  .property-card-row {
+    grid-template-columns: 1fr;
+  }
+}
 </style>

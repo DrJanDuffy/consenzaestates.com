@@ -5,11 +5,6 @@ export const estateThemeIcon = html`<svg
 	height="24"
 	viewBox="0 0 24 24"
 	fill="none"
-
-  earthThemeIcon,
-	vegasGoldThemeIcon,
-} from './icons';
-
 	xmlns="http://www.w3.org/2000/svg"
 >
 	<circle cx="12" cy="12" r="12" fill="#F2F2F2" />

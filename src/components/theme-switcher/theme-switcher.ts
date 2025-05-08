@@ -8,6 +8,7 @@ import {
 	estateThemeIcon,
   luxuryGoldThemeIcon,
   vegasGoldThemeIcon,
+  earthThemeIcon,
 } from './icons';
 
 const themes = [

@@ -1,225 +1,236 @@
 
 ---
-// LasVegasNeighborhoods.astro - Display featured Las Vegas luxury neighborhoods
-const { title = "Luxury Las Vegas Neighborhoods" } = Astro.props;
-
-// Featured neighborhoods
-const neighborhoods = [
-  {
-    name: "Consenza Estates",
-    image: "/assets/images/neighborhoods/consenza-estates.jpg",
-    description: "Exclusive gated community featuring Lennar luxury homes",
-    link: "/consenza-estates"
-  },
-  {
-    name: "The Ridges",
-    image: "/assets/images/neighborhoods/the-ridges.jpg",
-    description: "Premier Summerlin community with spectacular mountain views",
-    link: "/areas/the-ridges"
-  },
-  {
-    name: "MacDonald Highlands",
-    image: "/assets/images/neighborhoods/macdonald-highlands.jpg",
-    description: "Henderson's most prestigious guard-gated community",
-    link: "/areas/macdonald-highlands"
-  },
-  {
-    name: "Ascaya",
-    image: "/assets/images/neighborhoods/ascaya.jpg",
-    description: "Extraordinary hillside estates with panoramic views",
-    link: "/areas/ascaya"
-  }
-];
 ---
-
 <section class="neighborhoods-section">
-  <div class="luxury-container">
-    <div class="section-header">
-      <h2>{title}</h2>
-      <p class="subtitle">Discover the most sought-after luxury communities in Las Vegas</p>
+  <h2 class="section-title gold-accent">Luxury Las Vegas Neighborhoods</h2>
+  <p class="section-description">Discover the most exclusive neighborhoods and communities that Las Vegas has to offer. Each area provides a unique living experience with spectacular amenities.</p>
+  
+  <div class="neighborhood-grid">
+    <div class="neighborhood-card">
+      <img src="/assets/images/neighborhoods/summerlin.jpg" alt="Summerlin" onerror="this.src='/assets/images/home/estate-hero.jpg'">
+      <div class="neighborhood-info">
+        <h3>Summerlin</h3>
+        <p>Premier planned community with world-class amenities, golf courses, and scenic mountain views.</p>
+        <div class="neighborhood-stats">
+          <span>From $750K</span>
+          <span>Top Schools</span>
+        </div>
+      </div>
     </div>
     
-    <div class="neighborhoods-grid">
-      {neighborhoods.map((neighborhood) => (
-        <a href={neighborhood.link} class="neighborhood-card">
-          <div class="img-container">
-            <img 
-              src={neighborhood.image} 
-              alt={neighborhood.name} 
-              onError={(e) => {
-                e.target.onerror = null;
-                e.target.src = '/assets/images/neighborhoods/placeholder.jpg';
-              }}
-            />
-          </div>
-          <div class="neighborhood-info">
-            <h3 class="neighborhood-name">{neighborhood.name}</h3>
-            <p class="neighborhood-description">{neighborhood.description}</p>
-            <span class="explore-link">Explore <span class="arrow">→</span></span>
-          </div>
-        </a>
-      ))}
+    <div class="neighborhood-card">
+      <img src="/assets/images/neighborhoods/the-ridges.jpg" alt="The Ridges" onerror="this.src='/assets/images/home/classic-hero.jpg'">
+      <div class="neighborhood-info">
+        <h3>The Ridges</h3>
+        <p>Exclusive guard-gated community featuring custom luxury estates with stunning Strip and mountain views.</p>
+        <div class="neighborhood-stats">
+          <span>From $2M</span>
+          <span>Ultra-Luxury</span>
+        </div>
+      </div>
     </div>
     
-    <div class="neighborhoods-footer">
-      <a href="/areas" class="view-all-link">
-        View All Las Vegas Luxury Neighborhoods
-        <span class="arrow">→</span>
-      </a>
+    <div class="neighborhood-card">
+      <img src="/assets/images/neighborhoods/henderson.jpg" alt="Henderson" onerror="this.src='/assets/images/home/earth-hero.jpg'">
+      <div class="neighborhood-info">
+        <h3>Henderson</h3>
+        <p>Upscale suburban community with master-planned neighborhoods, parks, and excellent schools.</p>
+        <div class="neighborhood-stats">
+          <span>From $600K</span>
+          <span>Family Friendly</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="neighborhood-card">
+      <img src="/assets/images/neighborhoods/southern-highlands.jpg" alt="Southern Highlands" onerror="this.src='/assets/images/home/ocean-hero.jpg'">
+      <div class="neighborhood-info">
+        <h3>Southern Highlands</h3>
+        <p>Private golf course community with Mediterranean-inspired architecture and resort-style amenities.</p>
+        <div class="neighborhood-stats">
+          <span>From $900K</span>
+          <span>Golf Community</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="neighborhood-card feature-neighborhood">
+      <img src="/assets/images/neighborhoods/consenza-estates.jpg" alt="Consenza Estates" onerror="this.src='/assets/images/home/consenza-estates-hero.jpg'">
+      <div class="exclusive-banner">Featured Community</div>
+      <div class="neighborhood-info">
+        <h3>Consenza Estates</h3>
+        <p>Exquisite gated enclave featuring Lennar homes with luxurious finishes and comprehensive amenities.</p>
+        <div class="neighborhood-stats">
+          <span>From $1.2M</span>
+          <span>Smart Homes</span>
+        </div>
+        <a href="/consenza-estates" class="neighborhood-cta">Explore Consenza Estates</a>
+      </div>
+    </div>
+    
+    <div class="neighborhood-card">
+      <img src="/assets/images/neighborhoods/las-vegas-strip.jpg" alt="Las Vegas Strip" onerror="this.src='/assets/images/home/dark-hero.jpg'">
+      <div class="neighborhood-info">
+        <h3>The Strip</h3>
+        <p>Iconic high-rise luxury condominiums offering extraordinary amenities and spectacular views.</p>
+        <div class="neighborhood-stats">
+          <span>From $500K</span>
+          <span>Urban Living</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <style>
-  .neighborhoods-section {
-    padding: 5rem 0;
-    background-color: var(--theme-bg);
-  }
-  
-  .luxury-container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-  }
-  
-  .section-header {
-    text-align: center;
-    margin-bottom: 3rem;
-    position: relative;
-  }
-  
-  .section-header h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: var(--theme-on-bg);
-  }
-  
-  .subtitle {
-    font-size: 1.1rem;
-    color: var(--theme-on-bg);
-    opacity: 0.8;
-    max-width: 700px;
-    margin: 0 auto;
-  }
-  
-  .neighborhoods-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 2rem;
-  }
-  
-  .neighborhood-card {
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: var(--luxury-shadow-md);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    position: relative;
-    display: block;
-    text-decoration: none;
-    color: var(--theme-on-bg);
-    height: 350px;
-  }
-  
-  .neighborhood-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--luxury-shadow-lg);
-  }
-  
-  .img-container {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-  }
-  
-  .img-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s ease;
-  }
-  
-  .neighborhood-card:hover .img-container img {
-    transform: scale(1.05);
+.neighborhoods-section {
+  padding: 4rem 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.section-description {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  color: var(--theme-on-bg);
+  opacity: 0.8;
+}
+
+.neighborhood-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.neighborhood-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--luxury-shadow-md, 0 10px 15px rgba(0,0,0,0.1));
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  height: 400px;
+}
+
+.neighborhood-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.neighborhood-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--luxury-shadow-lg, 0 20px 25px rgba(0,0,0,0.15));
+}
+
+.neighborhood-card:hover img {
+  transform: scale(1.1);
+}
+
+.neighborhood-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0));
+  color: white;
+  transform: translateY(70%);
+  transition: transform 0.4s ease;
+}
+
+.neighborhood-card:hover .neighborhood-info {
+  transform: translateY(0);
+}
+
+.neighborhood-info h3 {
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.neighborhood-info p {
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.neighborhood-card:hover .neighborhood-info p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.neighborhood-stats {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.neighborhood-stats span {
+  background-color: rgba(200, 169, 81, 0.8);
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.feature-neighborhood {
+  grid-column: span 2;
+  height: 450px;
+}
+
+.exclusive-banner {
+  position: absolute;
+  top: 20px;
+  right: -35px;
+  background: var(--luxury-gold, #D4AF37);
+  color: white;
+  padding: 8px 40px;
+  transform: rotate(45deg);
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  z-index: 2;
+}
+
+.neighborhood-cta {
+  display: inline-block;
+  background: var(--luxury-gold, #D4AF37);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease, background 0.3s ease;
+}
+
+.neighborhood-card:hover .neighborhood-cta {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.neighborhood-cta:hover {
+  background: var(--luxury-gold-dark, #B8860B);
+}
+
+@media (max-width: 768px) {
+  .feature-neighborhood {
+    grid-column: auto;
+    height: 400px;
   }
   
   .neighborhood-info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 1.5rem;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4), transparent);
-    color: white;
-    transition: transform 0.3s ease;
+    transform: translateY(60%);
   }
-  
-  .neighborhood-card:hover .neighborhood-info {
-    transform: translateY(-5px);
-  }
-  
-  .neighborhood-name {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-  }
-  
-  .neighborhood-description {
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-    opacity: 0.9;
-  }
-  
-  .explore-link {
-    font-size: 0.9rem;
-    font-weight: 500;
-    display: inline-block;
-    padding-bottom: 2px;
-    border-bottom: 1px solid var(--vegas-gold, var(--luxury-gold));
-    color: var(--vegas-gold-light, var(--luxury-gold-light));
-  }
-  
-  .arrow {
-    display: inline-block;
-    margin-left: 3px;
-    transition: transform 0.3s ease;
-  }
-  
-  .neighborhood-card:hover .arrow,
-  .view-all-link:hover .arrow {
-    transform: translateX(3px);
-  }
-  
-  .neighborhoods-footer {
-    margin-top: 3rem;
-    text-align: center;
-  }
-  
-  .view-all-link {
-    display: inline-flex;
-    align-items: center;
-    color: var(--vegas-gold, var(--luxury-gold));
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-    padding: 0.75rem 1.5rem;
-    border: 1px solid var(--vegas-gold, var(--luxury-gold));
-    border-radius: 4px;
-  }
-  
-  .view-all-link:hover {
-    background-color: var(--vegas-gold, var(--luxury-gold));
-    color: white;
-  }
-  
-  @media (max-width: 768px) {
-    .neighborhoods-grid {
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 1.5rem;
-    }
-    
-    .neighborhood-card {
-      height: 280px;
-    }
-  }
+}
 </style>
