@@ -43,8 +43,8 @@ const siteSettings = {
   // Contact information
   contact: {
     email: "DrDuffy@bhhsnv.com",
-    phone: "+1 (702) 555-8742",
-    address: "Consenza Estates, Las Vegas, NV 89138"
+    phone: "+1 (702) 500-1955",
+    address: "7131 Windsor Downs Ave, Las Vegas, NV 89113"
   },
   
   // Social media links

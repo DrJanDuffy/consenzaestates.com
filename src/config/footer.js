@@ -1,24 +1,29 @@
 export const footerSocials = [
   {
+    name: 'Facebook',
+    url: 'https://facebook.com/drjanduffyrealestate',
+    icon: "mdi:facebook",
+  },
+  {
+    name: 'Instagram',
+    url: 'https://instagram.com/drjanduffy',
+    icon: "mdi:instagram",
+  },
+  {
     name: 'Twitter',
-    url: 'https://twitter.com/jaydanurwin',
+    url: 'https://twitter.com/drjanduffy',
     icon: "mdi:twitter",
   },
   {
+    name: 'LinkedIn',
+    url: 'https://linkedin.com/in/drjanduffy',
+    icon: "mdi:linkedin",
+  },
+  {
     name: 'Youtube',
-    url: 'https://youtube.com/@jaydanurwin',
+    url: 'https://youtube.com/c/drjanduffy',
     icon: "mdi:youtube",
-  },
-  {
-    name: 'Github',
-    url: 'https://github.com/jaydanurwin',
-    icon: "mdi:github",
-  },
-  {
-    name: 'Discord',
-    url: 'https://astro.build/chat',
-    icon: "ic:baseline-discord",
-  },
+  }
 ]
 
 export const footerLists = [
