@@ -2,6 +2,10 @@
 dist/
 .output/
 
+# environment variables
+.env
+.env.local
+
 # dependencies
 node_modules/
 

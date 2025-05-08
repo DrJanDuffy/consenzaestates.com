@@ -1,4 +1,3 @@
-
 // Follow Up Boss API integration
 
 /**
@@ -7,9 +6,9 @@
  * @returns {Promise} - A promise that resolves to the API response
  */
 export async function sendToFollowUpBoss(leadData) {
-  const API_KEY = 'fka_0N4mnNH3mzSyXDV5aoWtCFCkgb2hIesrXB';
+  const API_KEY = import.meta.env.FOLLOW_UP_BOSS_API_KEY || '';
   const API_URL = 'https://api.followupboss.com/v1/people';
-  
+
   try {
     const response = await fetch(API_URL, {
       method: 'POST',
@@ -19,11 +18,11 @@ export async function sendToFollowUpBoss(leadData) {
       },
       body: JSON.stringify(leadData)
     });
-    
+
     if (!response.ok) {
       throw new Error(`Error sending data to Follow Up Boss: ${response.statusText}`);
     }
-    
+
     return await response.json();
   } catch (error) {
     console.error('Failed to send data to Follow Up Boss:', error);
@@ -56,7 +55,7 @@ export function formatContactFormData(formData) {
 export function formatMarketAnalysisData(formData) {
   const [firstName, ...lastNameParts] = formData.ownerName?.split(' ') || ['', ''];
   const lastName = lastNameParts.join(' ');
-  
+
   return {
     firstName: firstName || '',
     lastName: lastName || '',
