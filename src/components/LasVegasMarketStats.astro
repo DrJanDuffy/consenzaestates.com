@@ -1,0 +1,235 @@
+
+---
+// LasVegasMarketStats.astro - Display current Las Vegas real estate market statistics
+const { title = "Las Vegas Luxury Market Snapshot" } = Astro.props;
+
+// Current market stats - Update these regularly for the latest data
+const marketStats = [
+  {
+    label: "Avg. Luxury Home Price",
+    value: "$1.2M",
+    change: "+5.4%",
+    isPositive: true
+  },
+  {
+    label: "Avg. Days on Market",
+    value: "38",
+    change: "-12%",
+    isPositive: true
+  },
+  {
+    label: "Inventory Level",
+    value: "423",
+    change: "+8%",
+    isPositive: false
+  },
+  {
+    label: "Closed Sales YTD",
+    value: "287",
+    change: "+3.2%",
+    isPositive: true
+  }
+];
+---
+
+<section class="market-stats-section">
+  <div class="luxury-container">
+    <div class="section-header">
+      <h2>{title}</h2>
+      <p class="last-updated">Last Updated: May 2023</p>
+    </div>
+    
+    <div class="market-stats">
+      {marketStats.map((stat) => (
+        <div class="stat-card">
+          <p class="stat-label">{stat.label}</p>
+          <p class="stat-number animate-on-scroll">{stat.value}</p>
+          <p class={`stat-change ${stat.isPositive ? 'positive' : 'negative'}`}>
+            {stat.change}
+            <span class="trend-arrow">{stat.isPositive ? '↑' : '↓'}</span>
+          </p>
+        </div>
+      ))}
+    </div>
+    
+    <div class="stats-footer">
+      <p class="stats-source">Source: Greater Las Vegas Association of Realtors (GLVAR)</p>
+      <a href="/resources/market-reports" class="view-reports-link">
+        View Detailed Market Reports
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .market-stats-section {
+    padding: 4rem 0;
+    background-color: var(--theme-surface-1);
+  }
+  
+  .luxury-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+  }
+  
+  .section-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--theme-on-surface-1);
+  }
+  
+  .last-updated {
+    font-size: 0.9rem;
+    color: var(--theme-on-surface-1);
+    opacity: 0.7;
+  }
+  
+  .market-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 2rem;
+  }
+  
+  .stat-card {
+    padding: 1.75rem;
+    background-color: white;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: var(--luxury-shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-bottom: 3px solid var(--vegas-gold, var(--luxury-gold));
+  }
+  
+  .stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--luxury-shadow-md);
+  }
+  
+  .stat-label {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+    color: var(--theme-on-surface-1);
+  }
+  
+  .stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--vegas-gold, var(--luxury-gold));
+    margin-bottom: 0.5rem;
+    line-height: 1;
+  }
+  
+  .stat-change {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
+  }
+  
+  .stat-change.positive {
+    background-color: rgba(0, 160, 70, 0.1);
+    color: #00a046;
+  }
+  
+  .stat-change.negative {
+    background-color: rgba(220, 53, 69, 0.1);
+    color: #dc3545;
+  }
+  
+  .trend-arrow {
+    margin-left: 2px;
+    font-size: 0.8rem;
+  }
+  
+  .stats-footer {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .stats-source {
+    font-size: 0.85rem;
+    opacity: 0.7;
+  }
+  
+  .view-reports-link {
+    color: var(--vegas-gold, var(--luxury-gold));
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.3s ease;
+  }
+  
+  .view-reports-link:hover {
+    color: var(--vegas-gold-dark, var(--luxury-gold-dark));
+  }
+  
+  .arrow {
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+  }
+  
+  .view-reports-link:hover .arrow {
+    transform: translateX(3px);
+  }
+  
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  
+  .animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  @media (max-width: 768px) {
+    .market-stats {
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .stat-number {
+      font-size: 2rem;
+    }
+    
+    .stats-footer {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>
+
+<script>
+  // Animation on scroll
+  document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    document.querySelectorAll('.animate-on-scroll').forEach(element => {
+      observer.observe(element);
+    });
+  });
+</script>

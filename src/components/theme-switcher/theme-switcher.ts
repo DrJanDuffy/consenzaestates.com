@@ -6,7 +6,8 @@ import {
 	blueThemeIcon,
   orangeThemeIcon,
 	estateThemeIcon,
-  luxuryGoldThemeIcon, // Assuming this icon is defined elsewhere
+  luxuryGoldThemeIcon,
+  vegasGoldThemeIcon,
 } from './icons';
 
 const themes = [

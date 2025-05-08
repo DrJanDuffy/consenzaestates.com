@@ -1,3 +1,4 @@
+
 export const footerSocials = [
   {
     name: 'Facebook',
@@ -28,58 +29,74 @@ export const footerSocials = [
 
 export const footerLists = [
 	{
-		title: 'Landing Pages',
+		title: 'Luxury Properties',
 		items: [
 			{
-				title: 'Landing Page 1',
-				slug: '/landing-pages/landing-1',
+				title: 'Featured Listings',
+				slug: '/properties/featured',
 			},
 			{
-				title: 'Landing Page 2',
-				slug: '/landing-pages/landing-2',
+				title: 'New Construction',
+				slug: '/properties/new-construction',
 			},
-      // {
-			// 	title: 'Landing Page 3',
-			// 	slug: '/landing-pages/landing-3',
-			// },
+      {
+				title: 'Virtual Tours',
+				slug: '/properties/virtual-tours',
+			},
+      {
+				title: 'Exclusive Listings',
+				slug: '/properties/exclusive',
+			}
 		],
 	},
 	{
-		title: 'Company',
+		title: 'Las Vegas Areas',
 		items: [
 			{
-				title: 'About',
-				slug: '/company/about',
+				title: 'Consenza Estates',
+				slug: '/consenza-estates',
 			},
 			{
-				title: 'Blog',
-				slug: '/blog',
+				title: 'Summerlin',
+				slug: '/areas/summerlin',
+			},
+			{
+				title: 'Henderson',
+				slug: '/areas/henderson',
+			},
+      {
+				title: 'The Ridges',
+				slug: '/areas/the-ridges',
+			},
+      {
+				title: 'MacDonald Highlands',
+				slug: '/areas/macdonald-highlands',
+			}
+		],
+	},
+	{
+		title: 'Resources',
+		items: [
+			{
+				title: 'Buyer\'s Guide',
+				slug: '/resources/buyers-guide',
+			},
+			{
+				title: 'Seller\'s Guide',
+				slug: '/resources/sellers-guide',
+			},
+      {
+				title: 'Relocation Guide',
+				slug: '/resources/relocation-guide',
+			},
+      {
+				title: 'Market Reports',
+				slug: '/resources/market-reports',
 			},
 			{
 				title: 'Contact',
-				slug: '/company/contact',
+				slug: '/contact',
 			},
-		],
-	},
-	{
-		title: 'Theme',
-		items: [
-			{
-				title: 'Get Started',
-				slug: '/theme/get-started',
-			},
-			{
-				title: 'Style Guide',
-				slug: '/theme/style-guide',
-			},
-      {
-        title: 'Theme Setup',
-        slug: '/theme/theme-setup',
-      },
-      {
-        title: 'Customizing Odyssey',
-        slug: '/theme/customizing-odyssey',
-      }
 		],
 	},
 ];

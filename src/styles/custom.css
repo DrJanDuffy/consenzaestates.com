@@ -357,6 +357,76 @@ h1:hover::after {
   opacity: 0.3;
 }
 
+/* Las Vegas specific elements */
+.vegas-skyline {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.vegas-skyline::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background-image: url('/assets/images/vegas-skyline-silhouette.png');
+  background-size: contain;
+  background-repeat: repeat-x;
+  background-position: bottom center;
+  opacity: 0.8;
+  z-index: 2;
+}
+
+/* Las Vegas neighborhood cards */
+.neighborhood-card {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--vegas-shadow-md);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.neighborhood-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--vegas-shadow-lg);
+}
+
+.neighborhood-name {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 15px;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0));
+  color: white;
+  font-family: var(--serif-font);
+  font-size: 1.5rem;
+}
+
+/* Local market stats section */
+.market-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.stat-card {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: var(--theme-surface-1);
+  border-radius: 8px;
+  box-shadow: var(--vegas-shadow-sm);
+  border-bottom: 3px solid var(--vegas-gold);
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
 /* Animated stats counter */
 .stat-number {
   font-weight: 800;

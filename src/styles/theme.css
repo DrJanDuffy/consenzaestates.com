@@ -153,6 +153,39 @@
 	--luxury-gradient: linear-gradient(to right, var(--luxury-gold-dark), var(--luxury-gold), var(--luxury-gold-light));
 }
 
+[data-theme='vegas-gold'] {
+	/* Las Vegas Luxury Theme */
+	--theme-primary: #c8a951; /* Vegas gold */
+	--theme-primary-hover: #b89642;
+	--theme-on-primary: #ffffff;
+	
+	--theme-bg: #fdfdfd;
+	--theme-on-bg: #232323;
+	
+	--theme-surface-1: #f9f7f2;
+	--theme-on-surface-1: #232323;
+	
+	--theme-surface-2: #272727;
+	--theme-on-surface-2: #f9f7f2;
+	
+	--theme-button-border-radius: 0.25rem;
+	
+	/* Vegas Strip Nights palette */
+	--vegas-gold: #c8a951;
+	--vegas-gold-dark: #b89642;
+	--vegas-gold-light: #e5d190;
+	--vegas-black: #232323;
+	--vegas-purple: #852b7e; /* Bellagio purple */
+	--vegas-blue: #1e5b94; /* Luxor blue */
+	--vegas-red: #9e2b25; /* Caesars red */
+	
+	--vegas-shadow-sm: 0 4px 8px rgba(0, 0, 0, 0.06);
+	--vegas-shadow-md: 0 8px 16px rgba(0, 0, 0, 0.12);
+	--vegas-shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.18);
+	--vegas-gradient: linear-gradient(135deg, var(--vegas-gold-dark), var(--vegas-gold), var(--vegas-gold-light));
+	--vegas-night-gradient: linear-gradient(to bottom, #232323, #171717);
+}
+
 [data-theme='sand'] {
 	/* Theme Colors */
 	--theme-primary: #e38a20;
