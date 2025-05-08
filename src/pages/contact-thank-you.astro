@@ -1,0 +1,111 @@
+
+---
+import { Container, TextSection } from '@components/odyssey-theme.js';
+import Layout from '@layouts/Page.astro';
+import HeroSection from '@components/sections/heros/HeroSection.astro';
+
+const seo = {
+  title: 'Thank You | Dr. Jan Duffy',
+  description: 'Thank you for contacting Dr. Jan Duffy. Your message has been received and we will be in touch shortly.'
+};
+---
+
+<Layout {seo}>
+  <HeroSection>
+    <div slot="text-container">
+      <h1>Thank You</h1>
+      <p>Your message has been received.</p>
+    </div>
+    <picture slot="image-container">
+      <img
+        src="/assets/images/home/contact-image.jpg"
+        alt="Thank You"
+        id="thank-you-hero-image"
+      />
+    </picture>
+  </HeroSection>
+
+  <Container>
+    <TextSection>
+      <h2>Your Message Has Been Received</h2>
+      <p>Thank you for reaching out to Dr. Jan Duffy. Your inquiry is important to us, and we will get back to you as soon as possible.</p>
+      
+      <div class="thank-you-info">
+        <p>In the meantime, feel free to:</p>
+        <ul>
+          <li>Explore <a href="/properties">available properties</a> in Consenza Estates</li>
+          <li>Learn more about <a href="/consenza-estates">the community</a></li>
+          <li>Check out <a href="/resources">resources</a> for home buyers</li>
+        </ul>
+      </div>
+      
+      <div class="cta-button-container">
+        <a href="/" class="cta-button primary">Return to Home</a>
+      </div>
+    </TextSection>
+  </Container>
+</Layout>
+
+<style>
+  #thank-you-hero-image {
+    box-shadow: var(--luxury-shadow-lg);
+    transition: all 0.5s ease;
+    border: 1px solid rgba(212, 175, 55, 0.1);
+  }
+  
+  .thank-you-info {
+    margin: 2rem 0;
+    padding: 2rem;
+    background-color: var(--theme-surface-1);
+    border-radius: var(--theme-shape-radius);
+    box-shadow: var(--luxury-shadow-sm);
+  }
+  
+  .thank-you-info ul {
+    margin-top: 1rem;
+    padding-left: 1.5rem;
+  }
+  
+  .thank-you-info li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .thank-you-info a {
+    color: var(--theme-primary);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .thank-you-info a:hover {
+    color: var(--theme-primary-hover);
+    text-decoration: underline;
+  }
+  
+  .cta-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+  }
+  
+  .cta-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--theme-button-border-radius);
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  
+  .cta-button.primary {
+    background-color: var(--theme-primary);
+    color: var(--theme-on-primary);
+  }
+  
+  .cta-button.primary:hover {
+    background-color: var(--theme-primary-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  }
+</style>

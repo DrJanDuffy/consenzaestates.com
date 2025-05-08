@@ -4,26 +4,127 @@ import {Button, FormInput } from "@components/odyssey-theme";
 
 ---
 
-<form name="Newsletter Form" method="POST" action="/newsletter-thank-you">
-  <div class="newsletter-form__container">
-    <FormInput name="Email" placeholder="hello@example.com"/>
-    <Button customIcon>Submit
-      <Fragment slot="icon">
-        <Icon name="ic:baseline-chevron-right" />
-      </Fragment>
-    </Button>
+<form id="newsletterForm" name="Newsletter Form" method="POST">
+  <div class="form-group">
+    <label for="firstName">First Name</label>
+    <input type="text" name="firstName" id="firstName" placeholder="John" required />
   </div>
+  <div class="form-group">
+    <label for="lastName">Last Name</label>
+    <input type="text" name="lastName" id="lastName" placeholder="Doe" required />
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input
+      type="email"
+      name="email"
+      id="email"
+      placeholder="hello@example.com"
+      required
+    />
+  </div>
+  <Button>Subscribe</Button>
+  <div id="newsletterFormStatus" class="form-status"></div>
 </form>
 
+<script>
+  import { sendToFollowUpBoss, formatContactFormData } from '../../utils/followUpBoss.js';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('newsletterForm');
+    const formStatus = document.getElementById('newsletterFormStatus');
+
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        try {
+          const formData = new FormData(form);
+          const formDataObj = {};
+
+          for (const [key, value] of formData.entries()) {
+            formDataObj[key] = value;
+          }
+
+          formStatus.textContent = 'Subscribing...';
+          formStatus.className = 'form-status sending';
+
+          const leadData = formatContactFormData(formDataObj);
+          // Override source and tags for newsletter
+          leadData.source = 'Newsletter Subscription';
+          leadData.tags = ['newsletter', 'website-lead'];
+
+          await sendToFollowUpBoss(leadData);
+
+          formStatus.textContent = 'Thank you for subscribing!';
+          formStatus.className = 'form-status success';
+          form.reset();
+
+        } catch (error) {
+          console.error('Newsletter submission error:', error);
+          formStatus.textContent = 'There was an error processing your subscription. Please try again.';
+          formStatus.className = 'form-status error';
+        }
+      });
+    }
+  });
+</script>
+
 <style>
-.newsletter-form__container {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 1rem;
-}
-@media (max-width: 600px) {
-  .newsletter-form__container {
+  form {
+    display: grid;
     grid-template-columns: 1fr;
+    gap: 1rem;
   }
-}
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  label {
+    font-weight: bold;
+    font-size: var(--font-size-sm);
+    margin-bottom: 0.5rem;
+  }
+
+  input, textarea, select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--neutral-600);
+    border-radius: 0.25rem;
+    font-size: var(--font-size-md);
+  }
+
+  input::placeholder, textarea::placeholder, select::placeholder {
+    color: var(--neutral-500);
+  }
+
+  input:focus, textarea:focus, select:focus {
+    border-color: var(--primary-300);
+    outline: none;
+  }
+
+  .form-status {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    border-radius: 0.25rem;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .sending {
+    background-color: #f0f0f0;
+    color: #666;
+  }
+
+  .success {
+    background-color: #e6f7e6;
+    color: #2c662d;
+  }
+
+  .error {
+    background-color: #ffecec;
+    color: #cc0033;
+  }
 </style>

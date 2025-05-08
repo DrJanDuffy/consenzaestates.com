@@ -75,30 +75,30 @@ const seo = {
         <h2>Request a Consenza Estates Market Analysis</h2>
         <p>Thinking about selling your Consenza Estates home? Request a comprehensive market analysis to understand your home's current value in today's market.</p>
         
-        <form class="market-analysis-form">
+        <form id="marketAnalysisForm" class="market-analysis-form">
           <div class="form-row">
             <div class="form-field">
-              <label for="property-address">Property Address</label>
-              <input type="text" id="property-address" name="property-address" required />
+              <label for="propertyAddress">Property Address</label>
+              <input type="text" id="propertyAddress" name="propertyAddress" required />
             </div>
           </div>
           
           <div class="form-row">
             <div class="form-field">
-              <label for="owner-name">Your Name</label>
-              <input type="text" id="owner-name" name="owner-name" required />
+              <label for="ownerName">Your Name</label>
+              <input type="text" id="ownerName" name="ownerName" required />
             </div>
             
             <div class="form-field">
-              <label for="owner-email">Email</label>
-              <input type="email" id="owner-email" name="owner-email" required />
+              <label for="ownerEmail">Email</label>
+              <input type="email" id="ownerEmail" name="ownerEmail" required />
             </div>
           </div>
           
           <div class="form-row">
             <div class="form-field">
-              <label for="owner-phone">Phone</label>
-              <input type="tel" id="owner-phone" name="owner-phone" required />
+              <label for="ownerPhone">Phone</label>
+              <input type="tel" id="ownerPhone" name="ownerPhone" required />
             </div>
             
             <div class="form-field">
@@ -113,7 +113,47 @@ const seo = {
           </div>
           
           <button type="submit" class="submit-button">Request Market Analysis</button>
+          <div id="marketAnalysisStatus" class="form-status"></div>
         </form>
+
+        <script>
+          import { sendToFollowUpBoss, formatMarketAnalysisData } from '../utils/followUpBoss.js';
+          
+          document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('marketAnalysisForm');
+            const formStatus = document.getElementById('marketAnalysisStatus');
+            
+            if (form) {
+              form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                try {
+                  const formData = new FormData(form);
+                  const formDataObj = {};
+                  
+                  for (const [key, value] of formData.entries()) {
+                    formDataObj[key] = value;
+                  }
+                  
+                  formStatus.textContent = 'Sending your request...';
+                  formStatus.className = 'form-status sending';
+                  
+                  const leadData = formatMarketAnalysisData(formDataObj);
+                  await sendToFollowUpBoss(leadData);
+                  
+                  formStatus.textContent = 'Thank you! Your market analysis request has been sent.';
+                  formStatus.className = 'form-status success';
+                  form.reset();
+                  
+                } catch (error) {
+                  console.error('Form submission error:', error);
+                  formStatus.textContent = 'There was an error sending your request. Please try again.';
+                  formStatus.className = 'form-status error';
+                }
+              });
+            }
+          });
+        </script>
       </TextSection>
     </div>
   </Container>
