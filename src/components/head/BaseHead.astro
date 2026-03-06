@@ -21,6 +21,7 @@ const canonicalURL = Astro.props.canonicalURL || new URL(Astro.url.pathname, Ast
 const image = new URL(Astro.props.image || './social.png', Astro.site);
 const imageWidth = Astro.props.imageWidth ?? settings.seo?.openGraph?.images?.[0]?.width ?? 1200;
 const imageHeight = Astro.props.imageHeight ?? settings.seo?.openGraph?.images?.[0]?.height ?? 630;
+const ga4Id = import.meta.env.PUBLIC_GA4_MEASUREMENT_ID;
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -101,10 +102,14 @@ const jsonLd = {
 <!-- JSON-LD: LocalBusiness + RealEstateAgent (NAP, GBP alignment) -->
 <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
-<!-- Google Analytics -->
-<script>
-  var host = window.location.hostname;
-  if(host != 'localhost') {
-    // Place Google Analytics code here.
-  }
-</script>
+<!-- Google Analytics 4 (set PUBLIC_GA4_MEASUREMENT_ID in .env, e.g. G-XXXXXXXXXX) -->
+{ga4Id && (
+  <>
+    <script is:inline define:vars={{ ga4Id }}>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtag/js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer',ga4Id);
+    </script>
+    <script is:inline define:vars={{ ga4Id }}>
+      window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', ga4Id);
+    </script>
+  </>
+)}

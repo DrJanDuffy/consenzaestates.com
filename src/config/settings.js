@@ -44,6 +44,16 @@ const siteSettings = {
   calendly: {
     url: 'https://calendly.com/drjanduffy/realtor_strategy_meeting',
     badgeText: 'Schedule time with me',
+    /** Build Calendly URL with UTM for tracking (source=consenzaestates, medium=web, campaign=optional). */
+    urlWithUtm(campaign = '') {
+      const base = 'https://calendly.com/drjanduffy/realtor_strategy_meeting';
+      const params = new URLSearchParams({
+        utm_source: 'consenzaestates',
+        utm_medium: 'web',
+        ...(campaign && { utm_campaign: campaign }),
+      });
+      return `${base}?${params.toString()}`;
+    },
   },
 
   // Contact information

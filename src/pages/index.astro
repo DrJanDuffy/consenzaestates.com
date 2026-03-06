@@ -20,15 +20,16 @@ const seo = {
     <div slot="text-container" class="animate-in">
       <h1>Your Consenza Estates Specialist - Dr. Jan Duffy</h1>
       <p>Welcome to your premier resource for Consenza Estates real estate. As a specialized REALTOR® with extensive knowledge of Lennar homes and the Consenza Estates community, I'm here to guide you through every step of your real estate journey.</p>
-      <div class="hero-buttons" style="display: flex; gap: 1rem; margin-top: 1.5rem;">
-        <a href="/properties" class="agent-button">View Listings</a>
-        <CalendlyLink class="agent-button" buttonStyle="outlined">Schedule a Tour</CalendlyLink>
+      <div class="hero-buttons" style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem;">
+        <CalendlyLink class="agent-button" utmCampaign="home_hero">Book a free 15‑min call</CalendlyLink>
+        <a href="/properties" class="agent-button" style="background: transparent; border: 2px solid var(--theme-primary); color: var(--theme-primary);">View Listings</a>
       </div>
+      <p class="hero-trust" style="margin-top: 0.75rem; font-size: 0.9rem; opacity: 0.9;">Free 15‑minute call — no obligation.</p>
     </div>
     <div slot="image-container">
       <picture>
         <img
-          src="/public/assets/images/home/consenza-estates-hero.jpg"
+          src="/assets/images/home/consenza-estates-hero.jpg"
           alt="Consenza Estates luxury homes"
           id="home-hero-image"
         />

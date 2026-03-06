@@ -1,9 +1,9 @@
-
 ---
 import { Container, TextSection, StickyTextImageSection } from '@components/odyssey-theme.js';
 import Layout from '@layouts/Page.astro';
 import HeroSection from '@components/sections/heros/HeroSection.astro';
 import ThreeColumnTextSection from '@components/sections/ThreeColumnTextSection.astro';
+import CalendlyLink from '@components/CalendlyLink.astro';
 
 const seo = {
   title: 'Consenza Estates Community | Dr. Jan Duffy',
@@ -19,7 +19,7 @@ const seo = {
     </div>
     <picture slot="image-container">
       <img
-        src="/public/assets/images/home/consenza-community.jpg"
+        src="/assets/images/home/consenza-community.jpg"
         alt="Consenza Estates Community"
         id="community-hero-image"
       />
@@ -92,7 +92,7 @@ const seo = {
     <div slot="image-container">
       <picture>
         <img
-          src="/public/assets/images/home/consenza-map.jpg"
+          src="/assets/images/home/consenza-map.jpg"
           alt="Consenza Estates Community Map"
           loading="lazy"
         />
@@ -107,28 +107,30 @@ const seo = {
       
       <div class="property-gallery">
         <div class="gallery-image animate-in delay-1">
-          <img src="/public/assets/images/home/gallery-1.jpg" alt="Consenza Estates Home Exterior" />
+          <img src="/assets/images/home/gallery-1.jpg" alt="Consenza Estates Home Exterior" />
         </div>
         <div class="gallery-image animate-in delay-1">
-          <img src="/public/assets/images/home/gallery-2.jpg" alt="Consenza Estates Pool" />
+          <img src="/assets/images/home/gallery-2.jpg" alt="Consenza Estates Pool" />
         </div>
         <div class="gallery-image animate-in delay-2">
-          <img src="/public/assets/images/home/gallery-3.jpg" alt="Consenza Estates Kitchen" />
+          <img src="/assets/images/home/gallery-3.jpg" alt="Consenza Estates Kitchen" />
         </div>
         <div class="gallery-image animate-in delay-2">
-          <img src="/public/assets/images/home/gallery-4.jpg" alt="Consenza Estates Living Room" />
+          <img src="/assets/images/home/gallery-4.jpg" alt="Consenza Estates Living Room" />
         </div>
         <div class="gallery-image animate-in delay-3">
-          <img src="/public/assets/images/home/gallery-5.jpg" alt="Consenza Estates Bathroom" />
+          <img src="/assets/images/home/gallery-5.jpg" alt="Consenza Estates Bathroom" />
         </div>
         <div class="gallery-image animate-in delay-3">
-          <img src="/public/assets/images/home/gallery-6.jpg" alt="Consenza Estates Bedroom" />
+          <img src="/assets/images/home/gallery-6.jpg" alt="Consenza Estates Bedroom" />
         </div>
       </div>
       
       <div style="text-align: center; margin-top: 2rem;">
-        <a href="/properties" class="agent-button">View Available Properties</a>
+        <a href="/properties" class="agent-button" style="margin-right: 1rem;">View Available Properties</a>
+        <CalendlyLink class="agent-button" buttonStyle="outlined" utmCampaign="consenza_estates_cta">Discuss your plans — book a free call</CalendlyLink>
       </div>
+      <p class="text-center" style="margin-top: 0.75rem; font-size: 0.9rem; opacity: 0.9;">Free 15‑minute call — no obligation.</p>
     </div>
   </Container>
 </Layout>

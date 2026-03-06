@@ -9,7 +9,7 @@ export interface Props {
 }
 
 const { seo } = Astro.props;
-const calendlyUrl = settings.calendly?.url ?? 'https://calendly.com/drjanduffy/realtor_strategy_meeting';
+const calendlyUrl = settings.calendly?.urlWithUtm ? settings.calendly.urlWithUtm('badge') : (settings.calendly?.url ?? 'https://calendly.com/drjanduffy/realtor_strategy_meeting');
 const badgeText = settings.calendly?.badgeText ?? 'Schedule time with me';
 ---
 

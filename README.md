@@ -76,6 +76,30 @@ The site is set up for Google Search Console:
 - **Accessibility**: Images use descriptive `alt`; Calendly inline widget has `aria-label`; testimonial controls use `aria-label`.
 - **NAP**: Contact details live in `src/config/settings.js`; footer and schema read from there so NAP stays consistent.
 
+## Winning appointments (measure, review, iterate)
+
+The site is set up to **evolve toward more booked calls** by measuring where bookings come from and iterating on copy and placement.
+
+### Define your "win" metric
+
+Choose a target you can track, for example:
+
+- **X booked calls per month** from the website (use Calendly + UTM to count), or
+- **Y% of Calendly opens that become bookings** (compare GA4 `calendly_open` events to Calendly completed bookings).
+
+### What’s already in place
+
+- **UTM on every Calendly link**: `utm_source=consenzaestates`, `utm_medium=web`, and a distinct `utm_campaign` per page/section (e.g. `header`, `home_hero`, `contact_inline`, `resources_cta`, `lennar_cta`). Set via the `utmCampaign` prop on `CalendlyLink` and `CalendlyInline`; base URL built in `settings.calendly.urlWithUtm(campaign)`.
+- **GA4**: Set `PUBLIC_GA4_MEASUREMENT_ID` in `.env` (e.g. `G-XXXXXXXXXX`) to enable Google Analytics 4. A custom event **`calendly_open`** fires when a user clicks a Calendly link (with `campaign` in the event params), so you can see “clicks to book” by campaign in GA4.
+- **Appointment-first CTAs**: One primary “book” CTA per page with benefit-led copy and a short trust line (“Free 15‑minute call — no obligation”) where relevant.
+
+### 2-week review process
+
+1. **In Calendly**: Filter or export bookings where the invitee source/link includes `utm_source=consenzaestates` (or use Calendly’s UTM reporting if available). Break down by `utm_campaign` to see which campaigns drive the most **bookings**.
+2. **In GA4**: Open **Reports → Engagement → Events** and look at **`calendly_open`**. Use the `campaign` parameter to see which campaigns drive the most **opens**. Compare opens to bookings to see where drop-off happens.
+3. **Decide one change**: e.g. strengthen CTA copy on the top-converting campaign, add a CTA to a high-traffic page with few opens, or test different header CTA text. Keep UTM and campaign names consistent so the next review is comparable.
+4. **Run for 1–2 weeks** (or until you have enough data, e.g. 50+ `calendly_open` events), then repeat. Double down on what drives bookings; adjust or remove what doesn’t until you hit your “win” target.
+
 ## Sponsor
 
 If you find this theme useful, please consider donating to support the continued development of it with the link below

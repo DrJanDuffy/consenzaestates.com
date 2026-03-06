@@ -4,10 +4,14 @@ import settings from '../config/settings.js';
 interface Props {
 	minWidth?: string;
 	height?: string;
+	/** UTM campaign for this embed (e.g. contact_inline, landing_2). */
+	utmCampaign?: string;
 }
 
-const { minWidth = '320px', height = '700px' } = Astro.props;
-const calendlyUrl = settings.calendly?.url ?? 'https://calendly.com/drjanduffy/realtor_strategy_meeting';
+const { minWidth = '320px', height = '700px', utmCampaign = '' } = Astro.props;
+const calendlyUrl = settings.calendly?.urlWithUtm
+	? settings.calendly.urlWithUtm(utmCampaign)
+	: (settings.calendly?.url ?? 'https://calendly.com/drjanduffy/realtor_strategy_meeting');
 ---
 
 <div

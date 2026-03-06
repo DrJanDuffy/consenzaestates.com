@@ -5,16 +5,21 @@ interface Props {
 	href?: string;
 	class?: string;
 	buttonStyle?: 'primary' | 'outlined' | 'unelevated';
+	/** UTM campaign for this CTA (e.g. header, contact_hero, resources_cta). Used for Calendly/GA tracking. */
+	utmCampaign?: string;
 }
 
-const { class: className = '', buttonStyle = 'primary' } = Astro.props;
-const calendlyUrl = settings.calendly?.url ?? 'https://calendly.com/drjanduffy/realtor_strategy_meeting';
+const { class: className = '', buttonStyle = 'primary', utmCampaign = '' } = Astro.props;
+const calendlyUrl = settings.calendly?.urlWithUtm
+	? settings.calendly.urlWithUtm(utmCampaign)
+	: (settings.calendly?.url ?? 'https://calendly.com/drjanduffy/realtor_strategy_meeting');
 ---
 
 <a
 	href="#"
 	class:list={['calendly-link', 'btn', className, buttonStyle === 'outlined' && 'btn--outlined', buttonStyle === 'unelevated' && 'btn--unelevated']}
 	data-calendly-url={calendlyUrl}
+	data-utm-campaign={utmCampaign || undefined}
 >
 	<slot>Schedule time with me</slot>
 </a>
@@ -26,6 +31,10 @@ const calendlyUrl = settings.calendly?.url ?? 'https://calendly.com/drjanduffy/r
 		const url = link.getAttribute('data-calendly-url');
 		if (url) {
 			e.preventDefault();
+			const campaign = link.getAttribute('data-utm-campaign') || '';
+			if (typeof window.gtag === 'function') {
+				window.gtag('event', 'calendly_open', { campaign: campaign || 'unknown' });
+			}
 			Calendly.initPopupWidget({ url });
 		}
 	});

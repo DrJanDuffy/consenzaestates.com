@@ -23,7 +23,7 @@ const phoneDisplay = phoneDigits ? `(${phoneDigits.slice(0,3)}) ${phoneDigits.sl
     </div>
     <picture slot="image-container">
       <img
-        src="/public/assets/images/home/contact-image.jpg"
+        src="/assets/images/home/contact-image.jpg"
         alt="Contact Dr. Jan Duffy"
         id="contact-hero-image"
       />
@@ -62,15 +62,16 @@ const phoneDisplay = phoneDigits ? `(${phoneDigits.slice(0,3)}) ${phoneDigits.sl
           </div>
           
           <div class="cta-buttons">
-            <CalendlyLink class="cta-button primary">Schedule a Showing</CalendlyLink>
-            <CalendlyLink class="cta-button secondary" buttonStyle="outlined">Request Market Analysis</CalendlyLink>
+            <CalendlyLink class="cta-button primary" utmCampaign="contact_hero_show">Schedule a free strategy call</CalendlyLink>
+            <CalendlyLink class="cta-button secondary" buttonStyle="outlined" utmCampaign="contact_hero_seller">Get your home's value</CalendlyLink>
           </div>
+          <p class="cta-trust" style="margin-top: 0.75rem; font-size: 0.9rem;">Free 15‑minute call — no obligation.</p>
         </TextSection>
       </div>
       
       <div class="calendly-container" id="schedule">
         <h2>Schedule a Time With Me</h2>
-        <CalendlyInline minWidth="320px" height="700px" />
+        <CalendlyInline minWidth="320px" height="700px" utmCampaign="contact_inline" />
       </div>
     </div>
     
@@ -79,7 +80,7 @@ const phoneDisplay = phoneDigits ? `(${phoneDigits.slice(0,3)}) ${phoneDigits.sl
         <h2>Consenza Estates Market Analysis</h2>
         <p>Thinking about selling your Consenza Estates home? Schedule a strategy meeting and we'll go over your home's value and the best approach for today's market.</p>
         <p>
-          <CalendlyLink>Schedule a free strategy call</CalendlyLink>
+          <CalendlyLink utmCampaign="contact_market_analysis">Schedule a free strategy call</CalendlyLink>
         </p>
       </TextSection>
     </div>
