@@ -17,6 +17,18 @@ function extractFirstImageUrl(html) {
   return imgMatch ? imgMatch[1].trim() : null;
 }
 
+/** Extract image URL from item block: enclosure, media:content, or media:thumbnail */
+function extractImageFromItemBlock(block) {
+  if (!block || typeof block !== 'string') return null;
+  const enclosureMatch = block.match(/<enclosure[^>]+url=["']([^"']+)["'][^>]*\/?>/i);
+  if (enclosureMatch) return enclosureMatch[1].trim();
+  const mediaContentMatch = block.match(/<media:content[^>]+url=["']([^"']+)["']/i);
+  if (mediaContentMatch) return mediaContentMatch[1].trim();
+  const mediaThumbMatch = block.match(/<media:thumbnail[^>]+url=["']([^"']+)["']/i);
+  if (mediaThumbMatch) return mediaThumbMatch[1].trim();
+  return null;
+}
+
 /** Strip HTML tags for plain-text excerpt */
 function stripHtml(html, maxLength = 200) {
   if (!html || typeof html !== 'string') return '';
@@ -58,10 +70,16 @@ function parseRssItems(xml) {
         : '';
     const pubDate = pubDateMatch ? pubDateMatch[1].trim() : null;
 
-    // Prefer image from description, then content:encoded
-    const image =
+    // Image: description/html img, then content:encoded img, then enclosure/media, then any img in block
+    let image =
       extractFirstImageUrl(rawDescription) ||
-      (contentMatch ? extractFirstImageUrl(contentMatch[1]) : null);
+      (contentMatch ? extractFirstImageUrl(contentMatch[1]) : null) ||
+      extractImageFromItemBlock(block);
+    if (!image) image = extractFirstImageUrl(block);
+
+    // Ensure absolute URL (feed may use protocol-relative or relative)
+    if (image && image.startsWith('//')) image = 'https:' + image;
+    else if (image && image.startsWith('/')) image = 'https://www.simplifyingthemarket.com' + image;
 
     const description = stripHtml(rawDescription, 200);
 
@@ -93,6 +111,10 @@ export async function getSimplifyingMarketFeed(limit = 10) {
     if (!res.ok) return [];
     const xml = await res.text();
     const items = parseRssItems(xml);
+    const withImage = items.filter((i) => i.image).length;
+    if (items.length) {
+      console.log(`[simplifyingMarketFeed] ${items.length} items, ${withImage} with image`);
+    }
     return items.slice(0, limit);
   } catch (err) {
     console.warn('[simplifyingMarketFeed] Failed to fetch feed:', err.message);
