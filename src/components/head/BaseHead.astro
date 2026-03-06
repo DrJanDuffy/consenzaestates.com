@@ -21,6 +21,40 @@ const canonicalURL = Astro.props.canonicalURL || new URL(Astro.url.pathname, Ast
 const image = new URL(Astro.props.image || './social.png', Astro.site);
 const imageWidth = Astro.props.imageWidth ?? settings.seo?.openGraph?.images?.[0]?.width ?? 1200;
 const imageHeight = Astro.props.imageHeight ?? settings.seo?.openGraph?.images?.[0]?.height ?? 630;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'RealEstateAgent',
+      '@id': `${settings.url}/#organization`,
+      name: settings.name,
+      url: settings.url,
+      telephone: settings.contact?.phone,
+      email: settings.contact?.email,
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: settings.contact?.address?.split(',')[0]?.trim() ?? '',
+        addressLocality: 'Las Vegas',
+        addressRegion: 'NV',
+        postalCode: settings.contact?.address?.match(/\d{5}/)?.[0] ?? '89113',
+        addressCountry: 'US'
+      },
+      image: new URL(settings.site?.logo ?? '/assets/images/logo.png', settings.url).toString(),
+      sameAs: settings.social ? Object.values(settings.social).filter(Boolean) : []
+    },
+    {
+      '@type': 'Person',
+      '@id': `${settings.url}/#agent`,
+      name: 'Dr. Jan Duffy',
+      jobTitle: 'REALTOR®',
+      worksFor: { '@id': `${settings.url}/#organization` },
+      telephone: settings.contact?.phone,
+      email: settings.contact?.email,
+      description: settings.description
+    }
+  ]
+};
 ---
 
 <!-- Global Metadata -->
@@ -65,38 +99,7 @@ const imageHeight = Astro.props.imageHeight ?? settings.seo?.openGraph?.images?.
 {settings.enableThemeSwitcher && <ThemeProvider />}
 
 <!-- JSON-LD: LocalBusiness + RealEstateAgent (NAP, GBP alignment) -->
-<script type="application/ld+json" set:html={JSON.stringify({
-  '@context': 'https://schema.org',
-  '@graph': [
-    {
-      '@type': 'RealEstateAgent',
-      '@id': `${settings.url}/#organization`,
-      name: settings.name,
-      url: settings.url,
-      telephone: settings.contact?.phone,
-      email: settings.contact?.email,
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: settings.contact?.address?.split(',')[0]?.trim() ?? '',
-        addressLocality: 'Las Vegas',
-        addressRegion: 'NV',
-        postalCode: settings.contact?.address?.match(/\d{5}/)?.[0] ?? '89113',
-        addressCountry: 'US'
-      },
-      image: new URL(settings.site?.logo ?? '/assets/images/logo.png', settings.url).toString(),
-      sameAs: settings.social ? Object.values(settings.social).filter(Boolean) : []
-    },
-    {
-      '@type': 'Person',
-      '@id': `${settings.url}/#agent`,
-      name: 'Dr. Jan Duffy',
-      jobTitle: 'REALTOR®',
-      worksFor: { '@id': `${settings.url}/#organization` },
-      telephone: settings.contact?.phone,
-      email: settings.contact?.email,
-      description: settings.description
-    }
-  ]})} />
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
 <!-- Google Analytics -->
 <script>
