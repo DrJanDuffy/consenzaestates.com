@@ -33,6 +33,13 @@ const phoneDisplay = phoneDigits ? `(${phoneDigits.slice(0,3)}) ${phoneDigits.sl
   <Container>
     <div class="contact-wrapper">
       <div class="contact-info">
+        <div class="contact-agent-block">
+          <img src="/assets/images/headshots/jan-duffy-2.jpg" alt="Dr. Jan Duffy, Consenza Estates Specialist" class="contact-agent-photo" width="120" height="120" />
+          <div class="contact-agent-text">
+            <strong>Dr. Jan Duffy</strong>
+            <span>Your Consenza Estates & Lennar homes specialist</span>
+          </div>
+        </div>
         <TextSection>
           <h2>Get In Touch</h2>
           <p>I'm dedicated to providing exceptional service to buyers and sellers in Consenza Estates. Whether you're looking to purchase a new Lennar home or sell your current property, I'm here to guide you through the process.</p>
@@ -88,6 +95,36 @@ const phoneDisplay = phoneDigits ? `(${phoneDigits.slice(0,3)}) ${phoneDigits.sl
 </Layout>
 
 <style>
+  .contact-agent-block {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: var(--theme-surface-1);
+    border-radius: var(--theme-shape-radius);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+  }
+  .contact-agent-photo {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .contact-agent-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .contact-agent-text strong {
+    color: var(--luxury-gold, #D4AF37);
+  }
+  .contact-agent-text span {
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+  
   .contact-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;

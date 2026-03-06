@@ -9,6 +9,7 @@
 	"scripts": {
 		"dev": "astro dev --host 0.0.0.0 --port 5000",
 		"start": "npx http-server ./dist -p 5000 --cors -a 0.0.0.0",
+		"check-headshots": "node scripts/check-headshots.cjs",
 		"build": "astro build --config astro.config.mjs",
 		"preview": "astro preview --host 0.0.0.0 --port 5000",
 		"format": "npx prettier -w ."
