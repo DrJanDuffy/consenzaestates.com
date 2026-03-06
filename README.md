@@ -67,6 +67,15 @@ The site is set up for Google Search Console:
 - **Sitemap**: Built at `/sitemap-index.xml` (see `public/robots.txt`). After deploy, in [Search Console](https://search.google.com/search-console) add property `https://consenzaestates.com`, then submit **Sitemaps** → `https://consenzaestates.com/sitemap-index.xml`.
 - **Verification**: In Search Console, use the **HTML tag** method. Copy the `content` value from the meta tag they give you, set it in `.env` as `PUBLIC_GOOGLE_SITE_VERIFICATION=your_code_here`, rebuild and deploy, then click Verify.
 
+## Best practices (real estate / local SEO)
+
+- **JSON-LD**: Every page includes `RealEstateAgent` + `Person` schema (NAP, contact, address) in `BaseHead.astro` for GBP and rich results.
+- **Meta**: Viewport with `initial-scale=1`, canonical URL, Open Graph (locale, site_name, image, image width/height), Twitter (card, site, creator, image dimensions).
+- **FAQ**: `src/config/settings.js` has a `faq` array; `FAQSection.astro` renders it on the About page and outputs `FAQPage` JSON-LD for rich results and GBP.
+- **Security**: `vercel.json` sets `X-Content-Type-Options: nosniff`, `X-Frame-Options: SAMEORIGIN`, `Referrer-Policy: strict-origin-when-cross-origin`, and **Content-Security-Policy** allowing `self`, Calendly (`assets.calendly.com`, `calendly.com`), WidgetBe (`widgetbe.com`), and `https:` for images (e.g. RSS from `files.keepingcurrentmatters.com`). Adding new third-party scripts or styles requires updating the CSP in `vercel.json`.
+- **Accessibility**: Images use descriptive `alt`; Calendly inline widget has `aria-label`; testimonial controls use `aria-label`.
+- **NAP**: Contact details live in `src/config/settings.js`; footer and schema read from there so NAP stays consistent.
+
 ## Sponsor
 
 If you find this theme useful, please consider donating to support the continued development of it with the link below

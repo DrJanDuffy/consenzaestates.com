@@ -1,0 +1,76 @@
+---
+import Container from '../core/Container.astro';
+import settings from '../../config/settings.js';
+
+export interface Props {
+  /** FAQ items; defaults to settings.faq */
+  items?: Array<{ question: string; answer: string }>;
+  /** Section heading */
+  heading?: string;
+}
+
+const { items = settings.faq ?? [], heading = 'Frequently Asked Questions' } = Astro.props;
+---
+
+{items.length > 0 && (
+  <>
+    <Container>
+      <section class="faq-section" aria-labelledby="faq-heading">
+        <h2 id="faq-heading" class="faq-heading">{heading}</h2>
+        <dl class="faq-list">
+          {items.map((item) => (
+            <div class="faq-item">
+              <dt class="faq-question">{item.question}</dt>
+              <dd class="faq-answer">{item.answer}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+    </Container>
+    <!-- FAQPage schema for rich results / GBP -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: items.map((item) => ({
+        '@type': 'Question',
+        name: item.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: item.answer
+        }
+      }))
+    })} />
+  </>
+)}
+
+<style>
+  .faq-section {
+    margin: var(--section-margin, 3rem) auto;
+  }
+  .faq-heading {
+    margin-bottom: 1.25rem;
+  }
+  .faq-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .faq-item {
+    padding: 1rem 1.25rem;
+    background-color: var(--theme-surface-1, rgba(255,255,255,0.06));
+    border-radius: var(--theme-shape-radius, 0.5rem);
+  }
+  .faq-question {
+    font-weight: 600;
+    margin: 0 0 0.5rem 0;
+    font-size: 1.05rem;
+  }
+  .faq-answer {
+    margin: 0;
+    color: var(--theme-text-2, #888);
+    line-height: 1.5;
+  }
+</style>

@@ -2,6 +2,7 @@
 import { TextSection, Container } from '@components/odyssey-theme.js';
 import Layout from '@layouts/Page.astro';
 import TextAndImageHero from '@components/sections/heros/TextAndImageHero.astro';
+import FAQSection from '@components/sections/FAQSection.astro';
 import settings from '../config/settings.js';
 
 const seo = {
@@ -76,6 +77,8 @@ const phoneDisplay = phoneDigits ? `(${phoneDigits.slice(0,3)}) ${phoneDigits.sl
       </div>
     )}
   </TextSection>
+
+  <FAQSection />
 </Layout>
 
 <style>
