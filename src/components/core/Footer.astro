@@ -2,8 +2,15 @@
 import Container  from '../core/Container.astro';
 import Plug from './Plug.astro';
 
-const { footerSocials, footerLists, copyrightName, background, color, showPlug: showPlug = true } =
+const { footerSocials, footerLists, copyrightName, background, color, showPlug: showPlug = true, address, phone, email } =
   Astro.props;
+const displayAddress = address ?? '7131 Windsor Downs Ave, Las Vegas, NV 89113';
+const phoneDigits = (phone ?? '+1 (702) 919-5002').replace(/\D/g, '');
+const phoneHref = phoneDigits.length === 10 ? `tel:+1${phoneDigits}` : `tel:+${phoneDigits}`;
+const phoneDisplay = phoneDigits.length >= 10
+  ? `(${phoneDigits.slice(-10).slice(0, 3)}) ${phoneDigits.slice(-10).slice(3, 6)}-${phoneDigits.slice(-10).slice(6)}`
+  : (phone ?? '(702) 919-5002');
+const displayEmail = email ?? 'DrDuffy@bhhsnv.com';
 ---
 
 <footer
@@ -17,9 +24,9 @@ const { footerSocials, footerLists, copyrightName, background, color, showPlug: 
         <div class="footer-logo">
           <slot name="logo" />
           <div class="footer-contact">
-            <p class="address">7131 Windsor Downs Ave, Las Vegas, NV 89113</p>
-            <p class="phone"><a href="tel:+17025001955">(702) 500-1955</a></p>
-            <p class="email"><a href="mailto:DrDuffy@bhhsnv.com">DrDuffy@bhhsnv.com</a></p>
+            <p class="address">{displayAddress}</p>
+            <p class="phone"><a href={phoneHref}>{phoneDisplay}</a></p>
+            <p class="email"><a href={`mailto:${displayEmail}`}>{displayEmail}</a></p>
           </div>
         </div>
         <ul class="footer-socials__list">

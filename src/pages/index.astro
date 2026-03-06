@@ -1,6 +1,7 @@
 ---
 import { Container, CtaCardSection } from '@components/odyssey-theme.js';
 import HeadshotGallery from '../components/HeadshotGallery.astro';
+import CalendlyLink from '../components/CalendlyLink.astro';
 import Layout from '@layouts/Page.astro';
 import HomeHeroSection from '@components/sections/heros/HomeHeroSection.astro';
 import TextAndImageHero from '@components/sections/heros/TextAndImageHero.astro';
@@ -21,7 +22,7 @@ const seo = {
       <p>Welcome to your premier resource for Consenza Estates real estate. As a specialized REALTOR® with extensive knowledge of Lennar homes and the Consenza Estates community, I'm here to guide you through every step of your real estate journey.</p>
       <div class="hero-buttons" style="display: flex; gap: 1rem; margin-top: 1.5rem;">
         <a href="/properties" class="agent-button">View Listings</a>
-        <a href="/contact" class="agent-button" style="background-color: transparent; border-color: var(--theme-primary); color: var(--theme-primary);">Schedule a Tour</a>
+        <CalendlyLink class="agent-button" buttonStyle="outlined">Schedule a Tour</CalendlyLink>
       </div>
     </div>
     <div slot="image-container">

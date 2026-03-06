@@ -1,13 +1,16 @@
-
 ---
 import { TextSection, Container } from '@components/odyssey-theme.js';
 import Layout from '@layouts/Page.astro';
 import TextAndImageHero from '@components/sections/heros/TextAndImageHero.astro';
+import settings from '../config/settings.js';
 
 const seo = {
   title: 'About Dr. Jan Duffy | Consenza Estates Specialist',
-  description: 'Learn about Dr. Jan Duffy\'s expertise in Lennar homes and the Consenza Estates community in Las Vegas.'
+  description: 'Learn about Dr. Jan Duffy and her team—your Consenza Estates and Lennar homes specialists in Las Vegas.'
 };
+const team = settings.team ?? [];
+const phoneDigits = settings.contact.phone.replace(/\D/g, '').slice(-10);
+const phoneDisplay = phoneDigits ? `(${phoneDigits.slice(0,3)}) ${phoneDigits.slice(3,6)}-${phoneDigits.slice(6)}` : settings.contact.phone;
 ---
 
 <Layout {seo}>
@@ -47,10 +50,31 @@ const seo = {
     
     <div class="contact-info">
       <h3>Contact Information</h3>
-      <p>Phone: (702) 555-8742</p>
-      <p>Email: DrDuffy@bhhsnv.com</p>
+      <p>Phone: <a href={`tel:+1${phoneDigits}`}>{phoneDisplay}</a></p>
+      <p>Email: <a href={`mailto:${settings.contact.email}`}>{settings.contact.email}</a></p>
       <p>Office: Berkshire Hathaway HomeServices Nevada Properties</p>
     </div>
+
+    {team.length > 0 && (
+      <div class="team-section">
+        <h2>Meet the Team</h2>
+        <p>Your dedicated Consenza Estates specialists—from listing to closing.</p>
+        <ul class="team-list">
+          {team.map((member) => (
+            <li class="team-member">
+              <strong>{member.name}</strong>
+              <span class="team-role">{member.role}</span>
+              {member.email && (
+                <a href={`mailto:${member.email}`} class="team-contact">{member.email}</a>
+              )}
+              {member.phone && (
+                <a href={`tel:+1${member.phone.replace(/\D/g, '').slice(-10)}`} class="team-contact">{member.phone}</a>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
   </TextSection>
 </Layout>
 
@@ -60,5 +84,44 @@ const seo = {
     padding: 2rem;
     border-radius: var(--theme-shape-radius);
     margin-top: 2rem;
+  }
+  .team-section {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .team-section h2 {
+    margin-bottom: 0.5rem;
+  }
+  .team-section > p {
+    color: var(--theme-text-2, #666);
+    margin-bottom: 1.5rem;
+  }
+  .team-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 1.25rem;
+  }
+  .team-member {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem 1rem;
+  }
+  .team-member strong {
+    min-width: 10rem;
+  }
+  .team-role {
+    color: var(--theme-text-2, #666);
+    font-size: 0.95rem;
+  }
+  .team-contact {
+    margin-left: auto;
+    font-size: 0.9rem;
+  }
+  .team-contact + .team-contact {
+    margin-left: 0.5rem;
   }
 </style>

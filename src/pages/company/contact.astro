@@ -1,12 +1,16 @@
 ---
-import ContactForm from '../../components/forms/ContactForm.astro';
 import Layout from '../../layouts/Page.astro';
 import { Container } from '@components/odyssey-theme';
+import CalendlyInline from '../../components/CalendlyInline.astro';
+import settings from '../../config/settings.js';
 
 const seo = {
 	title: 'Contact | Astro Odyssey Theme',
 	description: 'Contact Page',
 };
+
+const phoneDigits = settings.contact.phone.replace(/\D/g, '').slice(-10);
+const phoneDisplay = phoneDigits ? `(${phoneDigits.slice(0,3)}) ${phoneDigits.slice(3,6)}-${phoneDigits.slice(6)}` : settings.contact.phone;
 ---
 
 <Layout seo={seo}>
@@ -14,23 +18,15 @@ const seo = {
 		<section class="contact-hero__section">
 			<div class="contact-hero__text-section">
 				<h1>Contact Us</h1>
-				<p>
-					This is a contact form using Odyssey's form components to create a
-					contact form component. The contact form is setup to use Netlify's
-					form detection; however, it can easily be translated to other popular
-					form services such as Formspree, Getform, Formspark, etc.
-				</p>
+				<p>Schedule a time that works for you. Use the calendar to book a call or meeting.</p>
 				<div>
 					<p>
-						<em><a href="tel:8008675309">(800) 867-5309</a></em> • <em
-							><a href="mailto:DrDuffy@bhhsnv.com">DrDuffy@bhhsnv.com</
-							></em
-						>
+						<em><a href={`tel:+1${phoneDigits}`}>{phoneDisplay}</a></em> • <em><a href={`mailto:${settings.contact.email}`}>{settings.contact.email}</a></em>
 					</p>
 				</div>
 			</div>
 			<div class="col-2__container">
-				<ContactForm />
+				<CalendlyInline minWidth="320px" height="700px" />
 			</div>
 		</section>
 	</Container>

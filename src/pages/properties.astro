@@ -3,6 +3,7 @@
 import { Container, TextSection } from '@components/odyssey-theme.js';
 import Layout from '@layouts/Page.astro';
 import HeroSection from '@components/sections/heros/HeroSection.astro';
+import CalendlyLink from '@components/CalendlyLink.astro';
 
 const seo = {
   title: 'Consenza Estates Properties | Dr. Jan Duffy',
@@ -49,127 +50,26 @@ const seo = {
       </realscout-office-listings>
     </div>
 
-    <div class="property-search-container">
-      <h2>Custom Property Search</h2>
-      <p>Looking for specific features? Use our advanced search to find your perfect home in Consenza Estates.</p>
-      
-      <div class="search-filters">
-        <form class="search-form">
-          <div class="filter-row">
-            <div class="filter-item">
-              <label for="price-range">Price Range</label>
-              <select id="price-range" name="price-range">
-                <option value="500000-750000">$500,000 - $750,000</option>
-                <option value="750000-1000000">$750,000 - $1,000,000</option>
-                <option value="1000000-1500000">$1,000,000 - $1,500,000</option>
-                <option value="1500000+">$1,500,000+</option>
-              </select>
-            </div>
-            
-            <div class="filter-item">
-              <label for="bedrooms">Bedrooms</label>
-              <select id="bedrooms" name="bedrooms">
-                <option value="2+">2+</option>
-                <option value="3+">3+</option>
-                <option value="4+">4+</option>
-                <option value="5+">5+</option>
-              </select>
-            </div>
-            
-            <div class="filter-item">
-              <label for="bathrooms">Bathrooms</label>
-              <select id="bathrooms" name="bathrooms">
-                <option value="2+">2+</option>
-                <option value="3+">3+</option>
-                <option value="4+">4+</option>
-                <option value="5+">5+</option>
-              </select>
-            </div>
-          </div>
-          
-          <div class="filter-row">
-            <div class="filter-item">
-              <label for="property-type">Property Type</label>
-              <select id="property-type" name="property-type">
-                <option value="single-family">Single Family</option>
-                <option value="townhome">Townhome</option>
-                <option value="new-construction">New Construction</option>
-              </select>
-            </div>
-            
-            <div class="filter-item">
-              <label for="features">Special Features</label>
-              <select id="features" name="features">
-                <option value="pool">Pool</option>
-                <option value="spa">Spa</option>
-                <option value="casita">Casita</option>
-                <option value="3-car-garage">3+ Car Garage</option>
-              </select>
-            </div>
-          </div>
-          
-          <button type="submit" class="search-button">Search Properties</button>
-        </form>
-      </div>
+    <div class="property-schedule-cta">
+      <TextSection>
+        <h2>Find Your Perfect Home</h2>
+        <p>Looking for specific features or a private showing? Schedule a call and we'll narrow down the best Consenza Estates options for you.</p>
+        <p>
+          <CalendlyLink>Schedule a call</CalendlyLink>
+        </p>
+      </TextSection>
     </div>
   </Container>
 </Layout>
 
 <style>
-  .property-search-container {
+  .property-schedule-cta {
     margin-top: 4rem;
     padding: 2rem;
-    background-color: var(--theme-surface-1);
+    background-color: var(--theme-surface-2);
     border-radius: var(--theme-shape-radius);
   }
-  
-  .search-filters {
-    margin-top: 1.5rem;
-  }
-  
-  .search-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-  
-  .filter-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-  
-  .filter-item {
-    flex: 1;
-    min-width: 200px;
-  }
-  
-  .filter-item label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-  }
-  
-  .filter-item select {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #ddd;
-    border-radius: 0.25rem;
-  }
-  
-  .search-button {
-    background-color: var(--theme-primary);
-    color: var(--theme-on-primary);
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: var(--theme-button-border-radius);
-    cursor: pointer;
-    font-weight: bold;
-    align-self: flex-start;
+  .property-schedule-cta p:last-of-type {
     margin-top: 1rem;
-  }
-  
-  .search-button:hover {
-    background-color: var(--theme-primary-hover);
   }
 </style>

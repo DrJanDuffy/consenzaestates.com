@@ -40,12 +40,25 @@ const siteSettings = {
     ]
   },
   
+  // Calendly (realtor strategy meeting)
+  calendly: {
+    url: 'https://calendly.com/drjanduffy/realtor_strategy_meeting',
+    badgeText: 'Schedule time with me',
+  },
+
   // Contact information
   contact: {
     email: "DrDuffy@bhhsnv.com",
-    phone: "+1 (702) 500-1955",
+    phone: "+1 (702) 919-5002",
     address: "7131 Windsor Downs Ave, Las Vegas, NV 89113"
   },
+
+  // Team (for About page and schema)
+  team: [
+    { name: "Dr. Jan Duffy", role: "Lead Listing Specialist", email: "DrDuffy@bhhsnv.com", phone: "(702) 919-5002" },
+    { name: "Chance Fuller", role: "Buyer's Agent" },
+    { name: "Melissa Schreiber", role: "Transaction Coordinator" }
+  ],
   
   // Social media links
   social: {

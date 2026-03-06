@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Base.astro';
-import LandingContactForm from '../../components/forms/LandingContactForm.astro';
+import CalendlyInline from '../../components/CalendlyInline.astro';
 import Logo from '../../components/Logo.astro';
 
 const seo = {
@@ -28,8 +28,8 @@ const seo = {
     <section class="full-page-split__content-section">
       <div class="full-page-split__content-container">  
         <h1>Contact Us For a Free Consultation</h1>
-        <p>Fill out the form below to schedule a free consultation on your business' website needs.</p>
-        <LandingContactForm/>
+        <p>Schedule a time that works for you.</p>
+        <CalendlyInline minWidth="320px" height="700px" />
       </div>
     </section>
   </div>

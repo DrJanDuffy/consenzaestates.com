@@ -2,25 +2,54 @@
 import { SkipLink } from '@components/odyssey-theme';
 import BaseHead from '../components/head/BaseHead.astro';
 import type { Props as BaseHeadProps } from '../components/head/BaseHead.astro';
+import settings from '../config/settings.js';
 
 export interface Props {
 	seo?: BaseHeadProps;
 }
 
 const { seo } = Astro.props;
+const calendlyUrl = settings.calendly?.url ?? 'https://calendly.com/drjanduffy/realtor_strategy_meeting';
+const badgeText = settings.calendly?.badgeText ?? 'Schedule time with me';
 ---
 
 <html lang="en">
 	<head>
 		<BaseHead {...seo} />
+		<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
 	</head>
 	<body>
 		<SkipLink />
-    <slot name="announcement-bar" />
+		<slot name="announcement-bar" />
 		<slot name="header" />
 		<main id="content">
 			<slot />
 		</main>
 		<slot name="footer" />
+		<script is:inline>
+			(function(w,i,d,g,e,t){w["WidgetTrackerObject"]=g;(w[g]=w[g]||function()
+			{(w[g].q=w[g].q||[]).push(arguments);}),(w[g].ds=1*new Date());(e="script"),
+			(t=d.createElement(e)),(e=d.getElementsByTagName(e)[0]);t.async=1;t.src=i;
+			e.parentNode.insertBefore(t,e);})
+			(window,"https://widgetbe.com/agent",document,"widgetTracker");
+			window.widgetTracker("create", "WT-XQHVYQWW");
+			window.widgetTracker("send", "pageview");
+		</script>
+		<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+		<script is:inline define:vars={{ calendlyUrl, badgeText }}>
+			window.addEventListener('load', function initCalendlyBadge() {
+				if (window.Calendly) {
+					Calendly.initBadgeWidget({
+						url: calendlyUrl,
+						text: badgeText,
+						color: '#0069ff',
+						textColor: '#ffffff',
+						branding: false
+					});
+				} else {
+					setTimeout(initCalendlyBadge, 100);
+				}
+			});
+		</script>
 	</body>
 </html>

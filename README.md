@@ -60,6 +60,13 @@ Feel free to deploy and host your site on your favorite static hosting service s
 
 Astro has [an in-depth guide](https://docs.astro.build/en/guides/deploy/) on how to deploy an Astro project to each service.
 
+## Google Search Console
+
+The site is set up for Google Search Console:
+
+- **Sitemap**: Built at `/sitemap-index.xml` (see `public/robots.txt`). After deploy, in [Search Console](https://search.google.com/search-console) add property `https://consenzaestates.com`, then submit **Sitemaps** → `https://consenzaestates.com/sitemap-index.xml`.
+- **Verification**: In Search Console, use the **HTML tag** method. Copy the `content` value from the meta tag they give you, set it in `.env` as `PUBLIC_GOOGLE_SITE_VERIFICATION=your_code_here`, rebuild and deploy, then click Verify.
+
 ## Sponsor
 
 If you find this theme useful, please consider donating to support the continued development of it with the link below

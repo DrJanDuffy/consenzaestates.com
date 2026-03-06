@@ -1,0 +1,18 @@
+---
+import settings from '../config/settings.js';
+
+interface Props {
+	minWidth?: string;
+	height?: string;
+}
+
+const { minWidth = '320px', height = '700px' } = Astro.props;
+const calendlyUrl = settings.calendly?.url ?? 'https://calendly.com/drjanduffy/realtor_strategy_meeting';
+---
+
+<div
+	class="calendly-inline-widget"
+	data-url={calendlyUrl}
+	style={`min-width:${minWidth};height:${height};`}
+	aria-label="Schedule a meeting with Dr. Jan Duffy"
+></div>

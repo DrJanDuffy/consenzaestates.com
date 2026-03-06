@@ -1,21 +1,25 @@
-
 ---
 import { Container, TextSection } from '@components/odyssey-theme.js';
 import Layout from '@layouts/Page.astro';
-import ContactForm from '@components/forms/ContactForm.astro';
 import HeroSection from '@components/sections/heros/HeroSection.astro';
+import CalendlyInline from '@components/CalendlyInline.astro';
+import CalendlyLink from '@components/CalendlyLink.astro';
+import settings from '../config/settings.js';
 
 const seo = {
   title: 'Contact Dr. Jan Duffy | Consenza Estates Specialist',
-  description: 'Get in touch with Dr. Jan Duffy, your Consenza Estates specialist in Las Vegas. Schedule a showing or request information about this exclusive community.'
+  description: 'Get in touch with Dr. Jan Duffy, your Consenza Estates specialist in Las Vegas. Schedule a strategy meeting or request information about this exclusive community.'
 };
+
+const phoneDigits = settings.contact.phone.replace(/\D/g, '').slice(-10);
+const phoneDisplay = phoneDigits ? `(${phoneDigits.slice(0,3)}) ${phoneDigits.slice(3,6)}-${phoneDigits.slice(6)}` : settings.contact.phone;
 ---
 
 <Layout {seo}>
   <HeroSection>
     <div slot="text-container">
       <h1>Contact Dr. Jan Duffy</h1>
-      <p>I'm here to answer your questions about Consenza Estates and help you find your dream home.</p>
+      <p>I'm here to answer your questions about Consenza Estates and help you find your dream home. Schedule a time that works for you.</p>
     </div>
     <picture slot="image-container">
       <img
@@ -36,124 +40,47 @@ const seo = {
           <div class="contact-methods">
             <div class="contact-method animate-fadeInUp">
               <h3>Call or Text</h3>
-              <p>(702) 555-8742</p>
+              <p><a href={`tel:+1${phoneDigits}`}>{phoneDisplay}</a></p>
             </div>
             
             <div class="contact-method animate-fadeInUp animate-delay-100">
               <h3>Email</h3>
-              <p>DrDuffy@bhhsnv.com</p>
+              <p><a href={`mailto:${settings.contact.email}`}>{settings.contact.email}</a></p>
             </div>
             
             <div class="contact-method">
               <h3>Office Location</h3>
-              <p>123 Las Vegas Blvd<br>Las Vegas, NV 89123</p>
+              <p>{settings.contact.address}</p>
             </div>
             
             <div class="contact-method">
               <h3>Office Hours</h3>
-              <p>Monday-Friday: 9am-6pm<br>
-              Saturday: 10am-4pm<br>
+              <p>Monday–Friday: 9am–6pm<br>
+              Saturday: 10am–4pm<br>
               Sunday: By appointment</p>
             </div>
           </div>
           
           <div class="cta-buttons">
-            <a href="#schedule" class="cta-button primary">Schedule a Showing</a>
-            <a href="#market-analysis" class="cta-button secondary">Request Market Analysis</a>
+            <CalendlyLink class="cta-button primary">Schedule a Showing</CalendlyLink>
+            <CalendlyLink class="cta-button secondary" buttonStyle="outlined">Request Market Analysis</CalendlyLink>
           </div>
         </TextSection>
       </div>
       
-      <div class="contact-form-container" id="schedule">
-        <h2>Send Me a Message</h2>
-        <ContactForm />
+      <div class="calendly-container" id="schedule">
+        <h2>Schedule a Time With Me</h2>
+        <CalendlyInline minWidth="320px" height="700px" />
       </div>
     </div>
     
-    <div class="market-analysis-container" id="market-analysis">
+    <div class="market-analysis-cta" id="market-analysis">
       <TextSection>
-        <h2>Request a Consenza Estates Market Analysis</h2>
-        <p>Thinking about selling your Consenza Estates home? Request a comprehensive market analysis to understand your home's current value in today's market.</p>
-        
-        <form id="marketAnalysisForm" class="market-analysis-form">
-          <div class="form-row">
-            <div class="form-field">
-              <label for="propertyAddress">Property Address</label>
-              <input type="text" id="propertyAddress" name="propertyAddress" required />
-            </div>
-          </div>
-          
-          <div class="form-row">
-            <div class="form-field">
-              <label for="ownerName">Your Name</label>
-              <input type="text" id="ownerName" name="ownerName" required />
-            </div>
-            
-            <div class="form-field">
-              <label for="ownerEmail">Email</label>
-              <input type="email" id="ownerEmail" name="ownerEmail" required />
-            </div>
-          </div>
-          
-          <div class="form-row">
-            <div class="form-field">
-              <label for="ownerPhone">Phone</label>
-              <input type="tel" id="ownerPhone" name="ownerPhone" required />
-            </div>
-            
-            <div class="form-field">
-              <label for="timeframe">Selling Timeframe</label>
-              <select id="timeframe" name="timeframe">
-                <option value="immediate">Immediate (0-3 months)</option>
-                <option value="soon">Soon (3-6 months)</option>
-                <option value="planning">Planning (6+ months)</option>
-                <option value="just-curious">Just curious about value</option>
-              </select>
-            </div>
-          </div>
-          
-          <button type="submit" class="submit-button">Request Market Analysis</button>
-          <div id="marketAnalysisStatus" class="form-status"></div>
-        </form>
-
-        <script>
-          import { sendToFollowUpBoss, formatMarketAnalysisData } from '../utils/followUpBoss.js';
-          
-          document.addEventListener('DOMContentLoaded', () => {
-            const form = document.getElementById('marketAnalysisForm');
-            const formStatus = document.getElementById('marketAnalysisStatus');
-            
-            if (form) {
-              form.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                
-                try {
-                  const formData = new FormData(form);
-                  const formDataObj = {};
-                  
-                  for (const [key, value] of formData.entries()) {
-                    formDataObj[key] = value;
-                  }
-                  
-                  formStatus.textContent = 'Sending your request...';
-                  formStatus.className = 'form-status sending';
-                  
-                  const leadData = formatMarketAnalysisData(formDataObj);
-                  await sendToFollowUpBoss(leadData);
-                  
-                  formStatus.textContent = 'Thank you! Your market analysis request has been sent.';
-                  formStatus.className = 'form-status success';
-                  form.reset();
-                  
-                } catch (error) {
-                  console.error('Form submission error:', error);
-                  formStatus.textContent = 'There was an error sending your request. Please try again.';
-                  formStatus.className = 'form-status error';
-                }
-              });
-            }
-          });
-        </script>
+        <h2>Consenza Estates Market Analysis</h2>
+        <p>Thinking about selling your Consenza Estates home? Schedule a strategy meeting and we'll go over your home's value and the best approach for today's market.</p>
+        <p>
+          <CalendlyLink>Schedule a free strategy call</CalendlyLink>
+        </p>
       </TextSection>
     </div>
   </Container>
@@ -212,6 +139,15 @@ const seo = {
     border: 1px solid rgba(212, 175, 55, 0.3);
   }
   
+  .contact-method a {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  .contact-method a:hover {
+    color: var(--luxury-gold);
+  }
+  
   .contact-method h3 {
     margin-bottom: 0.5rem;
     color: var(--luxury-gold);
@@ -233,6 +169,7 @@ const seo = {
     display: flex;
     gap: 1rem;
     margin-top: 2rem;
+    flex-wrap: wrap;
   }
   
   @media (max-width: 500px) {
@@ -241,120 +178,38 @@ const seo = {
     }
   }
   
-  .cta-button {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    border-radius: var(--theme-button-border-radius);
-    font-weight: bold;
-    text-decoration: none;
-    text-align: center;
-    transition: background-color 0.3s ease;
-  }
-  
   .cta-button.primary {
-    background-color: var(--theme-primary);
-    color: var(--theme-on-primary);
+    background-color: var(--theme-primary) !important;
+    color: var(--theme-on-primary) !important;
   }
   
   .cta-button.primary:hover {
-    background-color: var(--theme-primary-hover);
+    background-color: var(--theme-primary-hover) !important;
   }
   
   .cta-button.secondary {
-    background-color: var(--theme-surface-1);
-    color: var(--theme-on-surface-1);
+    background-color: var(--theme-surface-1) !important;
+    color: var(--theme-on-surface-1) !important;
+    border: 2px solid var(--theme-primary);
   }
   
-  .cta-button.secondary:hover {
-    background-color: var(--theme-surface-2);
-  }
-  
-  .contact-form-container {
+  .calendly-container {
     background-color: var(--theme-surface-1);
-    padding: 2.5rem;
+    padding: 1.5rem;
     border-radius: var(--theme-shape-radius);
     box-shadow: var(--luxury-shadow-md);
     border: 1px solid rgba(212, 175, 55, 0.1);
-    position: relative;
-    overflow: hidden;
   }
   
-  .contact-form-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: var(--luxury-gradient);
+  .calendly-container h2 {
+    margin-bottom: 1rem;
   }
   
-  .market-analysis-container {
+  .market-analysis-cta {
     margin-top: 4rem;
     background-color: var(--theme-surface-2);
     padding: 2.5rem;
     border-radius: var(--theme-shape-radius);
     box-shadow: var(--luxury-shadow-lg);
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .market-analysis-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: var(--luxury-gradient);
-  }
-  
-  .market-analysis-form {
-    margin-top: 2rem;
-  }
-  
-  .form-row {
-    display: flex;
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  @media (max-width: 768px) {
-    .form-row {
-      flex-direction: column;
-      gap: 1rem;
-    }
-  }
-  
-  .form-field {
-    flex: 1;
-  }
-  
-  .form-field label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-  }
-  
-  .form-field input,
-  .form-field select {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #ddd;
-    border-radius: 0.25rem;
-  }
-  
-  .submit-button {
-    background-color: var(--theme-primary);
-    color: var(--theme-on-primary);
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: var(--theme-button-border-radius);
-    cursor: pointer;
-    font-weight: bold;
-  }
-  
-  .submit-button:hover {
-    background-color: var(--theme-primary-hover);
   }
 </style>

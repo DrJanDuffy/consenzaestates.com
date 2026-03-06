@@ -1,0 +1,66 @@
+---
+import settings from '../config/settings.js';
+
+interface Props {
+	href?: string;
+	class?: string;
+	buttonStyle?: 'primary' | 'outlined' | 'unelevated';
+}
+
+const { class: className = '', buttonStyle = 'primary' } = Astro.props;
+const calendlyUrl = settings.calendly?.url ?? 'https://calendly.com/drjanduffy/realtor_strategy_meeting';
+---
+
+<a
+	href="#"
+	class:list={['calendly-link', 'btn', className, buttonStyle === 'outlined' && 'btn--outlined', buttonStyle === 'unelevated' && 'btn--unelevated']}
+	data-calendly-url={calendlyUrl}
+>
+	<slot>Schedule time with me</slot>
+</a>
+
+<script>
+	document.addEventListener('click', (e) => {
+		const link = e.target?.closest?.('.calendly-link');
+		if (!link || !window.Calendly) return;
+		const url = link.getAttribute('data-calendly-url');
+		if (url) {
+			e.preventDefault();
+			Calendly.initPopupWidget({ url });
+		}
+	});
+</script>
+
+<style>
+	.calendly-link {
+		width: fit-content;
+		padding: 0.36rem 0.92rem;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		background-color: var(--theme-primary);
+		color: var(--theme-on-primary);
+		border: none;
+		border-radius: var(--theme-button-border-radius);
+		font-weight: 500;
+		text-decoration: none;
+		cursor: pointer;
+	}
+	.calendly-link:hover {
+		background-color: var(--theme-primary-hover);
+		color: var(--theme-on-primary);
+	}
+	.calendly-link.btn--outlined {
+		color: var(--theme-primary);
+		background-color: transparent;
+		border: 2px solid var(--theme-primary);
+	}
+	.calendly-link.btn--outlined:hover {
+		background-color: var(--theme-primary);
+		color: var(--theme-on-primary);
+	}
+	.calendly-link.btn--unelevated {
+		background-color: transparent;
+		color: var(--theme-on-bg);
+	}
+</style>
