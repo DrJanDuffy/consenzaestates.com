@@ -23,13 +23,15 @@ The site is prepared for Google Search Console. Follow these steps after deploy.
 ## 3. Submit sitemap
 
 1. In Search Console, open your property → **Sitemaps** (left menu).
-2. Under "Add a new sitemap", enter: `sitemap-index.xml`
+2. Under "Add a new sitemap", enter: `sitemap.xml`
 3. Click **Submit**.
 
 The sitemap is generated at build time by `@astrojs/sitemap` and is available at:
 
-- **URL:** `https://www.consenzaestates.com/sitemap-index.xml`
-- **Referenced in:** `public/robots.txt` (Sitemap directive) and in `<head>` via `<link rel="sitemap" href=".../sitemap-index.xml" />`.
+- **URL:** `https://www.consenzaestates.com/sitemap.xml`
+- **Referenced in:** `public/robots.txt` (Sitemap directive) and in `<head>` via `<link rel="sitemap" href=".../sitemap.xml" />`.
+
+**Note:** Astro outputs a single `sitemap.xml` for this site size. If the site grows very large, it may switch to `sitemap-index.xml` plus numbered sitemaps; then submit `sitemap-index.xml` instead.
 
 ## 4. Optional: GA4 link
 
