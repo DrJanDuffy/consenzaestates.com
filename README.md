@@ -64,7 +64,7 @@ Astro has [an in-depth guide](https://docs.astro.build/en/guides/deploy/) on how
 
 The site is prepared for Google Search Console (sitemap, robots.txt, verification meta tag). **Full setup checklist:** see [docs/Google-Search-Console.md](docs/Google-Search-Console.md).
 
-- **Sitemap**: Built at `/sitemap.xml` (see `public/robots.txt`). After deploy, add property and submit **Sitemaps** → `sitemap.xml`.
+- **Sitemap**: Built at `/sitemap-index.xml` (see `public/robots.txt`). After deploy, add property and submit **Sitemaps** → `sitemap-index.xml`.
 - **Verification**: Use the HTML tag method; set `PUBLIC_GOOGLE_SITE_VERIFICATION` in `.env` (see `.env.example`), rebuild and deploy, then click Verify in Search Console.
 
 ## Best practices (real estate / local SEO)

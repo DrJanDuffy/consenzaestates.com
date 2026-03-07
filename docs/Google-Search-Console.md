@@ -29,15 +29,15 @@ The site is prepared for Google Search Console using current Google guidance as 
 ## 3. Submit sitemap
 
 1. In Search Console, open your property → **Sitemaps** (left menu).
-2. Under "Add a new sitemap", enter: `sitemap.xml`
+2. Under "Add a new sitemap", enter: `sitemap-index.xml`
 3. Click **Submit**.
 
 **Sitemap details (Google best practices):**
 
-- **URL:** `https://www.consenzaestates.com/sitemap.xml`
-- Generated at build time by `@astrojs/sitemap`; referenced in `public/robots.txt` and in `<head>` via `<link rel="sitemap" href=".../sitemap.xml" />`.
+- **URL:** `https://www.consenzaestates.com/sitemap-index.xml`
+- Generated at build time by `@astrojs/sitemap` (Astro 5); referenced in `public/robots.txt` and in `<head>` via `<link rel="sitemap" href=".../sitemap-index.xml" />`.
 - **Format:** XML, UTF-8, fully-qualified absolute URLs (required by Google).
-- **Limits:** Single sitemap &lt; 50MB and &lt; 50,000 URLs. This site is under both; if it grows, use a sitemap index and submit `sitemap-index.xml` instead.
+- **Limits:** Each sitemap &lt; 50MB and &lt; 50,000 URLs. This site uses a sitemap index (`sitemap-index.xml` + numbered files).
 
 ---
 
@@ -88,4 +88,4 @@ If you use GA4 (`PUBLIC_GA4_MEASUREMENT_ID`):
 
 ## 8. If you add a non-www property
 
-If you also verify `https://consenzaestates.com` (no www), submit the same sitemap URL that reflects your canonical domain (e.g. `https://www.consenzaestates.com/sitemap.xml`). Prefer one canonical domain (www) and redirect the other so GSC and indexing stay consistent.
+If you also verify `https://consenzaestates.com` (no www), submit the same sitemap URL that reflects your canonical domain (e.g. `https://www.consenzaestates.com/sitemap-index.xml`). Prefer one canonical domain (www) and redirect the other so GSC and indexing stay consistent.
