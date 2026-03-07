@@ -23,9 +23,19 @@ const imageWidth = Astro.props.imageWidth ?? settings.seo?.openGraph?.images?.[0
 const imageHeight = Astro.props.imageHeight ?? settings.seo?.openGraph?.images?.[0]?.height ?? 630;
 const ga4Id = import.meta.env.PUBLIC_GA4_MEASUREMENT_ID;
 
+const socialUrls = settings.social ? Object.values(settings.social).filter(Boolean) : [];
 const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': `${settings.url}/#website`,
+      name: settings.name,
+      url: settings.url,
+      description: settings.description,
+      publisher: { '@id': `${settings.url}/#organization` },
+      inLanguage: 'en-US'
+    },
     {
       '@type': 'RealEstateAgent',
       '@id': `${settings.url}/#organization`,
@@ -42,7 +52,7 @@ const jsonLd = {
         addressCountry: 'US'
       },
       image: new URL(settings.site?.logo ?? '/assets/images/logo.png', settings.url).toString(),
-      sameAs: settings.social ? Object.values(settings.social).filter(Boolean) : []
+      sameAs: socialUrls
     },
     {
       '@type': 'Person',
@@ -52,7 +62,8 @@ const jsonLd = {
       worksFor: { '@id': `${settings.url}/#organization` },
       telephone: settings.contact?.phone,
       email: settings.contact?.email,
-      description: settings.description
+      description: settings.description,
+      sameAs: socialUrls
     }
   ]
 };

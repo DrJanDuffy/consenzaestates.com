@@ -69,7 +69,7 @@ The site is prepared for Google Search Console (sitemap, robots.txt, verificatio
 
 ## Best practices (real estate / local SEO)
 
-- **JSON-LD**: Every page includes `RealEstateAgent` + `Person` schema (NAP, contact, address) in `BaseHead.astro` for GBP and rich results.
+- **JSON-LD**: Every page includes `WebSite`, `RealEstateAgent`, and `Person` schema (NAP, contact, address, sameAs for E-E-A-T) in `BaseHead.astro` for GBP and rich results.
 - **Meta**: Viewport with `initial-scale=1`, canonical URL, Open Graph (locale, site_name, image, image width/height), Twitter (card, site, creator, image dimensions).
 - **FAQ**: `src/config/settings.js` has a `faq` array; `FAQSection.astro` renders it on the About page and outputs `FAQPage` JSON-LD for rich results and GBP.
 - **Security**: `vercel.json` sets `X-Content-Type-Options: nosniff`, `X-Frame-Options: SAMEORIGIN`, `Referrer-Policy: strict-origin-when-cross-origin`, and **Content-Security-Policy** allowing `self`, Calendly (`assets.calendly.com`, `calendly.com`), WidgetBe (`widgetbe.com`), and `https:` for images (e.g. RSS from `files.keepingcurrentmatters.com`). Adding new third-party scripts or styles requires updating the CSP in `vercel.json`.
