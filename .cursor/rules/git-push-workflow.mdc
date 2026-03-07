@@ -1,0 +1,15 @@
+---
+description: When the user says "git push" (or "push"), always run the full sequence: git add, git commit, git push.
+globs: []
+alwaysApply: true
+---
+
+# Git push workflow
+
+When the user asks to **git push** (or says "push" in a git context), always run the full sequence:
+
+1. **git add** — Stage all relevant project files (e.g. `git add .` or the files just changed; exclude only what .gitignore excludes).
+2. **git commit** — Commit with a clear message (use the user's message if they gave one, otherwise summarize the changes).
+3. **git push** — Push to the remote (e.g. `git push` or `git push origin main` as appropriate).
+
+Do not run only `git push` when there are uncommitted changes. Always add and commit first, then push.

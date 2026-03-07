@@ -5,7 +5,7 @@ import lit from "@astrojs/lit";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://consenzaestates.com', // Custom domain for production
+  site: 'https://www.consenzaestates.com', // Primary domain (www) for sitemap and canonicals
   sitemap: true, // Generate sitemap (set to "false" to disable)
   integrations: [sitemap(), mdx(), lit()], // Add renderers to the config
 });

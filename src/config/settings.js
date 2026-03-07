@@ -4,7 +4,7 @@ const siteSettings = {
   site: {
     name: "Dr. Jan Duffy | Luxury Real Estate",
     description: "Premier luxury real estate specialist for Consenza Estates in Las Vegas",
-    url: "https://consenzaestates.com",
+    url: "https://www.consenzaestates.com",
     logo: "/assets/images/logo.png",
     favicon: "/favicon.png"
   },
@@ -91,7 +91,7 @@ const siteSettings = {
   // Basic settings (from original)
   title: `Dr. Jan Duffy | Premier Luxury Real Estate - Consenza Estates Las Vegas`,
   description: `Experience unparalleled luxury with Dr. Jan Duffy, your elite real estate specialist for prestigious Lennar homes in the exclusive Consenza Estates community of Las Vegas. Discover extraordinary properties with personalized concierge service and unmatched expertise for the most discerning clients.`,
-  url: `https://consenzaestates.com`, // No trailing slash!
+  url: `https://www.consenzaestates.com`, // No trailing slash! Primary domain (www)
   name: `Dr. Jan Duffy Luxury Real Estate`, // The short name of the business or brand name. Used for things like the copyright in the footer.
   enableThemeSwitcher: true,
   showPlug: false, // Disable this if you want to remove the plug from the footer. (╯°□°)╯

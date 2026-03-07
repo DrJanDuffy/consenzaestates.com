@@ -5,7 +5,7 @@ The site is prepared for Google Search Console. Follow these steps after deploy.
 ## 1. Add property
 
 1. Go to [Google Search Console](https://search.google.com/search-console).
-2. Add property → **URL prefix** → `https://consenzaestates.com`.
+2. Add property → **URL prefix** → `https://www.consenzaestates.com` (primary domain).
 3. Use the **HTML tag** verification method (recommended).
 
 ## 2. Verify ownership
@@ -28,7 +28,7 @@ The site is prepared for Google Search Console. Follow these steps after deploy.
 
 The sitemap is generated at build time by `@astrojs/sitemap` and is available at:
 
-- **URL:** `https://consenzaestates.com/sitemap-index.xml`
+- **URL:** `https://www.consenzaestates.com/sitemap-index.xml`
 - **Referenced in:** `public/robots.txt` (Sitemap directive) and in `<head>` via `<link rel="sitemap" href=".../sitemap-index.xml" />`.
 
 ## 4. Optional: GA4 link

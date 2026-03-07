@@ -23,5 +23,6 @@ This project follows March 2026 best practices for a top realtor: conversion, co
 - `.cursor/rules/realscout-idx.mdc` — RealScout = IDX; CSP; script once; no changes without approval (file-scoped).
 - `.cursor/rules/plan-mode-and-compliance.mdc` — Plan Mode and compliance-sensitive work (file-scoped).
 - `.cursor/rules/feeds-and-external-images.mdc` — External feeds/APIs: extract and display images; allow domains in CSP (file-scoped).
+- `.cursor/rules/git-push-workflow.mdc` — When user says "git push", always run: git add → git commit → git push (always apply).
 
 User-level rules (CLAUDE.md, etc.) may add more context; this file is the project-level summary.
