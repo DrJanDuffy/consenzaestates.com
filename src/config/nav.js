@@ -21,6 +21,10 @@ export const nav = [
 		slug: '/properties',
 	},
 	{
+		title: 'Neighborhoods',
+		slug: '/neighborhoods',
+	},
+	{
 		title: 'Resources',
 		slug: '/resources',
 	},

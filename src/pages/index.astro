@@ -8,6 +8,7 @@ import TextAndImageHero from '@components/sections/heros/TextAndImageHero.astro'
 import TextCardSection from '@components/sections/TextCardSection.astro';
 import CustomerQuoteSection from '@components/sections/CustomerQuoteSection.astro';
 import ThreeColumnTextSection from '@components/sections/ThreeColumnTextSection.astro';
+import RealScoutListings from '../components/RealScoutListings.astro';
 
 const seo = {
   title: 'Dr. Jan Duffy | Consenza Estates Las Vegas Specialist',
@@ -37,38 +38,26 @@ const seo = {
     </div>
   </TextAndImageHero>
 
-  <Container>
-    <div class="feature-listings">
-      <h2 class="text-center">Featured Consenza Estates Listings</h2>
-      <script src="https://em.realscout.com/widgets/realscout-web-components.umd.js" type="module"></script>
-      <style>
-        realscout-office-listings {
-          --rs-listing-divider-color: rgb(101, 141, 172);
-          width: 100%;
-        }
-      </style>
-      <realscout-office-listings agent-encoded-id="QWdlbnQtMjI1MDUw" sort-order="PRICE_HIGH" listing-status="For Sale" property-types="SFR,MF,TC" price-min="500000"></realscout-office-listings>
-    </div>
-  </Container>
+  <RealScoutListings sectionTitle="Featured Consenza Estates Listings" />
 
   <div style="background-color: var(--theme-surface-2); padding: 3rem 1rem; color: var(--theme-on-surface-2);">
     <Container>
       <h2 class="text-center" style="margin-bottom: 2rem; color: var(--theme-on-surface-2);">Consenza Estates Market Stats</h2>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center;">
         <div class="animate-in delay-1">
-          <h2 class="stat-number">$850K</h2>
+          <h3 class="stat-number">$850K</h3>
           <p style="font-size: 1.1rem;">Average Home Price</p>
         </div>
         <div class="animate-in delay-2">
-          <h2 class="stat-number">14</h2>
+          <h3 class="stat-number">14</h3>
           <p style="font-size: 1.1rem;">Average Days on Market</p>
         </div>
         <div class="animate-in delay-2">
-          <h2 class="stat-number">98%</h2>
+          <h3 class="stat-number">98%</h3>
           <p style="font-size: 1.1rem;">List to Sale Price Ratio</p>
         </div>
         <div class="animate-in delay-3">
-          <h2 class="stat-number">24</h2>
+          <h3 class="stat-number">24</h3>
           <p style="font-size: 1.1rem;">Active Listings</p>
         </div>
       </div>

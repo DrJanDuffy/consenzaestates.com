@@ -1,0 +1,16 @@
+---
+description: RealScout is the office IDX (MLS listing display). Do not modify widget/integration without explicit approval.
+globs: ["**/RealScout*.astro", "**/Base.astro", "**/vercel.json"]
+alwaysApply: false
+---
+
+# RealScout (IDX) Integration
+
+- **RealScout is the office IDX** — MLS listing display. There is no separate IDX product or path.
+- **Do not modify** RealScout widget or integration code without explicit approval.
+- **CSP:** Both domains must be allowed: `em.realscout.com` (script load) and `www.realscout.com` (API). Add to `script-src` and `connect-src` in `vercel.json`.
+- **Script:** Load the RealScout script once in the root layout (Base.astro). Do not load it multiple times or in multiple layouts.
+- **Widget:** Use the web component (e.g. `<realscout-office-listings>`) as provided; do not replace with React state or duplicate script.
+- **MLS disclaimer and listing attribution:** Always shown where listings appear; do not remove.
+
+Reference: `src/components/RealScoutListings.astro`, `src/layouts/Base.astro`, `vercel.json` headers.

@@ -1,0 +1,70 @@
+---
+import { Container, TextSection } from '@components/odyssey-theme.js';
+import Layout from '@layouts/Page.astro';
+import HeroSection from '@components/sections/heros/HeroSection.astro';
+import CalendlyLink from '@components/CalendlyLink.astro';
+import RealScoutListings from '@components/RealScoutListings.astro';
+import { neighborhoods } from '../../config/neighborhoods.js';
+
+export async function getStaticPaths() {
+  return neighborhoods.map((n) => ({
+    params: { slug: n.slug },
+    props: { name: n.name, slug: n.slug },
+  }));
+}
+
+const { name, slug } = Astro.props;
+const seo = {
+  title: `${name} Las Vegas Real Estate | Dr. Jan Duffy`,
+  description: `Homes and real estate in ${name}, Las Vegas. Dr. Jan Duffy (S.0197614.LLC), Berkshire Hathaway HomeServices Nevada Properties, is your ${name} and Las Vegas area specialist.`,
+};
+---
+
+<Layout seo={seo}>
+  <HeroSection>
+    <div slot="text-container">
+      <h1>Real Estate in {name}, Las Vegas</h1>
+      <p>Dr. Jan Duffy (Nevada license S.0197614.LLC) is a Las Vegas REALTOR® and Consenza Estates specialist who serves {name} and the greater Las Vegas area. She is with Berkshire Hathaway HomeServices Nevada Properties.</p>
+    </div>
+    <picture slot="image-container">
+      <img
+        src="/assets/images/home/consenza-community.jpg"
+        alt={`Las Vegas real estate – ${name} area`}
+        id="neighborhood-hero-image"
+      />
+    </picture>
+  </HeroSection>
+
+  <RealScoutListings sectionTitle={`Homes for Sale in ${name} & Las Vegas`} />
+
+  <Container>
+    <TextSection>
+      <h2>Homes for Sale in {name}</h2>
+      <p>{name} is one of the many Las Vegas-area communities where Dr. Jan Duffy helps buyers and sellers. Whether you're looking for a primary residence, second home, or investment property in {name}, her expertise in the greater Las Vegas market—including Consenza Estates and Lennar new construction—makes her a trusted resource for {name} real estate.</p>
+
+      <h2>Why Work With a {name} Real Estate Expert</h2>
+      <p>Working with a REALTOR® who knows {name} and the Las Vegas valley helps you navigate listings, market trends, and negotiations with confidence.</p>
+      <h3>Dr. Jan Duffy's Expertise in Las Vegas Communities</h3>
+      <p>Dr. Jan Duffy has over 15 years of experience in Las Vegas real estate and holds certifications including Certified Luxury Home Marketing Specialist (CLHMS) and New Home Construction Specialist. She serves {name}, Consenza Estates, Summerlin, Green Valley, and the greater Las Vegas area.</p>
+      <h3>Berkshire Hathaway HomeServices Nevada Properties</h3>
+      <p>As a licensed agent (S.0197614.LLC) with Berkshire Hathaway HomeServices Nevada Properties, Dr. Duffy offers full-service representation for buyers and sellers in {name} and across Las Vegas.</p>
+
+      <h2>Explore {name} and Nearby Communities</h2>
+      <p>Las Vegas offers a wide range of neighborhoods, each with its own character and amenities. If you're considering {name}, you may also be interested in these areas:</p>
+      <h3>Consenza Estates</h3>
+      <p><a href="/consenza-estates">Consenza Estates</a> is an exclusive gated community of Lennar new construction homes in Las Vegas—Dr. Jan Duffy's specialty.</p>
+      <h3>Summerlin & Green Valley</h3>
+      <p>Popular master-planned areas include <a href="/neighborhoods/summerlin">Summerlin</a> and <a href="/neighborhoods/green-valley">Green Valley</a>. Browse all <a href="/neighborhoods">Las Vegas neighborhoods</a> to explore your options.</p>
+
+      <h2>Schedule a Consultation for {name}</h2>
+      <p>Ready to discuss buying or selling in {name}? Schedule a free 15‑minute strategy call with Dr. Jan Duffy. No obligation.</p>
+      <p>
+        <CalendlyLink utmCampaign={`neighborhood_${slug}`}>Book a free call with Dr. Jan Duffy</CalendlyLink>
+        {' · '}
+        <a href="/properties">View all Las Vegas listings</a>
+        {' · '}
+        <a href="/contact">Contact Dr. Jan Duffy</a>
+      </p>
+    </TextSection>
+  </Container>
+</Layout>

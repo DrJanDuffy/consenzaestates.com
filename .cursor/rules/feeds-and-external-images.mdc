@@ -1,0 +1,12 @@
+---
+description: When integrating external feeds or APIs that include images, extract URLs and display them; allow image domains in CSP.
+globs: ["**/*feed*", "**/api/**", "**/market*", "**/vercel.json"]
+alwaysApply: false
+---
+
+# External Feeds and APIs: Preserve and Display Images
+
+- When adding or editing code that fetches external content (RSS, APIs, third-party widgets) that **includes image URLs**, do not strip or ignore them. Extract the primary image URL and pass it through (e.g. `image?: string` on items).
+- In the UI: when `image` is present, render it with `loading="lazy"`, descriptive `alt`, and optional link to source.
+- **CSP:** If images are from another domain, ensure `Content-Security-Policy` `img-src` allows it (e.g. `https:` or the specific host). Update `vercel.json` headers if needed.
+- For Next.js projects: add the host to `images.remotePatterns` in `next.config.js` if using `next/image`; otherwise use a plain `<img>` for third-party images.

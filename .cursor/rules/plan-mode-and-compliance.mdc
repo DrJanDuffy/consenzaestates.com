@@ -1,0 +1,13 @@
+---
+description: Use Plan Mode for complex or compliance-touching work; save plans for team and future reference.
+globs: ["**/*.astro", "**/config/**", "**/vercel.json"]
+alwaysApply: false
+---
+
+# Plan Mode and Compliance-Sensitive Work
+
+- For **complex or compliance-touching work** (NAP, schema, RealScout/IDX, CSP, lead forms), use **Plan Mode** (e.g. Shift+Tab in the agent input) to get a detailed implementation plan before generating code.
+- **Save plans** under `.cursor/plans/` when useful for team documentation and future reference.
+- **Restart from the plan** if the agent drifts; iterating with small fixes often wastes context.
+- **Reference files** in rules instead of pasting large blocks (e.g. "see `src/config/settings.js` for NAP").
+- Keep individual rule files under ~500 lines; split by domain (SEO, RealScout/IDX, forms).

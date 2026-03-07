@@ -3,6 +3,7 @@
 import { Container, TextSection } from '@components/odyssey-theme.js';
 import Layout from '@layouts/Page.astro';
 import HeroSection from '@components/sections/heros/HeroSection.astro';
+import RealScoutListings from '@components/RealScoutListings.astro';
 
 const seo = {
   title: 'Thank You | Dr. Jan Duffy',
@@ -25,11 +26,14 @@ const seo = {
     </picture>
   </HeroSection>
 
+  <RealScoutListings sectionTitle="Homes for Sale in Las Vegas" />
+
   <Container>
     <TextSection>
       <h2>Your Message Has Been Received</h2>
       <p>Thank you for reaching out to Dr. Jan Duffy. Your inquiry is important to us, and we will get back to you as soon as possible.</p>
-      
+      <h2>What You Can Do Next</h2>
+      <h3>Browse Listings & Community</h3>
       <div class="thank-you-info">
         <p>In the meantime, feel free to:</p>
         <ul>
@@ -38,7 +42,8 @@ const seo = {
           <li>Check out <a href="/resources">resources</a> for home buyers</li>
         </ul>
       </div>
-      
+      <h2>Return to Home</h2>
+      <h3>Back to Site</h3>
       <div class="cta-button-container">
         <a href="/" class="cta-button primary">Return to Home</a>
       </div>

@@ -4,6 +4,7 @@ import Layout from '@layouts/Page.astro';
 import HeroSection from '@components/sections/heros/HeroSection.astro';
 import CalendlyInline from '@components/CalendlyInline.astro';
 import CalendlyLink from '@components/CalendlyLink.astro';
+import RealScoutListings from '../components/RealScoutListings.astro';
 import settings from '../config/settings.js';
 
 const seo = {
@@ -29,6 +30,8 @@ const phoneDisplay = phoneDigits ? `(${phoneDigits.slice(0,3)}) ${phoneDigits.sl
       />
     </picture>
   </HeroSection>
+
+  <RealScoutListings sectionTitle="Homes for Sale in Las Vegas" />
 
   <Container>
     <div class="contact-wrapper">

@@ -62,10 +62,10 @@ Astro has [an in-depth guide](https://docs.astro.build/en/guides/deploy/) on how
 
 ## Google Search Console
 
-The site is set up for Google Search Console:
+The site is prepared for Google Search Console (sitemap, robots.txt, verification meta tag). **Full setup checklist:** see [docs/Google-Search-Console.md](docs/Google-Search-Console.md).
 
-- **Sitemap**: Built at `/sitemap-index.xml` (see `public/robots.txt`). After deploy, in [Search Console](https://search.google.com/search-console) add property `https://consenzaestates.com`, then submit **Sitemaps** → `https://consenzaestates.com/sitemap-index.xml`.
-- **Verification**: In Search Console, use the **HTML tag** method. Copy the `content` value from the meta tag they give you, set it in `.env` as `PUBLIC_GOOGLE_SITE_VERIFICATION=your_code_here`, rebuild and deploy, then click Verify.
+- **Sitemap**: Built at `/sitemap-index.xml` (see `public/robots.txt`). After deploy, add property and submit **Sitemaps** → `sitemap-index.xml`.
+- **Verification**: Use the HTML tag method; set `PUBLIC_GOOGLE_SITE_VERIFICATION` in `.env` (see `.env.example`), rebuild and deploy, then click Verify in Search Console.
 
 ## Best practices (real estate / local SEO)
 
@@ -75,6 +75,17 @@ The site is set up for Google Search Console:
 - **Security**: `vercel.json` sets `X-Content-Type-Options: nosniff`, `X-Frame-Options: SAMEORIGIN`, `Referrer-Policy: strict-origin-when-cross-origin`, and **Content-Security-Policy** allowing `self`, Calendly (`assets.calendly.com`, `calendly.com`), WidgetBe (`widgetbe.com`), and `https:` for images (e.g. RSS from `files.keepingcurrentmatters.com`). Adding new third-party scripts or styles requires updating the CSP in `vercel.json`.
 - **Accessibility**: Images use descriptive `alt`; Calendly inline widget has `aria-label`; testimonial controls use `aria-label`.
 - **NAP**: Contact details live in `src/config/settings.js`; footer and schema read from there so NAP stays consistent.
+
+### Monthly audit (GBP and compliance)
+
+Run monthly (or when GBP details change):
+
+- **NAP consistency:** Visible NAP (footer, contact pages) and JSON-LD in `BaseHead.astro` match `src/config/settings.js` and Google Business Profile.
+- **Schema vs GBP:** RealEstateAgent/Person schema matches GBP name, address, phone, hours if you add `openingHours`.
+- **RealScout (IDX):** MLS disclaimer and listing attribution present where listings are shown; no unauthorized changes to RealScout (office IDX) widget/integration.
+- **Mobile and content:** Key pages mobile-friendly; dates and copy up to date.
+
+See `docs/Lead-Flow-and-CRM.md` for lead flow and CRM alignment; `AGENTS.md` and `.cursor/rules/` for agent guardrails.
 
 ## Winning appointments (measure, review, iterate)
 

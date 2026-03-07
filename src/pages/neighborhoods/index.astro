@@ -1,0 +1,84 @@
+---
+import { Container, TextSection } from '@components/odyssey-theme.js';
+import Layout from '@layouts/Page.astro';
+import HeroSection from '@components/sections/heros/HeroSection.astro';
+import CalendlyLink from '@components/CalendlyLink.astro';
+import RealScoutListings from '@components/RealScoutListings.astro';
+import { neighborhoods } from '../../config/neighborhoods.js';
+
+const seo = {
+  title: 'Las Vegas Neighborhoods & Communities | Dr. Jan Duffy',
+  description: 'Explore Las Vegas neighborhoods and communities. Dr. Jan Duffy (S.0197614.LLC), Berkshire Hathaway HomeServices Nevada Properties, is your Las Vegas area real estate specialist for Consenza Estates and beyond.',
+};
+---
+
+<Layout seo={seo}>
+  <HeroSection>
+    <div slot="text-container">
+      <h1>Las Vegas Neighborhoods & Communities</h1>
+      <p>Dr. Jan Duffy serves buyers and sellers across the Las Vegas valley—from Consenza Estates and Summerlin to Green Valley, Henderson, and dozens of other communities. Browse by neighborhood to learn more and view listings.</p>
+    </div>
+    <picture slot="image-container">
+      <img
+        src="/assets/images/home/consenza-community.jpg"
+        alt="Las Vegas neighborhoods – real estate with Dr. Jan Duffy"
+        id="neighborhoods-hero-image"
+      />
+    </picture>
+  </HeroSection>
+
+  <RealScoutListings sectionTitle="Homes for Sale in Las Vegas" />
+
+  <Container>
+    <TextSection>
+      <h2>Neighborhoods A–Z</h2>
+      <p>Select a neighborhood below to read about the area and see how Dr. Jan Duffy can help you buy or sell in that community.</p>
+      <h3>Las Vegas Valley Communities</h3>
+      <ul class="neighborhoods-list">
+        {neighborhoods.map((n) => (
+          <li>
+            <a href={`/neighborhoods/${n.slug}`}>{n.name}</a>
+          </li>
+        ))}
+      </ul>
+    </TextSection>
+
+    <TextSection>
+      <h2>Why Choose a Local Expert</h2>
+      <p>Dr. Jan Duffy (Nevada license S.0197614.LLC) is a Las Vegas REALTOR® with over 15 years of experience. She specializes in Consenza Estates and Lennar new construction while serving the greater Las Vegas area—including Summerlin, Green Valley, Henderson, and the neighborhoods listed above.</p>
+      <h3>Berkshire Hathaway HomeServices Nevada Properties</h3>
+      <p>As part of Berkshire Hathaway HomeServices Nevada Properties, Dr. Duffy offers full-service representation for buyers and sellers across Las Vegas neighborhoods.</p>
+      <h3>Certifications & Expertise</h3>
+      <p>Certified Luxury Home Marketing Specialist (CLHMS), New Home Construction Specialist, and Accredited Buyer's Representative (ABR).</p>
+    </TextSection>
+
+    <TextSection>
+      <h2>Contact Dr. Jan Duffy</h2>
+      <p>Ready to discuss a specific neighborhood or view homes for sale? Schedule a free 15‑minute call or browse listings.</p>
+      <h3>Schedule a Call</h3>
+      <p><CalendlyLink utmCampaign="neighborhoods_index">Book a free strategy call with Dr. Jan Duffy</CalendlyLink></p>
+      <h3>Browse Listings</h3>
+      <p><a href="/properties">View homes for sale in Las Vegas and Consenza Estates</a></p>
+      <h3>Get in Touch</h3>
+      <p><a href="/contact">Contact Dr. Jan Duffy</a> · (702) 919-5002 · DrDuffy@bhhsnv.com</p>
+    </TextSection>
+  </Container>
+</Layout>
+
+<style>
+  .neighborhoods-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.5rem 2rem;
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+  }
+  .neighborhoods-list a {
+    color: var(--theme-primary);
+    text-decoration: none;
+  }
+  .neighborhoods-list a:hover {
+    text-decoration: underline;
+  }
+</style>

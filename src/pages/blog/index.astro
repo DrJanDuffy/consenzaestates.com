@@ -7,6 +7,7 @@ import {
 } from '@components/odyssey-theme';
 import Layout from '../../layouts/Page.astro';
 import CalendlyLink from '../../components/CalendlyLink.astro';
+import RealScoutListings from '../../components/RealScoutListings.astro';
 
 const posts = await Astro.glob('./posts/*.mdx').then(posts =>
 	posts
@@ -33,6 +34,7 @@ const seo = {
 ---
 
 <Layout {seo}>
+	<RealScoutListings sectionTitle="Homes for Sale in Las Vegas" />
 	<Container>
 		<TextCardSection>
 			<h1>Odyssey Blog</h1>
@@ -40,12 +42,20 @@ const seo = {
 				View our blog to stay up to date on the latest news about our business.
 				Discuss your Consenza Estates goals — schedule a free call.
 			</p>
+			<h2>Consenza Estates & Las Vegas Real Estate</h2>
+			<p>Dr. Jan Duffy shares insights on Consenza Estates, Lennar homes, and the Las Vegas market.</p>
+			<h3>Schedule a Free Call</h3>
 			<CalendlyLink utmCampaign="blog_cta">Schedule a call</CalendlyLink>
 			<p style="margin-top: 0.75rem; font-size: 0.9rem; opacity: 0.9;">Free 15‑minute call — no obligation.</p>
 		</TextCardSection>
 		<section class="blog-posts-list__section">
 			<h2>Recent Posts</h2>
 			<BlogPostsList posts={posts} />
+		</section>
+		<section>
+			<h2>Explore More</h2>
+			<h3>Community & Listings</h3>
+			<p><a href="/consenza-estates">Consenza Estates</a> · <a href="/properties">View listings</a> · <a href="/neighborhoods">Las Vegas neighborhoods</a></p>
 		</section>
 	</Container>
 </Layout>

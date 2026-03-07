@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Page.astro';
 import { Container } from '@components/odyssey-theme';
 import CalendlyInline from '../../components/CalendlyInline.astro';
+import RealScoutListings from '../../components/RealScoutListings.astro';
 import settings from '../../config/settings.js';
 
 const seo = {
@@ -14,16 +15,21 @@ const phoneDisplay = phoneDigits ? `(${phoneDigits.slice(0,3)}) ${phoneDigits.sl
 ---
 
 <Layout seo={seo}>
+	<RealScoutListings sectionTitle="Homes for Sale in Las Vegas" />
 	<Container>
 		<section class="contact-hero__section">
 			<div class="contact-hero__text-section">
 				<h1>Contact Us</h1>
 				<p>Schedule a time that works for you. Use the calendar to book a call or meeting.</p>
+				<h2>Get in Touch</h2>
+				<h3>Phone & Email</h3>
 				<div>
 					<p>
 						<em><a href={`tel:+1${phoneDigits}`}>{phoneDisplay}</a></em> • <em><a href={`mailto:${settings.contact.email}`}>{settings.contact.email}</a></em>
 					</p>
 				</div>
+				<h3>Schedule Below</h3>
+				<p>Use the calendar to the right to book a free 15‑minute call.</p>
 			</div>
 			<div class="col-2__container">
 				<CalendlyInline minWidth="320px" height="700px" utmCampaign="company_contact_inline" />

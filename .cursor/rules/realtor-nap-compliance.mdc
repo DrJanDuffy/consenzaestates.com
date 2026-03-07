@@ -1,0 +1,15 @@
+---
+description: NAP, agent name, license, and MLS disclaimer for all pages. Apply on every page and layout.
+globs: ["**/*.astro", "**/config/settings.js", "**/BaseHead.astro", "**/Footer.astro"]
+alwaysApply: true
+---
+
+# Realtor NAP and Compliance (Always On)
+
+- **Agent:** Dr. Jan Duffy (NEVER "Janet"). License S.0197614.LLC. Berkshire Hathaway HomeServices Nevada Properties.
+- **NAP:** Name, address, phone must match Google Business Profile exactly. Single source of truth: `src/config/settings.js` (`contact`, `name`, `url`). Use it for layout, footer, and JSON-LD; do not hardcode NAP elsewhere.
+- **Schema:** RealEstateAgent and Person JSON-LD in BaseHead must use values from settings; no conflicting NAP in visible text vs schema.
+- **MLS disclaimer and listing attribution:** Always display where listings (RealScout) are shown. Do not remove or alter disclaimer/attribution.
+- **Phone:** Use `tel:` links; verify the number is correct for this site (consenzaestates.com: (702) 919-5002).
+
+Before changing NAP, schema, or disclaimer: summarize the change and get explicit approval.

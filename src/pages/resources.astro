@@ -4,6 +4,7 @@ import Layout from '@layouts/Page.astro';
 import HeroSection from '@components/sections/heros/HeroSection.astro';
 import CalendlyLink from '@components/CalendlyLink.astro';
 import { getSimplifyingMarketFeed } from '../utils/simplifyingMarketFeed.js';
+import RealScoutListings from '../components/RealScoutListings.astro';
 
 const seo = {
   title: 'Real Estate Resources | Dr. Jan Duffy',
@@ -27,6 +28,8 @@ const feedItems = await getSimplifyingMarketFeed(8);
       />
     </picture>
   </HeroSection>
+
+  <RealScoutListings sectionTitle="Homes for Sale in Las Vegas" />
 
   <Container>
     <div class="resources-grid">

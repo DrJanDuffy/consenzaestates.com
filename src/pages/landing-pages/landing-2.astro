@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Base.astro';
 import CalendlyInline from '../../components/CalendlyInline.astro';
 import Logo from '../../components/Logo.astro';
+import RealScoutListings from '../../components/RealScoutListings.astro';
 
 const seo = {
 	title: 'Landing Page #2 | Astro Odyssey Theme',
@@ -29,10 +30,15 @@ const seo = {
       <div class="full-page-split__content-container">  
         <h1>Contact Us For a Free Consultation</h1>
         <p>Schedule a time that works for you. Free 15‑minute call — no obligation.</p>
+        <h2>Book a Call With Dr. Jan Duffy</h2>
+        <h3>Strategy Meeting</h3>
+        <p>Discuss Consenza Estates, Lennar homes, or Las Vegas real estate.</p>
+        <h3>Schedule Now</h3>
         <CalendlyInline minWidth="320px" height="700px" utmCampaign="landing_2" />
       </div>
     </section>
   </div>
+  <RealScoutListings sectionTitle="Homes for Sale in Las Vegas" />
 </Layout>
 
 <style>
